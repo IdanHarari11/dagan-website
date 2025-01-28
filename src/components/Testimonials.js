@@ -1,103 +1,97 @@
 'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const testimonials = [
     {
-      quote: "תכנית דגן שינתה את הדרך שבה אני רואה מנהיגות. למדתי שהקשבה היא המפתח ליצירת שינוי אמיתי.",
-      name: "יעל כהן",
-      role: "בוגרת מחזור 2023",
-      image: "https://i.pravatar.cc/300?img=1"  // Using pravatar for mock images
+      name: 'יעל כהן',
+      role: 'בוגרת מחזור 2022',
+      image: '/images/dagan.jpg',
+      text: 'תוכנית דגן שינתה את הדרך שבה אני מתמודדת עם אתגרים חברתיים. למדתי כלים מעשיים להובלת שינוי משמעותי.'
     },
     {
-      quote: "הכלים שקיבלתי בתכנית מלווים אותי בכל יום בעבודתי הקהילתית.",
-      name: "דוד לוי",
-      role: "בוגר מחזור 2022",
-      image: "https://i.pravatar.cc/300?img=3"
+      name: 'דוד לוי',
+      role: 'בוגר מחזור 2021',
+      image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
+      text: 'ההשתתפות בתוכנית פתחה בפני דלתות חדשות והעניקה לי כלים מעשיים להוביל שינוי בקהילה שלי.'
     },
     {
-      quote: "התכנית פתחה בפני דלתות חדשות והכרתי אנשים מדהימים שהפכו לחברים לחיים.",
-      name: "מיכל ברק",
-      role: "בוגרת מחזור 2023",
-      image: "https://i.pravatar.cc/300?img=5"
-    },
-    {
-      quote: "למדתי להבין נקודות מבט שונות ולגשר בין אנשים בצורה אפקטיבית.",
-      name: "עומר שלום",
-      role: "בוגר מחזור 2021",
-      image: "https://i.pravatar.cc/300?img=8"
+      name: 'מרים אברהם',
+      role: 'בוגרת מחזור 2023',
+      image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
+      text: 'הכלים שרכשתי בתוכנית מלווים אותי בכל יום בעבודתי החברתית. זו הייתה חוויה מעצבת ומשמעותית.'
     }
   ];
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section className="py-20 px-4 md:px-8 bg-white">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-center mb-16"
-      >
-        הקולות שמאחורי השינוי
-      </motion.h2>
+    <section id="testimonials" className="py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
+          מה המשתתפים מספרים?
+        </h2>
 
-      <div className="max-w-4xl mx-auto relative">
-        <AnimatePresence mode='wait'>
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            className="bg-gray-50 p-8 rounded-xl shadow-lg"
+        <div className="flex justify-center items-center relative h-[400px] overflow-hidden">
+          <div
+            className="absolute w-full transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(${currentSlide * 100}%)` }}
           >
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="w-24 h-24 relative rounded-full overflow-hidden">
-                <Image
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 96px) 100vw, 96px"
-                />
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="absolute top-0 right-0 w-full h-full flex items-center justify-center"
+                style={{ transform: `translateX(${-index * 100}%)` }}
+              >
+                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 max-w-2xl mx-auto shadow-lg">
+                  <div className="flex items-center mb-6">
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="mr-4">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {testimonial.role}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300 text-lg">
+                    {testimonial.text}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-lg mb-4">{testimonials[currentIndex].quote}</p>
-                <h3 className="font-bold">{testimonials[currentIndex].name}</h3>
-                <p className="text-gray-600">{testimonials[currentIndex].role}</p>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+            ))}
+          </div>
+        </div>
 
-        <button
-          onClick={prevTestimonial}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
-          aria-label="Previous testimonial"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button
-          onClick={nextTestimonial}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
-          aria-label="Next testimonial"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+        <div className="flex justify-center mt-8 space-x-2 space-x-reverse">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                currentSlide === index
+                  ? 'bg-blue-600'
+                  : 'bg-gray-300 dark:bg-gray-700'
+              }`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

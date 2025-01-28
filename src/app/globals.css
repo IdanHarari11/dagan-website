@@ -5,20 +5,73 @@
 @tailwind utilities;
 
 :root {
-  direction: rtl;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
 }
 
+/* RTL Support */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Smooth Scroll */
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Rubik', sans-serif;
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Custom scrollbar */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Custom Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+  @apply bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors;
+}
+
+.btn-secondary {
+  @apply border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-600 hover:text-white transition-colors;
+}
+
+/* Custom Card Styles */
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6;
+}
+
+/* Dark Mode Styles */
+.dark {
+  @apply bg-gray-900 text-white;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -26,11 +79,85 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+  background: var(--primary);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--primary-dark);
 }
 
+/* Custom Form Styles */
+.form-input {
+  @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500;
+}
+
+/* Responsive Typography */
+@screen sm {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+}
+
+@screen md {
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+}
+
+/* Custom Container */
+.container-custom {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  min-width: 320px; /* Minimum width for very small devices */
+}
+
+/* Add responsive padding utilities */
+@layer utilities {
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Adjust section padding for mobile */
+@media (max-width: 640px) {
+  section {
+    @apply py-12;
+  }
+  
+  h1 {
+    @apply text-3xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+  
+  .container-custom {
+    @apply px-4;
+  }
+}
+
+/* Add these at the top of your globals.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  position: relative;
+}

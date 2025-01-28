@@ -1,22 +1,32 @@
 'use client';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Values from '@/components/Values';
+import WhoWasDagan from '@/components/WhoWasDagan';
+import ValuesCom from '@/components/Values';
 import Testimonials from '@/components/Testimonials';
 import Projects from '@/components/Projects';
 import Team from '@/components/Team';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out',
+    });
+  }, []);
+
   return (
-    <main className="min-h-screen rtl">
+    <main className="min-h-screen rtl overflow-x-hidden bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <Navbar />
-      <Hero 
-        title="תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר"
-        subtitle="מפגש של מנהיגי העתיד ליצירת שינוי משמעותי, סובלנות ושיתוף פעולה"
-      />
-      <Values />
+      <Hero />
+      <WhoWasDagan />
+      <ValuesCom />
       <Testimonials />
       <Projects />
       <Team />

@@ -1,58 +1,61 @@
 'use client';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 
-export default function Hero({ title, subtitle }) {
+export default function Hero() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.7;
+    }
+  }, []);
+
   return (
-    <div className="relative h-screen w-full">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80"
-          alt="diverse young people in leadership activity"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-        />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30" />
-      </div>
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Video Background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="https://v.ftcdn.net/04/91/79/35/700_F_491793593_yXmXHvgwBZUJSYmwfHncMNPXoytx4SYU_ST.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4 md:px-8">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold text-center mb-6"
-        >
-          {title}
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-center mb-12 max-w-3xl"
-        >
-          {subtitle}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col md:flex-row gap-4"
-        >
-          <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transform hover:scale-105 transition duration-200">
-            להצטרפות לתכנית
+      <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+        <div className="text-white" data-aos="fade-up">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            מנהיגות מגשרת - גשר בין אנשים
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl">
+            תוכנית שמחברת בין אנשים ויוצרת שיתופי פעולה משמעותיים
+          </p>
+          <button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            התחילו את המסע
           </button>
-          <button className="px-8 py-3 bg-transparent border-2 border-white hover:bg-white/10 rounded-lg transform hover:scale-105 transition duration-200">
-            למד עוד עלינו
-          </button>
-        </motion.div>
+        </div>
       </div>
-    </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg
+          className="w-6 h-6 text-white"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </section>
   );
 } 
