@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import DarkModeToggle from './DarkModeToggle';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,7 +34,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-xl sm:text-2xl font-bold text-blue-600">
-              תוכנית דגן
+              <Image src="/logo.png" alt="Logo" width={105} height={60} />
             </Link>
           </div>
 
