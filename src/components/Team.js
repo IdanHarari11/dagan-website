@@ -60,6 +60,7 @@ const team2 = [
     social: {
       linkedin: '#',
       twitter: '#',
+      email: '#',
     },
   },
   {
@@ -69,6 +70,7 @@ const team2 = [
     social: {
       linkedin: '#',
       twitter: '#',
+      email: '#',
     },
   },
   {
@@ -78,6 +80,7 @@ const team2 = [
     social: {
       linkedin: '#',
       twitter: '#',
+      email: '#',
     },
   },
   {
@@ -87,6 +90,7 @@ const team2 = [
     social: {
       linkedin: '#',
       twitter: '#',
+      email: '#',
     },
   },
   {
@@ -96,6 +100,7 @@ const team2 = [
     social: {
       linkedin: '#',
       twitter: '#',
+      email: '#',
     },
   },
 ];
@@ -124,7 +129,7 @@ const Team = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50/50">
+    <section className="py-20 bg-gray-50/50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -299,7 +304,7 @@ const Team = () => {
 // Extracted TeamMemberCard component for reusability
 const TeamMemberCard = ({ member }) => (
   <div className="group h-[320px]">
-    <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg pt-16 h-full flex flex-col">
+    <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-lg pt-16 h-full flex flex-col">
       {/* Profile Image Container - Updated styling */}
       <div className="absolute -top-2 left-1/2 -translate-x-1/2 mt-1 pt-6">
         <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg bg-gray-100">
@@ -339,13 +344,13 @@ const TeamMemberCard = ({ member }) => (
       {/* Content */}
       <div className="p-6 pt-[7rem] text-center flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-1">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
             {member.name}
           </h3>
           <p className="text-primary font-medium mb-3">
             {member.role}
           </p>
-          <p className="text-gray-600 text-sm line-clamp-4">
+          <p className="text-gray-600 dark:text-neutral-300 text-sm line-clamp-4">
             {member.bio}
           </p>
         </div>
