@@ -14,27 +14,27 @@ export default function RoadmapSection() {
 
   const steps = [
     {
-      icon: "fas fa-rocket",
-      title: "התחלה",
-      description: "זיהוי הצרכים והאתגרים בחברה הישראלית",
+      icon: "fas fa-users-gear",
+      title: "מנהיגות קבוצתית",
+      description: "פיתוח הקבוצה דרך הכרות מעמיקה, השראה, והענקת כלים למנהיגות אישית",
       color: "from-blue-500/20 to-purple-500/20"
     },
     {
-      icon: "fas fa-users-gear",
-      title: "בניית קהילה",
-      description: "יצירת קבוצות מנהיגות מגוונות ומחוברות",
+      icon: "fas fa-rocket",
+      title: "צמיחה קבוצתית",
+      description: "חיזוק הקבוצה באמצעות הכרות מעמיקה, השראה, וכלים למנהיגות אישית",
       color: "from-purple-500/20 to-pink-500/20"
     },
     {
       icon: "fas fa-handshake",
-      title: "שיתופי פעולה",
-      description: "יצירת חיבורים בין קהילות וארגונים שונים",
+      title: "חיזוק מנהיגות",
+      description: "פיתוח הקבוצה דרך הכרות מעמיקה, השראה, והענקת כלים למנהיגות אישית",
       color: "from-pink-500/20 to-red-500/20"
     },
     {
       icon: "fas fa-graduation-cap",
-      title: "הכשרה והעצמה",
-      description: "פיתוח כישורי מנהיגות וכלים לגישור",
+      title: "מיזמים חברתיים",
+      description: "העברה לפעולה דרך מיזמים צוותיים ופעילות חברתית משותפת",
       color: "from-red-500/20 to-orange-500/20"
     },
     {
