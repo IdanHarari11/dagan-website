@@ -105,10 +105,10 @@ const team2 = [
   },
 ];
 
-const Team = () => {
+const TeamSlider = ({ teamData }) => {
   const scrollContainerRef = useRef(null);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(true);
+  const [showLeftArrow, setShowLeftArrow] = useState(true);
+  const [showRightArrow, setShowRightArrow] = useState(false);
 
   const handleScroll = (e) => {
     const container = e.target;
@@ -116,8 +116,6 @@ const Team = () => {
     setShowLeftArrow(
       Math.abs(container.scrollLeft) < Math.abs(container.scrollWidth) - Math.abs(container.clientWidth) - 10
     );
-
-    console.log(container.scrollLeft, container.scrollWidth, container.clientWidth);
   };
 
   const scroll = (direction) => {
@@ -128,6 +126,56 @@ const Team = () => {
     }
   };
 
+  return (
+    <div className="relative">
+      {showLeftArrow && (
+        <button
+          onClick={() => scroll('left')}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
+                   bg-white/80 rounded-full shadow-lg flex items-center justify-center
+                   text-gray-800 hover:bg-white transition-colors duration-200
+                   -translate-x-5 lg:-translate-x-8"
+        >
+          <FaChevronLeft className="w-4 h-4" />
+        </button>
+      )}
+
+      {showRightArrow && (
+        <button
+          onClick={() => scroll('right')}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
+                   bg-white/80 rounded-full shadow-lg flex items-center justify-center
+                   text-gray-800 hover:bg-white transition-colors duration-200
+                   translate-x-5 lg:translate-x-8"
+        >
+          <FaChevronRight className="w-4 h-4" />
+        </button>
+      )}
+
+      <div
+        ref={scrollContainerRef}
+        onScroll={handleScroll}
+        className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 -mx-4 px-4
+                 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      >
+        {teamData.map((member, index) => (
+          <motion.div
+            key={member.name}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="flex-shrink-0 w-[280px] md:w-[320px] h-full snap-center"
+          >
+            <TeamMemberCard member={member} />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Team = () => {
   return (
     <section id='team' className="py-20 bg-gray-50/50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,80 +188,7 @@ const Team = () => {
           </p>
         </div>
 
-        {/* Slider Container for both Mobile and Desktop */}
-        <div className="relative">
-          {/* Navigation Arrows */}
-          {showLeftArrow && (
-            <button
-              onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
-                       bg-white/80 rounded-full shadow-lg flex items-center justify-center
-                       text-gray-800 hover:bg-white transition-colors duration-200
-                       -translate-x-5 lg:-translate-x-8"
-            >
-              <FaChevronLeft className="w-4 h-4" />
-            </button>
-          )}
-
-          {showRightArrow && (
-            <button
-              onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
-                       bg-white/80 rounded-full shadow-lg flex items-center justify-center
-                       text-gray-800 hover:bg-white transition-colors duration-200
-                       translate-x-5 lg:translate-x-8"
-            >
-              <FaChevronRight className="w-4 h-4" />
-            </button>
-          )}
-
-          {/* Scrollable Container */}
-          <div
-            ref={scrollContainerRef}
-            onScroll={handleScroll}
-            className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 -mx-4 px-4
-                     scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-          >
-            {team1.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex-shrink-0 w-[280px] md:w-[320px] h-full snap-center"
-              >
-                <TeamMemberCard member={member} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Team Values Section */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Join Our Growing Team
-          </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            We're always looking for talented individuals who are passionate about property management
-            and delivering exceptional guest experiences.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-primary text-white rounded-full font-medium
-                     hover:bg-primary/90 transition-colors duration-200"
-            onClick={() => window.location.href = 'mailto:careers@kooshmanagement.com'}
-          >
-            View Open Positions
-          </motion.button>
-        </motion.div> */}
+        <TeamSlider teamData={team1} />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         <div className="text-center mb-8">
@@ -222,80 +197,7 @@ const Team = () => {
           </p>
         </div>
 
-        {/* Slider Container for both Mobile and Desktop */}
-        <div className="relative">
-          {/* Navigation Arrows */}
-          {showLeftArrow && (
-            <button
-              onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
-                       bg-white/80 rounded-full shadow-lg flex items-center justify-center
-                       text-gray-800 hover:bg-white transition-colors duration-200
-                       -translate-x-5 lg:-translate-x-8"
-            >
-              <FaChevronLeft className="w-4 h-4" />
-            </button>
-          )}
-
-          {showRightArrow && (
-            <button
-              onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
-                       bg-white/80 rounded-full shadow-lg flex items-center justify-center
-                       text-gray-800 hover:bg-white transition-colors duration-200
-                       translate-x-5 lg:translate-x-8"
-            >
-              <FaChevronRight className="w-4 h-4" />
-            </button>
-          )}
-
-          {/* Scrollable Container */}
-          <div
-            ref={scrollContainerRef}
-            onScroll={handleScroll}
-            className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 -mx-4 px-4
-                     scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-          >
-            {team2.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex-shrink-0 w-[280px] md:w-[320px] h-full snap-center"
-              >
-                <TeamMemberCard member={member} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Team Values Section */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Join Our Growing Team
-          </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            We're always looking for talented individuals who are passionate about property management
-            and delivering exceptional guest experiences.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-primary text-white rounded-full font-medium
-                     hover:bg-primary/90 transition-colors duration-200"
-            onClick={() => window.location.href = 'mailto:careers@kooshmanagement.com'}
-          >
-            View Open Positions
-          </motion.button>
-        </motion.div> */}
+        <TeamSlider teamData={team2} />
       </div>
     </section>
   );
