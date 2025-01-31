@@ -51,7 +51,7 @@ export default function CallToAction() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg" data-aos="fade-left">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg" data-aos="fade-left">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2">

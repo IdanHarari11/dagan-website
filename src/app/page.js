@@ -11,6 +11,8 @@ import Footer from '@/components/Footer';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import RoadmapSection from '@/components/RoadmapSection';
+import AdmissionCriteriaSection from '@/components/AdmissionCriteriaSection';
 
 export default function Home() {
   useEffect(() => {
@@ -26,7 +28,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhoWasDagan />
+      <RoadmapSection />
       <ValuesCom />
+      <AdmissionCriteriaSection />
       <Testimonials />
       <Projects />
       <Team />

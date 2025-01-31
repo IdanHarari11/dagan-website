@@ -39,7 +39,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300"
+              className="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >

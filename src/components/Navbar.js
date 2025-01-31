@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-white-50 dark:bg-gray-800 backdrop-blur-sm shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -44,7 +44,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 {link.text}
               </Link>
@@ -80,11 +80,11 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div 
-        className={`md:hidden fixed inset-0 bg-white dark:bg-gray-900 z-50 transition-transform duration-300 ${
+        className={`md:hidden fixed inset-0 bg-gray-50 dark:bg-gray-800 z-50 transition-transform duration-300 ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-4 bg-white dark:bg-gray-900 bg-opacity-90">
+        <div className="p-4 bg-gray-50 dark:bg-gray-800 bg-opacity-90">
           <div className="flex justify-between items-center mb-8">
             <Link href="/" className="text-xl font-bold text-blue-600">
               תוכנית דגן
