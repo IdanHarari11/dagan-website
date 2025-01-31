@@ -46,7 +46,7 @@ export default function RoadmapSection() {
   ];
 
   return (
-    <section ref={containerRef} className="py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden relative">
+    <section id='roadmap' ref={containerRef} className="py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

@@ -18,6 +18,8 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '#about', text: 'מי היה דגן' },
+    { href: '#about-program', text: 'על התכנית' },
+    { href: '#roadmap', text: 'המסע שלנו' },
     { href: '#values', text: 'הערכים שלנו' },
     { href: '#testimonials', text: 'עדויות' },
     { href: '#projects', text: 'פרויקטים' },
@@ -33,7 +35,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl sm:text-2xl font-bold text-blue-600">
+            <Link href="#hero" className="text-xl sm:text-2xl font-bold text-blue-600">
               <Image src="/logo.png" alt="Logo" width={105} height={60} />
             </Link>
           </div>
