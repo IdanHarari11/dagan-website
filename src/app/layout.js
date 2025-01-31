@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Heebo } from 'next/font/google';
@@ -19,25 +19,12 @@ const heebo = Heebo({
 // };
 
 export default function RootLayout({ children }) {
-  const [textColor, setTextColor] = useState('');
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
       easing: 'ease-out',
     });
-
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setTextColor('text-gray-900');
-      } else {
-        setTextColor('');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -58,7 +45,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:description" content="תכנית מנהיגות ייחודית המחברת בין עולמות ומפתחת מנהיגים צעירים למען עתיד טוב יותר" />
         <meta name="twitter:image" content="/images/dagan.jpg" />
       </head>
-      <body className={`${heebo.className} overflow-x-hidden ${textColor}`}>
+      <body className={`${heebo.className} overflow-x-hidden`}>
         <DarkModeProvider>
           <Navbar />
           {children}

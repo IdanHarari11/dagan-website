@@ -13,6 +13,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import RoadmapSection from '@/components/RoadmapSection';
 import AdmissionCriteriaSection from '@/components/AdmissionCriteriaSection';
+import AboutProgram from '@/components/AboutProgram';
 
 export default function Home() {
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhoWasDagan />
+      <AboutProgram />
       <RoadmapSection />
       <ValuesCom />
       <AdmissionCriteriaSection />
