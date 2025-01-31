@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Heebo } from 'next/font/google';
@@ -19,12 +19,25 @@ const heebo = Heebo({
 // };
 
 export default function RootLayout({ children }) {
+  const [textColor, setTextColor] = useState('');
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
       easing: 'ease-out',
     });
+
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setTextColor('text-gray-900');
+      } else {
+        setTextColor('');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -32,6 +45,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="icon" href="/logo.png" type="/logo.png" />
         <title>תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר</title>
         <meta name="description" content="תכנית מנהיגות ייחודית המחברת בין עולמות ומפתחת מנהיגים צעירים למען עתיד טוב יותר" />
         <meta name="keywords" content="מנהיגות, תכנית דגן, עתיד טוב יותר, מנהיגים צעירים" />
@@ -44,7 +58,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:description" content="תכנית מנהיגות ייחודית המחברת בין עולמות ומפתחת מנהיגים צעירים למען עתיד טוב יותר" />
         <meta name="twitter:image" content="/images/dagan.jpg" />
       </head>
-      <body className={`${heebo.className} overflow-x-hidden`}>
+      <body className={`${heebo.className} overflow-x-hidden ${textColor}`}>
         <DarkModeProvider>
           <Navbar />
           {children}

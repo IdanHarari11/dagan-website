@@ -44,7 +44,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className={`${isScrolled ? 'text-gray-800' : 'text-white'}` + ` dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors`}
               >
                 {link.text}
               </Link>
