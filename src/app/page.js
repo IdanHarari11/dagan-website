@@ -8,6 +8,7 @@ import Projects from '@/components/Projects';
 import Team from '@/components/Team';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -38,6 +39,7 @@ export default function Home() {
       <Team />
       <CallToAction />
       <Footer />
+      <ScrollToTopButton />
     </main>
   );
 }
