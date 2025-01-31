@@ -6,19 +6,19 @@ export default function Projects() {
     {
       title: 'רישיון לגעת',
       description: 'סיוע ראשוני לנפגעות אלימות מינית ופיזית באמצעות הכשרות בארגונים גדולים, לשם מתן מענה רגיש ומדויק',
-      image: 'https://as2.ftcdn.net/v2/jpg/08/93/82/11/1000_F_893821111_a5jFApYNEsN7RvHm2n8HiAFD7OfYQM1G.jpg',
+      image: 'https://t4.ftcdn.net/jpg/02/80/35/69/240_F_280356966_kTMM1eyuZvS8D5aaIlKrt7KQALSjfEsF.jpg',
       category: 'חברה',
     },
     {
       title: 'בין החיבורים',
       description: 'תוכנית המחברת נערות ממגזרים שונים במפגשים שיטתיים, לשם יצירת חיבור אנושי, פתיחות והסרת דעות קדומות',
-      image: 'https://t4.ftcdn.net/jpg/02/80/35/69/240_F_280356966_kTMM1eyuZvS8D5aaIlKrt7KQALSjfEsF.jpg',
+      image: 'https://t3.ftcdn.net/jpg/01/36/64/24/240_F_136642475_A4qy0YXpT82QpXOw9Thz8ncYUug091S9.jpg',
       category: 'חיבור בין-תרבותי',
     },
     {
       title: 'דרך אבות',
       description: 'פתרונות דיור מוגן מותאמים במיוחד לבני הגיל השלישי מהקהילה האתיופית, המיועדים לספק איכות חיים ותמיכה חברתית ותרבותית',
-      image: 'https://t3.ftcdn.net/jpg/01/36/64/24/240_F_136642475_A4qy0YXpT82QpXOw9Thz8ncYUug091S9.jpg',
+      image: 'https://as2.ftcdn.net/v2/jpg/08/93/82/11/1000_F_893821111_a5jFApYNEsN7RvHm2n8HiAFD7OfYQM1G.jpg',
       category: 'דיור מוגן',
     },
   ];
