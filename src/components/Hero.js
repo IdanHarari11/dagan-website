@@ -31,10 +31,10 @@ export default function Hero() {
       <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div className="text-white" data-aos="fade-up">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            מנהיגות מגשרת - גשר בין אנשים
+            מייצרים מנהיגות אחרת
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-            תוכנית שמחברת בין אנשים ויוצרת שיתופי פעולה משמעותיים
+            מנהיגות מגשרת - גשר בין אנשים
           </p>
           <button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
             התחילו את המסע

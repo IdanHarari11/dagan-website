@@ -72,7 +72,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>רחוב הרצל 123, תל אביב</li>
               <li>טלפון: 03-1234567</li>
-              <li>דוא״ל: info@dagan-leadership.org</li>
+              <li>דוא״ל: daganleadership@gmail.com</li>
             </ul>
           </div>
         </div>

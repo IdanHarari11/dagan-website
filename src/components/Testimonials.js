@@ -2,66 +2,54 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
-export default function Testimonials() {
+export default function Testimonials({ title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
   const intervalRef = useRef(null);
 
   const testimonials = [
     {
-      name: 'יעל כהן',
-      role: 'בוגרת מחזור 2022',
-      image: '/images/dagan.jpg',
-      text: 'תוכנית דגן שינתה את הדרך שבה אני מתמודדת עם אתגרים חברתיים. למדתי כלים מעשיים להובלת שינוי משמעותי.'
+      name: 'אינאס חוא דכוור',
+      cycle: "בוגרת מחזור ב'",
+      role: 'יועצת חינוכית בתיכון חורפיש, מדריכת חירום במגזר הדרוזי והצ\'רקסי בתוכנית "מטראומה לחוסן", מנחה בעמותת משאבים.',
+      image: '/images/testimonials/אינאס חווא דכוור.JPG',
+      text: 'בוגרת קורס דגן למנהיגות מגשרת, הובלתי תהליכים משמעותיים בגליל. כיום אני מובילה את עמותת חכיאת ומחברת בין נשים יהודיות וערביות.'
     },
     {
-      name: 'דוד לוי',
-      role: 'בוגר מחזור 2021',
-      image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
-      text: 'ההשתתפות בתוכנית פתחה בפני דלתות חדשות והעניקה לי כלים מעשיים להוביל שינוי בקהילה שלי.'
+      name: 'רועי כחלון',
+      cycle: "בוגר מחזור ב'",
+      role: 'מנהל רשות החברות הממשלתיות',
+      image: '/images/testimonials/רועי כחלון.jpg',
+      text: 'השתתפתי במחזור ב\' של פרויקט דגן והתמלאתי הנאה וגאווה. הרעיון החברתי המאחד הולך איתנו בחברה הישראלית על כל גווניה.'
     },
     {
-      name: 'מרים אברהם',
-      role: 'בוגרת מחזור 2023',
-      image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
-      text: 'הכלים שרכשתי בתוכנית מלווים אותי בכל יום בעבודתי החברתית. זו הייתה חוויה מעצבת ומשמעותית.'
+      name: 'אורן שלו',
+      cycle: "בוגר מחזור ב'",
+      role: 'מייסד התאחדות יועצי המשכנתאות וסגן יו\'ר העמותה, מרצה בכיר ליועצים',
+      image: '/images/testimonials/אורן שלו.jpg',
+      text: 'הצטרפתי לתוכנית כדי לחזק את המיומנויות המנהיגותיות שבי. הכרתי אנשים שלא דמיינתי שאכיר והתחזקתי במיומנויות המנהיגות.'
     },
     {
-      name: 'דוד לוי',
-      role: 'בוגר מחזור 2021',
-      image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
-      text: 'ההשתתפות בתוכנית פתחה בפני דלתות חדשות והעניקה לי כלים מעשיים להוביל שינוי בקהילה שלי.'
+      name: 'איאד סלאח',
+      cycle: "בוגר מחזור א'",
+      role: 'סגן מנהל בית ספר תיכון בחורפיש, מורה לחינוך גופני',
+      image: '/images/testimonials/איאד סלאח.jpeg',
+      text: 'תוכנית המנהיגות המגשרת ע"ש מאיר דגן ז"ל הייתה עבורי מסע מעצים ומשנה תפיסה. יצאתי עם רשת עמוקה של שותפים לדרך.'
     },
     {
-      name: 'יעל כהן',
-      role: 'בוגרת מחזור 2022',
-      image: '/images/dagan.jpg',
-      text: 'תוכנית דגן שינתה את הדרך שבה אני מתמודדת עם אתגרים חברתיים. למדתי כלים מעשיים להובלת שינוי משמעותי.'
+      name: 'שרה סברו-כהן',
+      cycle: "בוגרת מחזור ג'",
+      role: 'סגנית רופאה מחוזית, מנהלת מחוזית של מקצועות הבריאות במכבי שרותי בריאות מחוז דרום.',
+      image: '/images/testimonials/שרה סברו כהן.jpeg',
+      text: 'תוכנית דגן עבורי היא חוויה מעצבת חיים ומסע עמוק של משמעות. יצאתי מהתוכנית עם תובנה עמוקה ומודעות גבוהה יותר לצרכים המגוונים.'
     },
     {
-      name: 'מרים אברהם',
-      role: 'בוגרת מחזור 2023',
-      image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
-      text: 'הכלים שרכשתי בתוכנית מלווים אותי בכל יום בעבודתי החברתית. זו הייתה חוויה מעצבת ומשמעותית.'
-    },
-    {
-      name: 'מרים אברהם',
-      role: 'בוגרת מחזור 2023',
-      image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
-      text: 'הכלים שרכשתי בתוכנית מלווים אותי בכל יום בעבודתי החברתית. זו הייתה חוויה מעצבת ומשמעותית.'
-    },
-    {
-      name: 'דוד לוי',
-      role: 'בוגר מחזור 2021',
-      image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
-      text: 'ההשתתפות בתוכנית פתחה בפני דלתות חדשות והעניקה לי כלים מעשיים להוביל שינוי בקהילה שלי.'
-    },
-    {
-      name: 'יעל כהן',
-      role: 'בוגרת מחזור 2022',
-      image: '/images/dagan.jpg',
-      text: 'תוכנית דגן שינתה את הדרך שבה אני מתמודדת עם אתגרים חברתיים. למדתי כלים מעשיים להובלת שינוי משמעותי.'
-    },
+      name: 'דני אדינו-אבבה',
+      cycle: "בוגר מחזור א'",
+      role: 'ראש אגף דוברות, תקשורת והסברה במשרד העלייה והקליטה.',
+      image: '/images/testimonials/דני אדינו אבבה.jpg',
+      text: 'הייתי חניך במחזור הראשון של "תוכנית דגן" – אחת החוויות המשמעותיות והמעצימות ביותר שחוויתי. התוכנית העניקה לי לא רק ידע, אלא שינוי תפיסתי עמוק.'
+    }
   ];
 
   useEffect(() => {
@@ -105,11 +93,11 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
-          מה המשתתפים מספרים?
+        <h2 className="text-4xl font-bold text-center text-blue-600 dark:text-blue-400 mb-16">
+          {title}
         </h2>
 
-        <div className="relative overflow-hidden" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="relative overflow-hidden pb-8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div className="flex">
             {displayedTestimonials.map((testimonial, index) => (
               <div
@@ -131,11 +119,14 @@ export default function Testimonials() {
                       {testimonial.name}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      {testimonial.role}
+                      {testimonial.cycle}
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-lg">
+                <p className="text-primary font-semibold mb-2">
+                  {testimonial.role}
+                </p>
+                <p className="text-gray-700 dark:text-gray-300 text-lg mt-4">
                   {testimonial.text}
                 </p>
               </div>
