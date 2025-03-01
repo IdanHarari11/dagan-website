@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const DaganLeadership = () => {
+  const router = useRouter();
+  const [isVisible, setIsVisible] = useState(true);
+  
+  useEffect(() => {
+    // Hide this component on mobile when on the /our-program page
+    const handleResize = () => {
+      if (router.pathname === '/our-program' && window.innerWidth < 768) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+    
+    handleResize(); // Check initially
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [router.pathname]);
+  
+  if (!isVisible) return null;
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }} 

@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+
 const goals = [
   {
     title: 'הכשרת והצמחת מנהיגים מכל הקבוצות בחברה הישראלית',
@@ -17,11 +20,41 @@ const goals = [
   }
 ];
 
+const FlippingCard = ({ title, description }) => {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <motion.div
+      className="w-full md:w-1/2 lg:w-1/4 p-4"
+      onClick={() => setFlipped(!flipped)}
+      onMouseLeave={() => setFlipped(false)}
+    >
+      <div className={`relative h-64 bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-transform duration-500 ${flipped ? 'scale-105' : ''}`}>
+        <div className={`absolute inset-0 flex items-center justify-center p-4 ${flipped ? 'hidden' : 'block'}`}>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white text-center">{title}</h3>
+        </div>
+        <div className={`absolute inset-0 p-4 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white overflow-auto ${flipped ? 'block' : 'hidden'}`}>
+          <p className="text-sm">{description}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export default function OurProgramPage() {
   return (
-    <section className="py-20 pt-16 h-[100vh] bg-gray-50 dark:bg-gray-900">
-      
+    <section className="py-20 pt-36 h-[100vh] bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">מטרות התכנית</h2>
+        <p className="text-lg text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
+          תכנית דגן למנהיגות מגשרת מכוונת להשגת מספר מטרות משמעותיות שמטרתן ליצור שינוי חברתי ארוך טווח
+        </p>
+        <div className="flex flex-wrap -mx-4">
+          {goals.map((goal, index) => (
+            <FlippingCard key={index} title={goal.title} description={goal.description} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 } 

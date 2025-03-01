@@ -4,12 +4,15 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import DarkModeToggle from './DarkModeToggle';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isLight = pathname !== '/';
+  const router = useRouter();
+  const currentPath = router.pathname;
+  const isLight = currentPath !== '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +28,19 @@ export default function Navbar() {
     { href: '/our-graduates', text: 'הבוגרים שלנו' },
     { href: '/projects', text: 'מיזמים חברתיים' },
   ];
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    if (currentPath !== '/') {
+      router.push('/#contact');
+    } else {
+      // Already on home page, just scroll to contact
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -45,15 +61,23 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`${isScrolled || isLight ? 'text-gray-800' : 'text-white'}` + ` dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors`}
+                className={`${
+                  currentPath === link.href 
+                    ? 'text-black dark:text-black font-bold border-b-2 border-blue-500 dark:border-blue-400 shadow-glow transition-all' 
+                    : `${isScrolled || isLight ? 'text-gray-800' : 'text-white'} dark:text-white hover:text-blue-600 dark:hover:text-blue-400`
+                } transition-colors`}
               >
                 {link.text}
               </Link>
             ))}
             <DarkModeToggle />
-            <Link href="#contact" className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+            <a 
+              href="/#contact" 
+              onClick={handleContactClick}
+              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors cursor-pointer"
+            >
               צור קשר
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -104,22 +128,27 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 text-lg"
+                className={`block py-3 text-lg ${
+                  currentPath === link.href 
+                    ? 'text-black dark:text-black font-bold border-r-4 border-blue-500 dark:border-blue-400 pr-3 shadow-glow transition-all' 
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.text}
               </Link>
             ))}
-            <Link href="/our-program" className="block py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 text-lg">
-              על התכנית
-            </Link>
             <div className="flex items-center justify-between py-3">
               <span className="text-gray-700 dark:text-gray-300">מצב תצוגה</span>
               <DarkModeToggle />
             </div>
-            <Link href="#contact" className="w-full mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors">
+            <a 
+              href="/#contact" 
+              onClick={handleContactClick}
+              className="block w-full mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors cursor-pointer text-center"
+            >
               צור קשר
-            </Link>
+            </a>
           </div>
         </div>
       </div>

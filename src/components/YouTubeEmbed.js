@@ -5,7 +5,7 @@ const YouTubeEmbed = ({ videoUrl }) => {
     <div className="flex justify-center my-8">
       <div className="w-full max-w-3xl aspect-w-16 aspect-h-9 h-[25rem]">
         <iframe
-          className="w-full h-full rounded-lg shadow-lg"
+          className="w-full h-full rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.5)]"
           src={videoUrl}
           title="YouTube video player"
           frameBorder="0"

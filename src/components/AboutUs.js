@@ -3,8 +3,8 @@ import { FaMedal } from 'react-icons/fa';
 
 const AboutUs = () => {
   return (
-    <section className="py-10 pb-4 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-10 pb-4 bg-gray-50 dark:bg-gray-800 relative flex justify-center items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,6 +27,17 @@ const AboutUs = () => {
             העמותה ממשיכה את דרכו ופועלת לטיפוח מנהיגות מגשרת ומחברת, המחזקת את האחדות, הערבות ההדדית ושיתוף הפעולה בין קהילות ומגזרים שונים, למען חברה ישראלית איתנה ומלוכדת יותר.
           </p>
         </motion.div>
+      </div>
+      
+      {/* Blue glow positioned at the bottom for mobile, extending below for desktop */}
+      <div className="absolute left-0 w-full bottom-0 md:-bottom-32 pointer-events-none" style={{ zIndex: 0 }}>
+        {/* CSS-based shadow */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 w-full max-w-5xl mx-auto h-32 md:h-64 rounded-full bg-blue-500 opacity-30 blur-3xl pointer-events-none"
+          style={{
+            filter: 'blur(40px)',
+          }}
+        ></div>
       </div>
     </section>
   );
