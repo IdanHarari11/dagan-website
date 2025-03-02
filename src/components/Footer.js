@@ -8,14 +8,14 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0">
           {/* Logo and Description */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="md:w-1/2">
             <Link href="/" className="text-2xl font-bold mb-4 block">
-              תוכנית דגן
+              מנהיגות דגן למנהיגות מגשרת
             </Link>
             <p className="text-gray-400 mb-6">
-              מובילים את הדור הבא של המנהיגות המגשרת בישראל
+              מנהיגות אמיצה במציאות משובשת
             </p>
             <div className="flex space-x-4 space-x-reverse">
               {/* <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -39,38 +39,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">קישורים מהירים</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#about" className="text-gray-400 hover:text-white transition-colors">
-                  אודות
-                </Link>
-              </li>
-              <li>
-                <Link href="#values" className="text-gray-400 hover:text-white transition-colors">
-                  הערכים שלנו
-                </Link>
-              </li>
-              <li>
-                <Link href="#projects" className="text-gray-400 hover:text-white transition-colors">
-                  פרויקטים
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                  צור קשר
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Contact Info */}
-          <div>
+          <div className="md:w-1/4">
             <h3 className="text-lg font-semibold mb-4">יצירת קשר</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>רחוב הרצל 123, תל אביב</li>
+              <li>רחוב הרצל 123, נתניה</li>
               <li>דוא״ל: daganleadership@gmail.com</li>
             </ul>
           </div>

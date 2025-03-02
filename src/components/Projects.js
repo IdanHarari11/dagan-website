@@ -134,42 +134,42 @@ export default function Projects() {
 
         <div className="relative w-full overflow-x-auto pb-6 scrollbar-hide">
           <div className="flex space-x-6 rtl:space-x-reverse">
-            {projects.map((project, index) => (
-              <div
-                key={index}
+          {projects.map((project, index) => (
+            <div
+              key={index}
                 className="flex-shrink-0 w-80 bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <div className="relative h-48">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
-                    {project.category}
-                  </div>
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <div className="relative h-48">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
+                  {project.category}
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    {project.description}
-                  </p>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {project.description}
+                </p>
                   <button 
                     onClick={() => openModal(project)}
                     className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                   >
-                    קרא עוד &larr;
-                  </button>
-                </div>
+                  קרא עוד &larr;
+                </button>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+      </div>
       </div>
 
       {selectedProject && (
