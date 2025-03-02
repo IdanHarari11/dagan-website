@@ -1,11 +1,12 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useRef, useState } from 'react';
 
 export default function Testimonials({ title }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
-  const intervalRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   const testimonials = [
     {
@@ -52,103 +53,110 @@ export default function Testimonials({ title }) {
     }
   ];
 
-  useEffect(() => {
-    const updateItemsPerPage = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerPage(1);
-      } else {
-        setItemsPerPage(3);
-      }
-    };
-
-    updateItemsPerPage();
-    window.addEventListener('resize', updateItemsPerPage);
-
-    return () => window.removeEventListener('resize', updateItemsPerPage);
-  }, []);
-
-  const displayedTestimonials = testimonials.slice(currentIndex, currentIndex + itemsPerPage);
-
-  const totalSets = Math.ceil(testimonials.length / itemsPerPage);
-
-  useEffect(() => {
-    startInterval();
-    return () => clearInterval(intervalRef.current);
-  }, [itemsPerPage]);
-
-  const startInterval = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + itemsPerPage) % testimonials.length);
-    }, 5000); // Change every 5 seconds
-  };
-
-  const handleMouseEnter = () => {
-    clearInterval(intervalRef.current);
-  };
-
-  const handleMouseLeave = () => {
-    startInterval();
+  const scroll = (direction) => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      // In RTL, scrolling "right" means decreasing scrollLeft (more negative)
+      // and scrolling "left" means increasing scrollLeft (less negative)
+      const scrollAmount = direction === 'right' ? -320 : 320;
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="testimonials" className="py-20 bg-gray-50 dark:bg-gray-900" dir="rtl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center text-blue-600 dark:text-blue-400 mb-16">
           {title}
         </h2>
 
-        <div className="relative overflow-hidden pb-8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <div className="flex">
-            {displayedTestimonials.map((testimonial, index) => (
-              <div
+        {/* Slider Container */}
+        <div className="relative">
+            {/* Navigation Arrows */}
+            <button
+              onClick={() => scroll('left')}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10
+                       bg-white/80 dark:bg-gray-800/80 rounded-full shadow-lg flex items-center justify-center
+                       text-gray-800 dark:text-white hover:bg-white dark:hover:bg-gray-800 transition-colors duration-200
+                       translate-x-5 lg:translate-x-8"
+              aria-label="Previous"
+            >
+              <FaChevronRight className="w-4 h-4" />
+            </button>
+
+            <button
+              onClick={() => scroll('right')}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10
+                       bg-white/80 dark:bg-gray-800/80 rounded-full shadow-lg flex items-center justify-center
+                       text-gray-800 dark:text-white hover:bg-white dark:hover:bg-gray-800 transition-colors duration-200
+                       -translate-x-5 lg:-translate-x-8"
+              aria-label="Next"
+            >
+              <FaChevronLeft className="w-4 h-4" />
+            </button>
+
+          {/* Scrollable Container */}
+          <div
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto scrollbar-hide gap-6 pb-4 -mx-4 px-4
+                     scroll-smooth snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', direction: 'rtl' }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <motion.div
                 key={index}
-                className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 mx-4 shadow-lg hover:scale-105 transition-transform"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="flex-shrink-0 w-[300px] md:w-[350px] snap-center"
               >
-                <div className="flex items-center mb-6">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="mr-4">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      {testimonial.cycle}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-primary font-semibold mb-2">
-                  {testimonial.role}
-                </p>
-                <p className="text-gray-700 dark:text-gray-300 text-lg mt-4">
-                  {testimonial.text}
-                </p>
-              </div>
+                <TestimonialCard testimonial={testimonial} />
+              </motion.div>
             ))}
           </div>
-        </div>
-
-        <div className="flex justify-center mt-8 space-x-2 space-x-reverse">
-          {Array.from({ length: totalSets }).map((_, index) => (
-            <button
-              key={index}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                Math.floor(currentIndex / itemsPerPage) === index
-                  ? 'bg-blue-600'
-                  : 'bg-gray-300 dark:bg-gray-700'
-              }`}
-              onClick={() => setCurrentIndex(index * itemsPerPage)}
-              aria-label={`Slide ${index + 1}`}
-            />
-          ))}
         </div>
       </div>
     </section>
   );
 }
+
+// Testimonial Card Component
+const TestimonialCard = ({ testimonial }) => (
+  <div className="group h-full">
+    <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg pt-16 h-full flex flex-col">
+      {/* Profile Image Container */}
+      <div className="absolute p-4 -top-2 left-1/2 -translate-x-1/2 mt-1">
+        <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-lg bg-gray-100">
+          <Image
+            src={testimonial.image}
+            alt={testimonial.name}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-110"
+            sizes="96px"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-6 pt-[5rem] text-center flex-1 flex flex-col justify-between">
+        <div>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+            {testimonial.name}
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
+            {testimonial.cycle}
+          </p>
+          <p className="text-primary font-semibold mb-3 text-sm line-clamp-2">
+            {testimonial.role}
+          </p>
+          <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-4">
+            {testimonial.text}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+);

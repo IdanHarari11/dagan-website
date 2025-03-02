@@ -143,7 +143,7 @@ export default function Navbar() {
               <DarkModeToggle />
             </div>
             <a 
-              href="/#contact" 
+              href="/#contact"
               onClick={handleContactClick}
               className="block w-full mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors cursor-pointer text-center"
             >
