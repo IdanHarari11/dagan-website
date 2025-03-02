@@ -43,7 +43,7 @@ export default function Footer() {
           <div className="md:w-1/4">
             <h3 className="text-lg font-semibold mb-4">יצירת קשר</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>רחוב הרצל 123, נתניה</li>
+              <li>רחוב האוניברסיטה 1, נתניה</li>
               <li>דוא״ל: daganleadership@gmail.com</li>
             </ul>
           </div>

@@ -71,10 +71,11 @@ const DaganLeadership = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}>
           {[
-            "סדנאות והרצאות", 
+            "סדנאות והרצאות",
+            "ליווי אישי למיזמים חברתיים",
             "מפגשים עם בכירים", 
             "ימי שטח וסיורים", 
-            "ליווי אישי למיזמים חברתיים"
+            "היכרות עם מומחים ודמויות מפתח",
           ].map((item, index) => (
             <motion.span key={index} className="bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 px-6 py-3 rounded-full text-md font-medium shadow-sm"
               whileHover={{ scale: 1.1 }}>

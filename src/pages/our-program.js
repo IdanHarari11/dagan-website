@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Team from '@/components/Team';
 
 const goals = [
   {
@@ -143,6 +144,8 @@ export default function OurProgramPage() {
             ))}
           </div>
         </div>
+
+        <Team />
       </section>
   );
 } 

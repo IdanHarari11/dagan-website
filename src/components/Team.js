@@ -11,44 +11,44 @@ const team1 = [
     role: 'יו"ר העמותה',
     image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'לשעבר המזכיר הצבאי של שלושה מנשיאי ישראל',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
   {
     name: 'אשל ארמוני',
     role: 'יו"ר צוות ההגוי לתוכנית ',
     image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
     bio: 'לשעבר ראש אגף במוסד, מנכ"ל משרד השיכון, יו"ר נמל חיפה',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
   {
     name: 'ד"ר אודי לוי',
     role: 'מנכ"ל העמותה',
     image: 'https://www.mnp.ca/-/media/foundation/integrations/personnel/2020/12/16/13/57/personnel-image-4483.jpg?h=800&iar=0&w=600&hash=833D605FDB6AC3C2D2915F6BF8B4ADA4',
     bio: 'לשעבר ראש "צלצל" היחידה לסכול כספי טרור',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
   {
     name: 'עודד ברנדה',
     role: 'מנהל ומנחה התוכנית',
     image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'לשעבר קצין בצה"ל ובמוסד והיום מטפל חברתי ומנחה קבוצות',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
 ];
 
@@ -57,51 +57,51 @@ const team2 = [
     name: 'דרור מכמן',
     image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'לשעבר ראשם של מספר אגפים במוסד, היום מוביל סטארט אפ בנושאי אקלים ואיכות סביבה',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
   {
     name: 'שני לוי כחלון',
     image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
     bio: 'לשעבר בכירה במוסד, מומחית בתחום הלמידה המקוונת, מורה ומחנכת',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
   {
     name: 'עופר אסף',
     image: 'https://www.mnp.ca/-/media/foundation/integrations/personnel/2020/12/16/13/57/personnel-image-4483.jpg?h=800&iar=0&w=600&hash=833D605FDB6AC3C2D2915F6BF8B4ADA4',
     bio: 'לשעבר ראש אגף במוסד, מומחה בתחום התקשורת, שותף במספר סטארטאפים',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
   {
     name: 'ד"ר שושי חן',
     image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'חברת סגל בכיר ומרצה בפקולטה לניהול ע"ש קולר באוניברסיטת תל-אביב',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
   {
     name: 'אמנון פורת',
     image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: ' לשעבר בכיר במוסד, היום מבעלי חברת "אבן דרך" העוסקת בפיתוח מנהלים וצוותים באמצעות פתרונות למידה התנסותיים',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      email: '#',
-    },
+    // social: {
+    //   linkedin: '#',
+    //   twitter: '#',
+    //   email: '#',
+    // },
   },
 ];
 
@@ -224,7 +224,7 @@ const TeamMemberCard = ({ member }) => (
         
         {/* Social Links - Always visible */}
         <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex justify-center w-full">
-          {Object.entries(member.social).map(([platform, link]) => (
+          {member?.social && Object.entries(member.social).map(([platform, link]) => (
             <motion.a
               key={platform}
               href={link}
