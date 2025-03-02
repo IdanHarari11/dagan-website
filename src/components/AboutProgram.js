@@ -63,6 +63,15 @@ const DaganLeadership = () => {
           </p>
         </motion.div>
       </div>
+
+      <motion.div 
+        className="w-full max-w-3xl mt-12 p-8 bg-blue-50 dark:bg-gray-800 rounded-xl text-center shadow-lg"
+        whileHover={{ scale: 1.02 }}>
+        <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">השפעה ארוכת טווח</h2>
+        <p className="text-gray-700 dark:text-gray-300 mt-3">
+          פלטפורמה דינמית ומתמשכת המספקת כלים לגישור על פערים ומובילה להשפעה אמיתית על החברה הישראלית.
+        </p>
+      </motion.div>
       
       <div className="w-full max-w-3xl mt-12">
         <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 text-center mb-6">תוכן התוכנית</h2>
@@ -72,9 +81,9 @@ const DaganLeadership = () => {
           transition={{ delay: 0.5 }}>
           {[
             "סדנאות והרצאות",
-            "ליווי אישי למיזמים חברתיים",
-            "מפגשים עם בכירים", 
             "ימי שטח וסיורים", 
+            "מפגשים עם בכירים", 
+            "ליווי אישי למיזמים חברתיים",
             "היכרות עם מומחים ודמויות מפתח",
           ].map((item, index) => (
             <motion.span key={index} className="bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 px-6 py-3 rounded-full text-md font-medium shadow-sm"
@@ -84,15 +93,6 @@ const DaganLeadership = () => {
           ))}
         </motion.div>
       </div>
-      
-      <motion.div 
-        className="w-full max-w-3xl mt-12 p-8 bg-blue-50 dark:bg-gray-800 rounded-xl text-center shadow-lg"
-        whileHover={{ scale: 1.02 }}>
-        <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">השפעה ארוכת טווח</h2>
-        <p className="text-gray-700 dark:text-gray-300 mt-3">
-          פלטפורמה דינמית ומתמשכת המספקת כלים לגישור על פערים ומובילה להשפעה אמיתית על החברה הישראלית.
-        </p>
-      </motion.div>
     </motion.div>
   );
 };
