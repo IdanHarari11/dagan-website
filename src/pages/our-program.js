@@ -45,7 +45,7 @@ const FlippingCard = ({ title, description, isFlipped, index, onFlip }) => {
       <div className={`relative h-64 shadow-xl rounded-xl overflow-hidden transition-transform duration-500 ${isFlipped ? 'scale-105' : isHovered ? 'scale-102' : ''}`}>
         
         {/* Front of card - enhanced glassmorphism effect */}
-        <div className={`glass-card absolute h-[100%] inset-0 flex flex-col items-center justify-center p-4 backdrop-blur-xl bg-white/20 dark:bg-gray-800/20 border border-white/30 dark:border-blue-900/20 ${isFlipped ? 'hidden' : 'block'}`}
+        <div className={`glass-card absolute h-full w-full inset-0 flex flex-col items-center justify-center p-4 backdrop-blur-xl bg-white/20 dark:bg-gray-800/20 border border-white/30 dark:border-blue-900/20 ${isFlipped ? 'hidden' : 'block'}`}
           style={{ 
             boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
             backdropFilter: 'blur(16px)',
@@ -67,23 +67,20 @@ const FlippingCard = ({ title, description, isFlipped, index, onFlip }) => {
         </div>
         
         {/* Back of card - enhanced glassmorphism effect with improved scrolling */}
-        <div className={`glass-card absolute inset-0 backdrop-blur-xl bg-blue-50/30 dark:bg-gray-900/40 border border-white/30 dark:border-blue-900/20 ${isFlipped ? 'block' : 'hidden'}`}
+        <div className={`glass-card absolute inset-0 w-full h-full backdrop-blur-xl bg-blue-50/30 dark:bg-gray-900/40 border border-white/30 dark:border-blue-900/20 ${isFlipped ? 'block' : 'hidden'}`}
           style={{ 
             boxShadow: 'inset 0 2px 20px 0 rgba(255, 255, 255, 0.2), 0 8px 32px 0 rgba(31, 38, 135, 0.1)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             transition: 'all 0.3s ease-in-out',
-            overflow: 'auto',
-            overflowX: 'auto'
           }}>
           <div className="flex flex-col h-full p-4">
             <h3 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-3 text-center">{title}</h3>
             {/* Improved scrollable area */}
             <div 
-              className="scrollbar-thin overflow-y-auto flex-grow mb-2"
+              className="scrollbar-thin overflow-y-auto overflow-x-hidden flex-grow mb-2"
               style={{ 
                 maxHeight: "calc(100% - 80px)",
-                overflowY: 'auto',
                 WebkitOverflowScrolling: 'touch', // For smooth scrolling on iOS
               }}
             >
@@ -131,7 +128,7 @@ export default function OurProgramPage() {
         <p className="text-lg text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
           תכנית דגן למנהיגות מגשרת מכוונת להשגת מספר מטרות משמעותיות שמטרתן ליצור שינוי חברתי ארוך טווח
         </p>
-          <div className="flex flex-wrap -mx-4">
+          <div className="flex flex-wrap -mx-4 overflow-visible">
             {goals.map((goal, index) => (
               <FlippingCard 
                 key={index} 
