@@ -31,7 +31,6 @@ export default function Home() {
         <AboutUs />
         <WhoWasDagan />
         <RoadmapSection />
-        <Testimonials title="מה המשתתפים מספרים?" />
         <YouTubeEmbed videoUrl={'https://www.youtube.com/embed/-25BpVKGQU0'} />
         <Projects />
         <CallToAction />
