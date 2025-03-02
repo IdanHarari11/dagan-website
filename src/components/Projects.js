@@ -137,7 +137,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-                className="flex-shrink-0 w-80 bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="flex-shrink-0 w-80 bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300 width-[19rem]"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >

@@ -7,7 +7,7 @@ export default function ProjectsPage() {
 
   return (      
     <section className="py-20 pt-14 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <Projects />
         <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mt-12 mb-8">Gallery</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
