@@ -14,14 +14,10 @@ export default function Modal({ isOpen, onClose, title, children }) {
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-      // Prevent scrolling when modal is open
-      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      // Restore scrolling when modal is closed
-      document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
 
