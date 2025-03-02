@@ -38,6 +38,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'i.pravatar.cc',
       },
+      {
+        protocol: 'https',
+        hostname: 'as1.ftcdn.net',
+      },
     ],
   },
 };
