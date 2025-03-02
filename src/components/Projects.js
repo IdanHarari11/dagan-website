@@ -152,19 +152,21 @@ export default function Projects() {
                   {project.category}
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col h-[14rem]">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                   {project.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
+                <div className="mt-auto flex justify-end">
                   <button 
                     onClick={() => openModal(project)}
                     className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                   >
                   קרא עוד &larr;
-                </button>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
