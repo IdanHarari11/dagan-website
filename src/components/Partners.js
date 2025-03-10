@@ -159,7 +159,7 @@ const Partners = () => {
   }, [controls]);
 
   return (
-    <section dir='ltr' className="py-16 bg-gray-50/50">
+    <section dir='ltr' className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="השותפים שלנו"
@@ -210,7 +210,7 @@ const Partners = () => {
           </div>
 
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50/50 to-transparent pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50/50 to-transparent pointer-events-none roun" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50/50 to-transparent pointer-events-none" />
         </div>
       </div>
