@@ -73,11 +73,11 @@ const DaganLeadership = () => {
       </div>
 
       <motion.div 
-        className="w-full max-w-3xl mt-12 p-8 bg-blue-50 dark:bg-gray-800 rounded-xl text-center shadow-lg"
+        className="w-full max-w-3xl mt-12 p-8 bg-blue-700 dark:bg-gray-900 rounded-xl text-center shadow-lg"
         whileHover={{ scale: 1.02 }}>
-        <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">מנהיגות מגשרת לחיזוק האמון העסקי</h2>
-        <p className="text-gray-700 dark:text-gray-300 mt-3">
-        <Link className="text-blue-600 dark:text-blue-400 underline" href="https://www.edelman.com/trust/2023/trust-barometer" target="_blank">ברומטר האמון של חברת המחקר אדלמן</Link>, חושף קיטוב חברתי גובר אך מצביע על מגמה ברורה: ארגונים עסקיים
+        <h2 className="text-2xl font-semibold text-white dark:text-blue-300">מנהיגות מגשרת לחיזוק האמון העסקי</h2>
+        <p className="text-gray-100 dark:text-gray-200 mt-3">
+        <Link className="text-blue-200 dark:text-blue-300 underline" href="https://www.edelman.com/trust/2023/trust-barometer" target="_blank">ברומטר האמון של חברת המחקר אדלמן</Link>, חושף קיטוב חברתי גובר אך מצביע על מגמה ברורה: ארגונים עסקיים
 זוכים לאמון הציבור יותר ממוסדות הממשלה ומרשתות התקשורת
 61% מהציבור רואה את הארגונים עסקיים כמוסד הציבורי האמין ביותר.
 70% מהציבור מצפים מחברות להוביל שינוי חברתי ולסייע בצמצום פערים חברתיים.

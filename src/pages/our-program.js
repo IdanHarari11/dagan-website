@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Team from '@/components/Team';
+import Modal from '@/components/Modal';
 
 const goals = [
   {
@@ -25,84 +26,49 @@ const goals = [
   }
 ];
 
-const FlippingCard = ({ title, description, isFlipped, index, onFlip }) => {
+const GoalCard = ({ title, description, index, onOpenModal }) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  // Handle read click
-  const handleReadClick = (e) => {
-    e.stopPropagation(); // Prevent event from bubbling up
-    onFlip(index);
-  };
-
-  // Handle back click
-  const handleBackClick = (e) => {
-    e.stopPropagation(); // Prevent event from bubbling up
-    onFlip(null);
-  };
 
   return (
     <motion.div
       className="w-full h-full p-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ 
+        scale: 1.03,
+        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+      }}
+      transition={{ duration: 0.3 }}
     >
-      <div className={`relative h-64 shadow-xl rounded-xl overflow-hidden transition-transform duration-500 ${isFlipped ? 'scale-105' : ''}`}>
+      <div className="relative h-64 rounded-2xl overflow-hidden bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg">
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30 dark:from-blue-900/20 dark:to-purple-900/20"></div>
         
-        {/* Front of card */}
-        <div 
-          className={`glass-card absolute h-full w-full inset-0 flex flex-col items-center justify-center p-4 bg-white/20 dark:bg-gray-800/20 border border-white/30 dark:border-blue-900/20 ${isFlipped ? 'hidden' : 'block'}`}
-          style={{ 
-            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
-            transition: 'all 0.3s ease-in-out',
-          }}
-        >
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-4">{title}</h3>
+        {/* Card content */}
+        <div className="relative h-full w-full flex flex-col items-center justify-between p-5 z-10">
+          {/* Title with decorative underline */}
+          <div className="text-center mb-3">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
+            <div className="h-1 w-12 bg-gradient-to-r from-blue-400 to-blue-600 dark:from-blue-500 dark:to-blue-300 rounded-full mx-auto"></div>
+          </div>
           
-          {/* Click-to-flip button - visible only on hover */}
+          {/* Read button with improved styling */}
           <button 
-            className={`text-sm text-blue-600 dark:text-blue-400 flex items-center p-2 transition-all duration-300 cursor-pointer hover:text-blue-800 dark:hover:text-blue-300 rounded hover:bg-blue-100 dark:hover:bg-blue-900/30 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
-            onClick={handleReadClick}
+            className="mt-auto text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 dark:from-blue-600 dark:to-blue-400 dark:hover:from-blue-700 dark:hover:to-blue-500 font-medium rounded-xl px-6 py-3 text-center transition-all duration-300 w-full flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-1"
+            onClick={() => onOpenModal(index)}
           >
             <span>לחץ לקריאה</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 mr-1 animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5 mr-2">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </button>
         </div>
         
-        {/* Back of card */}
-        <div 
-          className={`glass-card absolute inset-0 w-full h-full bg-blue-50/30 dark:bg-gray-900/40 border border-white/30 dark:border-blue-900/20 ${isFlipped ? 'block' : 'hidden'}`}
-          style={{ 
-            boxShadow: 'inset 0 2px 20px 0 rgba(255, 255, 255, 0.2), 0 8px 32px 0 rgba(31, 38, 135, 0.1)',
-            transition: 'all 0.3s ease-in-out',
-          }}
-        >
-          <div className="flex flex-col h-full p-4">
-            <h3 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-3 text-center">{title}</h3>
-            {/* Scrollable area */}
-            <div 
-              className="scrollbar-thin overflow-y-auto overflow-x-hidden flex-grow mb-2"
-              style={{ 
-                maxHeight: "calc(100% - 80px)",
-                WebkitOverflowScrolling: 'touch',
-              }}
-            >
-              <p className="text-sm text-gray-800 dark:text-white">{description}</p>
-            </div>
-            {/* Back-to-front button */}
-            <button 
-              className="text-center text-sm text-blue-600 dark:text-blue-400 py-2 border-t border-blue-200 dark:border-blue-800 mt-auto cursor-pointer hover:text-blue-800 dark:hover:text-blue-300 hover:bg-blue-50/50 dark:hover:bg-blue-900/30 transition-colors"
-              onClick={handleBackClick}
-            >
-              <span>לחץ לחזרה</span>
-            </button>
-          </div>
-        </div>
-        
-        {/* Pulsing corner effect */}
-        <div className={`absolute bottom-0 right-0 w-12 h-12 transition-opacity duration-300 ${isHovered && !isFlipped ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="absolute bottom-0 right-0 w-0 h-0 border-t-0 border-r-0 border-b-[24px] border-l-0 border-b-blue-500 border-l-transparent transform rotate-90 animate-corner-pulse"></div>
+        {/* Subtle decorative elements that don't obscure text */}
+        <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-blue-500 dark:text-blue-400 fill-current">
+            <path d="M47.5,-51.2C59.1,-35.6,64.5,-17.8,64.1,-0.4C63.7,17,57.5,34,45.3,48.5C33.1,63,14.9,75,-3.9,78.9C-22.8,82.8,-45.5,78.7,-58.4,64.2C-71.3,49.7,-74.3,24.8,-71.5,3.2C-68.7,-18.5,-60.1,-37,-46.2,-52.6C-32.3,-68.2,-13.1,-80.9,2.5,-83.4C18.2,-85.9,36.3,-78.3,47.5,-63.7Z" transform="translate(100 100)" />
+          </svg>
         </div>
       </div>
     </motion.div>
@@ -110,12 +76,19 @@ const FlippingCard = ({ title, description, isFlipped, index, onFlip }) => {
 };
 
 export default function OurProgramPage() {
-  // State to track which card is flipped (null means no card is flipped)
-  const [flippedCardIndex, setFlippedCardIndex] = useState(null);
+  // State to track which goal is selected for the modal
+  const [selectedGoalIndex, setSelectedGoalIndex] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Function to handle card flipping
-  const handleCardFlip = (index) => {
-    setFlippedCardIndex(index);
+  // Function to handle opening the modal
+  const handleOpenModal = (index) => {
+    setSelectedGoalIndex(index);
+    setIsModalOpen(true);
+  };
+
+  // Function to handle closing the modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -147,7 +120,7 @@ export default function OurProgramPage() {
             }}
           ></div>
           
-          <div className="relative z-10 bg-white/10 rounded-2xl p-8 border border-white/20 dark:border-blue-800/20 shadow-xl">
+          <div className="relative z-10 bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl">
             <h1 className="text-3xl md:text-4xl font-bold text-center text-blue-700 dark:text-blue-300 mb-6">תוכנית דגן למנהיגות מגשרת</h1>
             
             <div className="max-w-4xl mx-auto text-right text-gray-800 dark:text-gray-200 leading-relaxed text-lg" dir="rtl">
@@ -170,17 +143,29 @@ export default function OurProgramPage() {
         {/* Responsive grid layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pb-6" dir="rtl">
           {goals.map((goal, index) => (
-            <FlippingCard 
+            <GoalCard 
               key={index} 
               title={goal.title} 
-              description={goal.description} 
-              isFlipped={flippedCardIndex === index}
+              description={goal.description}
               index={index}
-              onFlip={handleCardFlip}
+              onOpenModal={handleOpenModal}
             />
           ))}
         </div>
       </div>
+
+      {/* Modal for displaying goal details */}
+      {selectedGoalIndex !== null && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          title={goals[selectedGoalIndex]?.title || ''}
+        >
+          <div className="whitespace-pre-line text-gray-700 dark:text-gray-300 text-right" dir="rtl">
+            {goals[selectedGoalIndex]?.description || ''}
+          </div>
+        </Modal>
+      )}
     </section>
   );
 } 
