@@ -1,14 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { FaLinkedinIn, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedinIn, FaTwitter, FaEnvelope, FaUser, FaUserTie, FaUserAlt } from 'react-icons/fa';
 
 const team1 = [
   {
     name: 'תא"ל  (מיל.) שמעון חפץ',
     role: 'יו"ר העמותה',
-    image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'לשעבר המזכיר הצבאי של שלושה מנשיאי ישראל',
     // social: {
     //   linkedin: '#',
@@ -19,7 +17,6 @@ const team1 = [
   {
     name: 'אשל ארמוני',
     role: 'יו"ר צוות ההגוי ',
-    image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
     bio: 'לשעבר ראש אגף במוסד, מנכ"ל משרד השיכון, יו"ר נמל חיפה',
     // social: {
     //   linkedin: '#',
@@ -30,7 +27,6 @@ const team1 = [
   {
     name: 'עודד ברנדה',
     role: 'מנהל ומנחה התכנית',
-    image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'לשעבר קצין בצה"ל ובמוסד והיום מטפל חברתי ומנחה קבוצות',
     // social: {
     //   linkedin: '#',
@@ -41,7 +37,6 @@ const team1 = [
   {
     name: 'רות רוה-גרוס',
     role: 'מנהלת תפעול',
-    image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'מנהלת תכניות חברתיות לחינוך דיאלוגי ולחיים משותפים',
     // social: {
     //   linkedin: '#',
@@ -54,7 +49,6 @@ const team1 = [
 const team2 = [
   {
     name: 'דרור מכמן',
-    image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'לשעבר ראש מספר אגפים במוסד, כיום מוביל סטארט אפ בתחום אקלים ואיכות סביבה',
     // social: {
     //   linkedin: '#',
@@ -64,7 +58,6 @@ const team2 = [
   },
   {
     name: 'שני לוי כחלון',
-    image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
     bio: 'לשעבר בכירה במוסד, מומחית בתחום הלמידה המקוונת, מורה ומחנכת',
     // social: {
     //   linkedin: '#',
@@ -74,7 +67,6 @@ const team2 = [
   },
   {
     name: 'עופר אסף',
-    image: 'https://www.mnp.ca/-/media/foundation/integrations/personnel/2020/12/16/13/57/personnel-image-4483.jpg?h=800&iar=0&w=600&hash=833D605FDB6AC3C2D2915F6BF8B4ADA4',
     bio: 'לשעבר ראש אגף במוסד, מומחה בתחום התקשורת, שותף במספר סטארטאפים',
     // social: {
     //   linkedin: '#',
@@ -84,7 +76,6 @@ const team2 = [
   },
   {
     name: 'אמנון פורת',
-    image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'לשעבר בכיר במוסד, כיום מבעלי חברת "אבן דרך" העוסקת בפיתוח מנהלים וצוותים',
     // social: {
     //   linkedin: '#',
@@ -94,66 +85,80 @@ const team2 = [
   },
 ];
 
+// Get initials from name
+const getInitials = (name) => {
+  return name
+    .split(' ')
+    .map(word => word.charAt(0))
+    .join('')
+    .toUpperCase();
+};
+
+// Generate a consistent color based on name
+const getColorFromName = (name) => {
+  const colors = [
+    'bg-blue-500', 'bg-green-500', 'bg-purple-500', 
+    'bg-pink-500', 'bg-indigo-500', 'bg-teal-500',
+    'bg-orange-500', 'bg-red-500', 'bg-amber-500'
+  ];
+  
+  // Simple hash function to get consistent color
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  
+  return colors[Math.abs(hash) % colors.length];
+};
+
 // Extracted TeamMemberCard component for reusability
-const TeamMemberCard = ({ member }) => (
-  <div className="group h-[320px]">
-    <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-lg pt-16 h-full flex flex-col">
-      {/* Profile Image Container - Updated styling */}
-      <div className="absolute -top-2 left-1/2 -translate-x-1/2 mt-1 pt-6">
-        <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg bg-gray-100">
-          <Image
-            src={member.image}
-            alt={member.name}
-            fill
-            className="object-cover object-center transition-transform duration-300 group-hover:scale-110"
-            sizes="128px"
-            priority
-            style={{ objectPosition: '50% 30%' }} 
-          />
-          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+const TeamMemberCard = ({ member }) => {
+  const bgColor = getColorFromName(member.name);
+  const colorName = bgColor.split('-')[1];
+  
+  return (
+    <div className="group h-[280px]">
+      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-lg h-full flex flex-col transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-gray-800">
+        {/* Human silhouette background */}
+        <div className={`absolute top-0 right-0 opacity-5 text-${colorName}-900 dark:text-${colorName}-200 transform translate-x-1/4 -translate-y-1/4`}>
+          <FaUserTie className="w-48 h-48" />
         </div>
         
-        {/* Social Links - Always visible */}
-        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex justify-center w-full">
-          {member?.social && Object.entries(member.social).map(([platform, link]) => (
-            <motion.a
-              key={platform}
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center
-                       text-gray-900 hover:bg-primary hover:text-white transition-colors duration-200"
-            >
-              {platform === 'linkedin' && <FaLinkedinIn className="w-4 h-4" />}
-              {platform === 'twitter' && <FaTwitter className="w-4 h-4" />}
-              {platform === 'email' && <FaEnvelope className="w-4 h-4" />}
-            </motion.a>
-          ))}
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6 pt-[7rem] text-center flex-1 flex flex-col justify-between">
-        <div>
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-            {member.name}
-          </h3>
-          <p className="text-primary font-medium mb-3">
-            {member.role}
-          </p>
-          <p className="text-gray-600 dark:text-neutral-300 text-sm line-clamp-4">
-            {member.bio}
-          </p>
-        </div>
-        <div className="h-8">
-          {/* Can add additional content here if needed */}
+        {/* Decorative top bar with gradient */}
+        {/* <div className={`relative h-16 w-full bg-gradient-to-r from-${colorName}-600 to-${colorName}-400 flex items-center justify-center`}>
+          <div className="h-px w-16 bg-white opacity-30"></div>
+        </div> */}
+        
+        {/* Content */}
+        <div className="relative p-6 text-center flex-1 flex flex-col justify-between z-10">
+          <div>
+            <div className="mb-4 flex justify-center">
+              <div className={`w-16 h-16 rounded-full ${bgColor} flex items-center justify-center shadow-md`}>
+                <FaUserAlt className="w-8 h-8 text-white" />
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              {member.name}
+            </h3>
+            {member.role && (
+              <p className={`font-medium mb-3 text-${colorName}-600 dark:text-${colorName}-400`}>
+                {member.role}
+              </p>
+            )}
+            <p className="text-gray-600 dark:text-neutral-300 text-sm line-clamp-3">
+              {member.bio}
+            </p>
+          </div>
+          
+          {/* Decorative element */}
+          <div className="mt-4 flex justify-center">
+            <div className={`w-12 h-1 rounded-full bg-${colorName}-500 opacity-70`}></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const TeamGrid = ({ teamData }) => {
   return (
@@ -177,22 +182,24 @@ const Team = () => {
   return (
     <section id='team' className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             הצוות שלנו
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300">
             צוות העמותה והתכנית
           </p>
+          <div className="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
         <TeamGrid teamData={team1} />
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="text-center mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+        <div className="text-center mb-12">
           <p className="text-xl text-gray-600 dark:text-gray-300">
             צוות ההיגוי
           </p>
+          <div className="w-16 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
         <TeamGrid teamData={team2} />
