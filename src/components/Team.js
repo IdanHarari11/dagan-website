@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FaLinkedinIn, FaTwitter, FaEnvelope, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { useRef, useState } from 'react';
+import { FaLinkedinIn, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
 const team1 = [
   {
@@ -95,104 +94,6 @@ const team2 = [
   },
 ];
 
-const TeamSlider = ({ teamData }) => {
-  const scrollContainerRef = useRef(null);
-  const [showLeftArrow, setShowLeftArrow] = useState(true);
-  const [showRightArrow, setShowRightArrow] = useState(false);
-
-  const handleScroll = (e) => {
-    const container = e.target;
-    setShowRightArrow(Math.abs(container.scrollLeft) > 0);
-    setShowLeftArrow(
-      Math.abs(container.scrollLeft) < Math.abs(container.scrollWidth) - Math.abs(container.clientWidth) - 10
-    );
-  };
-
-  const scroll = (direction) => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      const scrollAmount = direction === 'left' ? -320 : 320;
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
-  return (
-    <div className="relative">
-      {showLeftArrow && (
-        <button
-          onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
-                   bg-white/80 rounded-full shadow-lg flex items-center justify-center
-                   text-gray-800 hover:bg-white transition-colors duration-200
-                   -translate-x-5 lg:-translate-x-8"
-        >
-          <FaChevronLeft className="w-4 h-4" />
-        </button>
-      )}
-
-      {showRightArrow && (
-        <button
-          onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
-                   bg-white/80 rounded-full shadow-lg flex items-center justify-center
-                   text-gray-800 hover:bg-white transition-colors duration-200
-                   translate-x-5 lg:translate-x-8"
-        >
-          <FaChevronRight className="w-4 h-4" />
-        </button>
-      )}
-
-      <div
-        ref={scrollContainerRef}
-        onScroll={handleScroll}
-        className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 -mx-4 px-4
-                 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-      >
-        {teamData.map((member, index) => (
-          <motion.div
-            key={member.name}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="flex-shrink-0 w-[280px] md:w-[320px] h-full snap-center"
-          >
-            <TeamMemberCard member={member} />
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Team = () => {
-  return (
-    <section id='team' className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            הצוות שלנו
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            צוות העמותה והתכנית
-          </p>
-        </div>
-
-        <TeamSlider teamData={team1} />
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-        <div className="text-center mb-8">
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            צוות ההיגוי
-          </p>
-        </div>
-
-        <TeamSlider teamData={team2} />
-      </div>
-    </section>
-  );
-};
-
 // Extracted TeamMemberCard component for reusability
 const TeamMemberCard = ({ member }) => (
   <div className="group h-[320px]">
@@ -253,5 +154,51 @@ const TeamMemberCard = ({ member }) => (
     </div>
   </div>
 );
+
+const TeamGrid = ({ teamData }) => {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {teamData.map((member, index) => (
+        <motion.div
+          key={member.name}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+        >
+          <TeamMemberCard member={member} />
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+const Team = () => {
+  return (
+    <section id='team' className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            הצוות שלנו
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            צוות העמותה והתכנית
+          </p>
+        </div>
+
+        <TeamGrid teamData={team1} />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div className="text-center mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            צוות ההיגוי
+          </p>
+        </div>
+
+        <TeamGrid teamData={team2} />
+      </div>
+    </section>
+  );
+};
 
 export default Team; 
