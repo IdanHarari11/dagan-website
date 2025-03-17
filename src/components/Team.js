@@ -97,9 +97,7 @@ const getInitials = (name) => {
 // Generate a consistent color based on name
 const getColorFromName = (name) => {
   const colors = [
-    'bg-blue-500', 'bg-green-500', 'bg-purple-500', 
-    'bg-pink-500', 'bg-indigo-500', 'bg-teal-500',
-    'bg-orange-500', 'bg-red-500', 'bg-amber-500'
+    'bg-blue-500'
   ];
   
   // Simple hash function to get consistent color
@@ -119,10 +117,8 @@ const TeamMemberCard = ({ member }) => {
   return (
     <div className="group h-[280px]">
       <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-lg h-full flex flex-col transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-gray-800">
-        {/* Human silhouette background */}
-        <div className={`absolute top-0 right-0 opacity-5 text-${colorName}-900 dark:text-${colorName}-200 transform translate-x-1/4 -translate-y-1/4`}>
-          <FaUserTie className="w-48 h-48" />
-        </div>
+        {/* Smooth blue gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-blue-600/5 dark:from-blue-500/10 dark:to-blue-800/5 rounded-2xl"></div>
         
         {/* Decorative top bar with gradient */}
         {/* <div className={`relative h-16 w-full bg-gradient-to-r from-${colorName}-600 to-${colorName}-400 flex items-center justify-center`}>
@@ -141,11 +137,11 @@ const TeamMemberCard = ({ member }) => {
               {member.name}
             </h3>
             {member.role && (
-              <p className={`font-medium mb-3 text-${colorName}-600 dark:text-${colorName}-400`}>
+              <p className={`font-medium mb-3 text-${colorName}-600 dark:text-${colorName}-400 mt-4`}>
                 {member.role}
               </p>
             )}
-            <p className="text-gray-600 dark:text-neutral-300 text-sm line-clamp-3">
+            <p className="text-gray-600 dark:text-neutral-300 text-sm line-clamp-3 mt-8">
               {member.bio}
             </p>
           </div>
