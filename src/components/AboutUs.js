@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { FaMedal, FaHandshake, FaUsers, FaLandmark } from 'react-icons/fa';
+import { FaMedal, FaHandshake, FaLightbulb } from 'react-icons/fa';
+import { RiMindMap, RiUserStarFill } from 'react-icons/ri';
 
 const AboutUs = () => {
   const fadeIn = {
@@ -60,7 +61,7 @@ const AboutUs = () => {
             className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 transform transition-all hover:scale-105 hover:shadow-xl"
           >
             <div className="flex justify-center mb-4">
-              <FaLandmark className="text-5xl text-blue-500 dark:text-blue-400" />
+              <RiUserStarFill className="text-5xl text-blue-500 dark:text-blue-400" />
             </div>
             <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 text-center">דמות מעוררת השראה</h3>
             <p className="text-gray-600 dark:text-gray-300 text-center">
@@ -91,11 +92,11 @@ const AboutUs = () => {
           className="bg-blue-600 dark:bg-blue-700 rounded-2xl p-8 text-white shadow-xl max-w-4xl mx-auto"
         >
           <div className="flex justify-center mb-6">
-            <FaUsers className="text-5xl text-white opacity-80" />
+            <FaLightbulb className="text-5xl text-white opacity-80" />
           </div>
           <h3 className="text-2xl font-bold mb-4 text-center">החזון שלנו</h3>
           <p className="text-lg text-center leading-relaxed">
-            למען חברה ישראלית איתנה ומלוכדת יותר, אנו פועלים לחיזוק הקשרים בין כל חלקי החברה הישראלית, מתוך אמונה בערכי האחדות והערבות ההדדית שהנחו את מאיר דגן לאורך כל דרכו.
+          תכנית דגן למנהיגות מגשרת שואפת לעצב דור חדש של מנהיגים ומנהיגות, המחויבים לגשר על פערים בחברה הישראלית וליצור תרבות של סובלנות, הכלה והקשבה
           </p>
         </motion.div>
       </div>

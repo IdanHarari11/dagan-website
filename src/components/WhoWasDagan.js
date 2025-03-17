@@ -63,12 +63,12 @@ export default function WhoWasDagan() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+            <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-14">
               מי היה דגן?
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+            {/* <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
               מאיר דגן עמד בראש המוסד בין השנים  2011-2002. זכה בעיטור העוז במהלך שירותו הצבאי ועמד מאחורי פעילות מבצעית משמעותית ומגוונת כמפקד בשורות צה&#34;ל והמוסד. העמותה ע&#34;ש מאיר דגן הוקמה בדצמבר 2020 במטרה להנציח את שמו, פועלו, מורשתו וערכיו -אהבת הארץ, אהבת האדם, העם והמדינה.
-            </p>
+            </p> */}
 
             {/* Quote */}
             <motion.div
