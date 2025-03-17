@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const DaganLeadership = () => {
   const router = useRouter();
@@ -39,7 +40,7 @@ const DaganLeadership = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        תוכנית דגן למנהיגות מגשרת
+        הסיפור שלנו
       </motion.h1>
       
       <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl mb-8">
@@ -49,17 +50,24 @@ const DaganLeadership = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-3xl">
         <motion.div className="bg-blue-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg flex flex-col items-center text-center"
           whileHover={{ scale: 1.05 }}>
-          <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">האתגר החברתי</h2>
+          <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">
+            הבעיה
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 mt-3">
-            החברה הישראלית מגוונת אך שסועה. הקיטוב בין המגזרים הולך ומעמיק, ולכן דרושה יכולת לגשר על פערים עמוקים כדי לחיות יחד בהרמוניה.
+          החברה הישראלית מגוונת מאוד, אך גם שסועה והקיטוב בין המגזרים השונים הולך ומעמיק בשנים האחרונות.
+בשנת 2023 הגיע הקיטוב לשיאים חדשים, אך לצד זאת, המלחמה הוכיחה כי החברה הישראלית איתנה, נכונה
+להקרבה ומגלה ערבות הדדית. עם זאת, שימור האחדות הזו מציב אתגרים משמעותיים ומחייב יכולת לגשר על
+פערים עמוקים.
           </p>
         </motion.div>
         
         <motion.div className="bg-blue-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg flex flex-col items-center text-center"
           whileHover={{ scale: 1.05 }}>
-          <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">ייחודיות התוכנית</h2>
+          <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">הפתרון</h2>
           <p className="text-gray-600 dark:text-gray-400 mt-3">
-            התוכנית מפגישה מנהיגים מכל המגזרים ליצירת שיח משמעותי, חיבורים אישיים ושיתופי פעולה המעודדים דיאלוג, סובלנות ושיתוף פעולה.
+          תוכנית דגן למנהיגות מגשרת מתמקדת בפיתוח מנהיגות שתסייע לגשר על הפערים הללו ולהוביל לחברה מאוחדת
+          ומכילה יותר. השלב הראשון בבניית הגשר הזה הוא יצירת היכרות ושיתופי פעולה בין מנהיגים מקרב המגזרים
+השונים בחברה הישראלית, תוך חיזוק הפסיפס החברתי והלאומי של מדינת ישראל.
           </p>
         </motion.div>
       </div>
@@ -67,24 +75,32 @@ const DaganLeadership = () => {
       <motion.div 
         className="w-full max-w-3xl mt-12 p-8 bg-blue-50 dark:bg-gray-800 rounded-xl text-center shadow-lg"
         whileHover={{ scale: 1.02 }}>
-        <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">השפעה ארוכת טווח</h2>
+        <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">מנהיגות מגשרת לחיזור האמון העסקי</h2>
         <p className="text-gray-700 dark:text-gray-300 mt-3">
-          פלטפורמה דינמית ומתמשכת המספקת כלים לגישור על פערים ומובילה להשפעה אמיתית על החברה הישראלית.
+        <Link className="text-blue-600 dark:text-blue-400 underline" href="https://www.edelman.com/trust/2023/trust-barometer" target="_blank">ברומטר האמון של חברת המחקר אדלמן</Link>, חושף קיטוב חברתי גובר אך מצביע על מגמה ברורה: ארגונים עסקיים
+זוכים לאמון הציבור יותר ממוסדות הממשלה ומרשתות התקשורת
+61% מהציבור רואה את הארגונים עסקיים כמוסד הציבורי האמין ביותר.
+70% מהציבור מצפים מחברות להוביל שינוי חברתי ולסייע בצמצום פערים חברתיים.
+74% מהציבור מאמינים שמנכ&quot;לים צריכים להוביל שינוי חברתי.
+תכנית דגן מסייעת לארגונים לפתח מנהיגות אחראית המחזקת אמון, שיתוף פעולה והשפעה חיובית על הארגון
+והחברה כולה.
         </p>
       </motion.div>
       
       <div className="w-full max-w-3xl mt-12">
-        <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 text-center mb-6">תוכן התוכנית</h2>
+        <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 text-center mb-6">ייחודיות התכנית</h2>
         <motion.div className="flex flex-wrap justify-center gap-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}>
           {[
-            "סדנאות והרצאות",
-            "ימי שטח וסיורים", 
-            "מפגשים עם בכירים", 
-            "ליווי אישי למיזמים חברתיים",
-            "היכרות עם מומחים ודמויות מפתח",
+            "שיטת לימוד ייחודית הכוללת מפגשים חוויתיים, סדנאות מעשיות ומפגשים עם מובילי דעה",
+            "תוכן המבוסס על ידע מעשי שפותח על ידי בכירים במוסד בשילוב כלי למידה חדשניים",
+            "פיתוח מנהלים בעלי יכולת לגשר בין אנשים מרקעים ואידיאולוגיות שונות",
+            "חניכה וליווי מקצועי על ידי מנטורים בכירים מתחומים שונים",
+            "מיזמים חברתיים משותפים ליצירת שינוי והשפעה",
+            "למידה אינטימית בקבוצות קטנות לבניית חיבור עמוק ומשמעותי",
+            "מפגשים מרוכזים בני כמה ימים בסביבה מנותקת",
           ].map((item, index) => (
             <motion.span key={index} className="bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 px-6 py-3 rounded-full text-md font-medium shadow-sm"
               whileHover={{ scale: 1.1 }}>

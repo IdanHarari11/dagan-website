@@ -10,8 +10,20 @@ export default function CallToAction() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    // Create email subject and body from form data
+    const subject = `פנייה חדשה מאת ${formData.name}`;
+    const body = `שם: ${formData.name}
+דוא"ל: ${formData.email}
+
+הודעה:
+${formData.message}`;
+
+    // Create mailto URL with encoded parameters
+    const mailtoUrl = `mailto:daganleadership@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Navigate to the email client
+    window.location.href = mailtoUrl;
   };
 
   const handleChange = (e) => {

@@ -19,7 +19,7 @@ const team1 = [
   },
   {
     name: 'אשל ארמוני',
-    role: 'יו"ר צוות ההגוי לתוכנית ',
+    role: 'יו"ר צוות ההגוי לתכנית ',
     image: 'https://www.lse.ac.uk/Mathematics/assets/images/ProfilePhotos/Ahmad-Abdi-200x200.jpg',
     bio: 'לשעבר ראש אגף במוסד, מנכ"ל משרד השיכון, יו"ר נמל חיפה',
     // social: {
@@ -41,7 +41,7 @@ const team1 = [
   },
   {
     name: 'עודד ברנדה',
-    role: 'מנהל ומנחה התוכנית',
+    role: 'מנהל ומנחה התכנית',
     image: 'https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg',
     bio: 'לשעבר קצין בצה"ל ובמוסד והיום מטפל חברתי ומנחה קבוצות',
     // social: {
@@ -177,14 +177,14 @@ const TeamSlider = ({ teamData }) => {
 
 const Team = () => {
   return (
-    <section id='team' className="py-20 bg-gray-50/50 dark:bg-gray-800">
+    <section id='team' className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            הכירו את הצוות שלנו
+            הצוות שלנו
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            אנשי המקצוע שמובילים את התוכנית
+            צוות העמותה והתכנית
           </p>
         </div>
 

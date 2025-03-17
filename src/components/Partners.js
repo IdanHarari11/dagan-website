@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
-import { motion, useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
 import SectionTitle from './SectionTitle';
 
@@ -138,26 +136,17 @@ const partners = [
     name: 'בנק הפועלים',
     logo: '/images/partners/בנק הפועלים.png',
   },
+  {
+    name: 'בנק לאומי',
+    logo: '/images/partners/leumi.png',
+  },
+  {
+    name: 'משרד הביטחון',
+    logo: '/images/partners/Misrad_habitahon.png',
+  },
 ];
 
 const Partners = () => {
-  const controls = useAnimationControls();
-
-  useEffect(() => {
-    const startAnimation = async () => {
-      await controls.start({
-        x: [0, -1000],
-        transition: {
-          duration: 30,
-          ease: "linear",
-          repeat: Infinity,
-        },
-      });
-    };
-
-    startAnimation();
-  }, [controls]);
-
   return (
     <section dir='ltr' className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,52 +155,25 @@ const Partners = () => {
           subtitle="שיתופי פעולה"
           sectionId="partners"
         />
-        <div className="mt-8 relative">
-          <div className="overflow-hidden">
-            <motion.div
-              animate={controls}
-              className="flex space-x-8 w-fit"
-            >
-              {/* First set of partners */}
-              {partners.map((partner, index) => (
-                <motion.div
-                  key={`${partner.name}-1`}
-                  className="flex-shrink-0"
-                >
-                  <div className="relative w-32 h-12">
-                    <Image
-                      src={partner.logo}
-                      alt={partner.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {partners.map((partner, index) => (
-                <motion.div
-                  key={`${partner.name}-2`}
-                  className="flex-shrink-0"
-                >
-                  <div className="relative w-32 h-12">
-                    <Image
-                      src={partner.logo}
-                      alt={partner.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+        <div className="mt-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+            {partners.map((partner, index) => (
+              <div 
+                key={`${partner.name}-${index}`}
+                className="flex justify-center items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <div className="relative w-full h-20">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-contain transition-all duration-300"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-
-          {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50/50 to-transparent pointer-events-none roun" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50/50 to-transparent pointer-events-none" />
         </div>
       </div>
     </section>

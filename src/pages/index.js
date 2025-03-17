@@ -13,6 +13,7 @@ import RoadmapSection from '@/components/RoadmapSection';
 import AboutProgram from '@/components/AboutProgram';
 import AboutUs from '@/components/AboutUs';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
+import CallToJoin from '@/components/CallToJoin';
 
 export default function Home() {
   useEffect(() => {
@@ -28,11 +29,9 @@ export default function Home() {
       <Suspense fallback={<div>Loading...</div>}>
         <Hero />
         <AboutProgram />
-        <AboutUs />
-        <WhoWasDagan />
         <RoadmapSection />
         <YouTubeEmbed videoUrl={'https://www.youtube.com/embed/-25BpVKGQU0'} />
-        <Projects />
+        <CallToJoin />
         <CallToAction />
         <ScrollToTopButton />
       </Suspense>

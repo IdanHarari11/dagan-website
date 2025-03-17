@@ -25,7 +25,8 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', text: 'דף הבית' },
     { href: '/our-program', text: 'על התכנית' },
-    { href: '/our-graduates', text: 'הבוגרים שלנו' },
+    { href: '/team', text: 'צוות' },
+    { href: '/our-graduates', text: 'שותפים' },
     { href: '/projects', text: 'מיזמים חברתיים' },
   ];
 
@@ -51,7 +52,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-xl sm:text-2xl font-bold text-blue-600">
-              <Image src="/logo.png" alt="Logo" width={105} height={60} />
+              <Image src="/logo.png" alt="Logo" width={105} height={70} />
             </Link>
           </div>
 
@@ -71,13 +72,13 @@ export default function Navbar() {
               </Link>
             ))}
             <DarkModeToggle />
-            <a 
+            <Link 
               href="/#contact" 
               onClick={handleContactClick}
               className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors cursor-pointer"
             >
               צור קשר
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -112,7 +113,7 @@ export default function Navbar() {
         <div className="p-4 bg-gray-50 dark:bg-gray-800 bg-opacity-90">
           <div className="flex justify-between items-center mb-8">
             <Link href="/" className="text-xl font-bold text-blue-600">
-              תוכנית דגן
+              תכנית דגן
             </Link>
             <button
               onClick={() => setIsMenuOpen(false)}
@@ -142,13 +143,13 @@ export default function Navbar() {
               <span className="text-gray-700 dark:text-gray-300">מצב תצוגה</span>
               <DarkModeToggle />
             </div>
-            <a 
+            <Link 
               href="/#contact"
               onClick={handleContactClick}
               className="block w-full mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors cursor-pointer text-center"
             >
               צור קשר
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -43,7 +43,7 @@ export default function AdmissionCriteriaSection() {
             קריטריונים לקבלה
           </h2>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
-            הבינו את הדרישות להצטרפות לתוכנית שלנו.
+            הבינו את הדרישות להצטרפות לתכנית שלנו.
           </p>
         </div>
 
