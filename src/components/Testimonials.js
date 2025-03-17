@@ -239,8 +239,13 @@ const TestimonialCard = ({ testimonial, onReadMore }) => (
         {/* Button Container - Positioned at bottom center */}
         <div className="mt-auto flex justify-center">
           <button 
-            onClick={onReadMore}
-            className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onReadMore();
+            }}
+            className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-300 px-6 py-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 border border-blue-200 dark:border-blue-800 hover:shadow-md"
+            aria-label="קרא עוד"
           >
             קרא עוד &larr;
           </button>

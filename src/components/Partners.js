@@ -160,7 +160,7 @@ const Partners = () => {
             {partners.map((partner, index) => (
               <div 
                 key={`${partner.name}-${index}`}
-                className="flex justify-center items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="flex justify-center items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:shadow-md transition-shadow duration-300"
               >
                 <div className="relative w-full h-20">
                   <Image
