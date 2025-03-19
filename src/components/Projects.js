@@ -66,46 +66,46 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="relative w-full overflow-x-auto pb-6 scrollbar-hide">
-          <div className="flex space-x-6 rtl:space-x-reverse">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-                className="flex-shrink-0 w-80 bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300 width-[19rem]"
+              className="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <div className="relative h-48">
+              <div className="relative h-48 w-full">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
+                  onError={(e) => {
+                    e.target.src = '/images/fallback-project.jpg';
+                  }}
+                  priority={index < 2}
                 />
-                {/* <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
-                  {project.category}
-                </div> */}
               </div>
-              <div className="p-6 flex flex-col h-[14rem]">
+              <div className="p-6">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                   {project.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
-                <div className="mt-auto flex justify-end">
+                <div className="flex justify-end">
                   <button 
                     onClick={() => openModal(project)}
                     className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                   >
-                  קרא עוד &larr;
+                    קרא עוד &larr;
                   </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
       </div>
 
       {selectedProject && (
@@ -120,7 +120,12 @@ export default function Projects() {
                 src={selectedProject.image}
                 alt={selectedProject.title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover rounded-lg"
+                onError={(e) => {
+                  e.target.src = '/images/fallback-project.jpg';
+                }}
+                priority
               />
               <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
                 {selectedProject.category}
