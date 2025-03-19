@@ -8,10 +8,6 @@ import Head from 'next/head';
 const TeamPage = () => {
   return (
     <>
-      <Head>
-        <title>הצוות שלנו | עמותת מאיר דגן</title>
-        <meta name="description" content="הכירו את הצוות של עמותת מאיר דגן ואת מורשתו של מאיר דגן" />
-      </Head>
       {/* Continuous gradient background with more subtle transition */}
       <div className="pt-16 bg-gradient-to-b from-gray-50 via-gray-50 to-white dark:from-gray-800 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
         {/* AboutUs section with transparent background */}
