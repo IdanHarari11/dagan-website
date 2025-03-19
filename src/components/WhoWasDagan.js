@@ -31,7 +31,7 @@ export default function WhoWasDagan() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {/* Transparent container with subtle shadow */}
-            <div className="relative h-[500px] w-full">
+            <div className="relative h-[350px] w-full">
               {/* Image with transparent background */}
               <Image
                 src="/images/dagan/dagan1.png"
