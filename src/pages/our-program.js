@@ -137,16 +137,22 @@ export default function OurProgramPage() {
         </div>
 
         <div className="flex justify-center my-12">
-          <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-            <Image 
-              src={'/images/all/all.jpeg'} 
-              alt="תוכנית דגן למנהיגות מגשרת"
-              width={1200}
-              height={750}
-              className="w-full h-auto object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          <div className="w-full max-w-4xl mx-auto">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+              <Image 
+                src={'/images/all/all.jpeg'} 
+                alt="מחזור ג' בעת סיור בעיריית ירושלים ואירוח של ראש עיריית ירושלים מר משה ליאון"
+                width={1200}
+                height={750}
+                className="w-full h-auto object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+            <div className="mt-4 text-center text-gray-700 dark:text-gray-300 text-lg" dir="rtl">
+              <p>{`מחזור ג' בעת סיור בעיריית ירושלים ואירוח של ראש עיריית ירושלים מר משה ליאון`}</p>
+              <p className="text-gray-600 dark:text-gray-400">5 לספטמבר 2024</p>
+            </div>
           </div>
         </div>
 
