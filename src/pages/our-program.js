@@ -182,7 +182,7 @@ export default function OurProgramPage() {
           onClose={handleCloseModal}
           title={goals[selectedGoalIndex]?.title || ''}
         >
-          <div className="whitespace-pre-line text-gray-700 dark:text-gray-300 text-right" dir="rtl">
+          <div className="whitespace-pre-line text-gray-700 dark:text-gray-300 text-center" dir="rtl">
             {goals[selectedGoalIndex]?.description || ''}
           </div>
         </Modal>
