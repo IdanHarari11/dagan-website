@@ -16,6 +16,11 @@ export default function Document() {
         <meta name="twitter:title" content="תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר" />
         <meta name="twitter:description" content="תכנית מנהיגות ייחודית המחברת בין עולמות ומפתחת מנהיגים צעירים למען עתיד טוב יותר" />
         <meta name="twitter:image" content="/images/dagan.jpg" />
+        <meta property="og:site_name" content="תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר"/>
+        <meta property="og:locale" content="he_IL" />
+        <title>תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר</title>
+        <meta name="description" content="תכנית מנהיגות ייחודית המחברת בין עולמות ומפתחת מנהיגים צעירים למען עתיד טוב יותר" />
+        <meta name="keywords" content="מנהיגות, תכנית דגן, עתיד טוב יותר, מנהיגים צעירים" />
       </Head>
       <body>
         <Main />
