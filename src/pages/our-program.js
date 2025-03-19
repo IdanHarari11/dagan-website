@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Team from '@/components/Team';
 import Modal from '@/components/Modal';
+import Image from 'next/image';
 
 const goals = [
   {
@@ -132,6 +133,20 @@ export default function OurProgramPage() {
             <div className="flex justify-center mt-8">
               <div className="h-1 w-24 bg-gradient-to-r from-blue-300 to-blue-600 dark:from-blue-500 dark:to-blue-300 rounded-full"></div>
             </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center my-12">
+          <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+            <Image 
+              src={'/images/all/all.jpeg'} 
+              alt="תוכנית דגן למנהיגות מגשרת"
+              width={1200}
+              height={750}
+              className="w-full h-auto object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>
         </div>
 
