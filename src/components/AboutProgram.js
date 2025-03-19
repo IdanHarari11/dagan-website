@@ -20,7 +20,7 @@ const DaganLeadership = () => {
     },
     {
       title: "תוכן מעשי",
-      description: "ידע מעשי שפותח על ידי בכירים במוסד בשילוב כלי למידה חדשניים",
+      description: "ידע מעשי שפותח על ידי בכירים במערכות בטחוניות בשילוב כלי למידה חדשניים",
       features: [
         "פיתוח כלים מעשיים",
         "שילוב טכנולוגיות חדשניות",
@@ -64,7 +64,7 @@ const DaganLeadership = () => {
       title: "למידה אינטימית",
       description: "למידה בקבוצות קטנות לבניית חיבור עמוק ומשמעותי",
       height: "row-span-1",
-      color: "bg-blue-100/80 dark:bg-blue-900/30",
+      color: "bg-blue-50/80 dark:bg-blue-900/20",
       iconColor: "text-blue-500",
       icon: FaUsers
     },
@@ -72,7 +72,7 @@ const DaganLeadership = () => {
       title: "מפגשים מרוכזים",
       description: "מפגשים מרוכזים בני כמה ימים בסביבה מנותקת ללמידה מעמיקה",
       height: "row-span-1",
-      color: "bg-blue-50/80 dark:bg-blue-900/20",
+      color: "bg-blue-100/80 dark:bg-blue-900/30",
       iconColor: "text-blue-500",
       icon: FaCalendarCheck
     }
