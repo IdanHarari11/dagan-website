@@ -2,10 +2,81 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { BsStars } from "react-icons/bs";
+import { FaUsers, FaLightbulb, FaHandshake, FaUserGraduate, FaHeart, FaCheck, FaCalendarCheck } from "react-icons/fa";
 
 const DaganLeadership = () => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(true);
+
+  const cards = [
+    {
+      title: "שיטת לימוד ייחודית",
+      description: "מפגשים חוויתיים, סדנאות מעשיות ומפגשים עם מובילי דעה",
+      height: "row-span-1",
+      color: "bg-blue-50/80 dark:bg-blue-900/20",
+      iconColor: "text-blue-500",
+      icon: FaUsers
+    },
+    {
+      title: "תוכן מעשי",
+      description: "ידע מעשי שפותח על ידי בכירים במוסד בשילוב כלי למידה חדשניים",
+      features: [
+        "פיתוח כלים מעשיים",
+        "שילוב טכנולוגיות חדשניות",
+        "למידה מבוססת ניסיון"
+      ],
+      height: "row-span-2",
+      color: "bg-blue-100/80 dark:bg-blue-900/30",
+      iconColor: "text-blue-500",
+      icon: FaLightbulb
+    },
+    {
+      title: "פיתוח מנהיגות",
+      description: "פיתוח מנהלים בעלי יכולת לגשר בין אנשים מרקעים ואידיאולוגיות שונות",
+      height: "row-span-1",
+      color: "bg-blue-50/80 dark:bg-blue-900/20",
+      iconColor: "text-blue-500",
+      icon: FaHandshake
+    },
+    {
+      title: "חניכה וליווי",
+      description: "חניכה וליווי מקצועי על ידי מנטורים בכירים מתחומים שונים",
+      features: [
+        "ליווי אישי",
+        "משוב מתמיד",
+        "הכוונה מקצועית"
+      ],
+      height: "row-span-2",
+      color: "bg-blue-100/80 dark:bg-blue-900/30",
+      iconColor: "text-blue-500",
+      icon: FaUserGraduate
+    },
+    {
+      title: "מיזמים חברתיים",
+      description: "מיזמים חברתיים משותפים ליצירת שינוי והשפעה",
+      height: "row-span-1",
+      color: "bg-blue-50/80 dark:bg-blue-900/20",
+      iconColor: "text-blue-500",
+      icon: FaHeart
+    },
+    {
+      title: "למידה אינטימית",
+      description: "למידה בקבוצות קטנות לבניית חיבור עמוק ומשמעותי",
+      height: "row-span-1",
+      color: "bg-blue-100/80 dark:bg-blue-900/30",
+      iconColor: "text-blue-500",
+      icon: FaUsers
+    },
+    {
+      title: "מפגשים מרוכזים",
+      description: "מפגשים מרוכזים בני כמה ימים בסביבה מנותקת ללמידה מעמיקה",
+      height: "row-span-1",
+      color: "bg-blue-50/80 dark:bg-blue-900/20",
+      iconColor: "text-blue-500",
+      icon: FaCalendarCheck
+    }
+  ];
   
   useEffect(() => {
     // Hide this component on mobile when on the /our-program page
@@ -87,27 +158,76 @@ const DaganLeadership = () => {
         </p>
       </motion.div>
       
-      <div className="w-full max-w-3xl mt-12">
-        <h2 className="text-3xl font-semibold text-blue-600 dark:text-blue-400 text-center mb-6">ייחודיות התכנית</h2>
-        <motion.div className="flex flex-wrap justify-center gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}>
-          {[
-            "שיטת לימוד ייחודית הכוללת מפגשים חוויתיים, סדנאות מעשיות ומפגשים עם מובילי דעה",
-            "תוכן המבוסס על ידע מעשי שפותח על ידי בכירים במוסד בשילוב כלי למידה חדשניים",
-            "פיתוח מנהלים בעלי יכולת לגשר בין אנשים מרקעים ואידיאולוגיות שונות",
-            "חניכה וליווי מקצועי על ידי מנטורים בכירים מתחומים שונים",
-            "מיזמים חברתיים משותפים ליצירת שינוי והשפעה",
-            "למידה אינטימית בקבוצות קטנות לבניית חיבור עמוק ומשמעותי",
-            "מפגשים מרוכזים בני כמה ימים בסביבה מנותקת",
-          ].map((item, index) => (
-            <motion.span key={index} className="bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 px-6 py-3 rounded-full text-md font-medium shadow-sm"
-              whileHover={{ scale: 1.1 }}>
-              {item}
-            </motion.span>
-          ))}
+      <div className="w-full max-w-6xl mt-16 relative overflow-hidden">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-block mb-4"
+          >
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full p-3 shadow-[5px_5px_15px_rgba(59,130,246,0.1),-5px_-5px_15px_rgba(255,255,255,0.8)] dark:shadow-[5px_5px_15px_rgba(0,0,0,0.2),-5px_-5px_15px_rgba(45,45,45,0.8)] inline-flex items-center justify-center">
+              <div className="bg-blue-50/80 dark:bg-blue-900/30 backdrop-blur-sm rounded-full p-2 shadow-[inset_2px_2px_5px_rgba(59,130,246,0.1),inset_-2px_-2px_5px_rgba(255,255,255,0.8)] dark:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.2),inset_-2px_-2px_5px_rgba(45,45,45,0.8)]">
+                <BsStars className="text-blue-500 text-2xl" />
+              </div>
+            </div>
+          </motion.div>
+          
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100 tracking-tight">
+            ייחודיות <span className="text-blue-600 dark:text-blue-400">התכנית</span>
+          </h2>
         </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-4 pr-4">
+          {cards.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                y: -5,
+                boxShadow: "10px 10px 20px rgba(59,130,246,0.1), -10px -10px 20px rgba(255,255,255,0.8)",
+                transition: { duration: 0.3 }
+              }}
+              className={`${item.height} ${item.color} backdrop-blur-sm rounded-2xl p-5 
+                         shadow-[8px_8px_16px_rgba(59,130,246,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)] dark:shadow-[8px_8px_16px_rgba(0,0,0,0.2),-8px_-8px_16px_rgba(45,45,45,0.8)] transition-all duration-300
+                         flex flex-col ${item.height === 'row-span-1' ? 'justify-start' : 'justify-between'}`}
+            >
+              <div className={`flex flex-col ${item.height === 'row-span-1' ? 'h-auto' : 'h-full'}`}>
+                <div className="w-12 h-12 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm flex items-center justify-center shadow-[inset_3px_3px_6px_rgba(59,130,246,0.1),inset_-3px_-3px_6px_rgba(255,255,255,0.8)] dark:shadow-[inset_3px_3px_6px_rgba(0,0,0,0.2),inset_-3px_-3px_6px_rgba(45,45,45,0.8)] mb-4">
+                  <item.icon className={`w-6 h-6 ${item.iconColor}`} />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                  {item.title}
+                </h3>
+                <p className={`text-sm text-gray-600 dark:text-gray-300 ${item.features ? 'mb-2' : 'mb-auto'}`}>
+                  {item.description}
+                </p>
+                {item.features && (
+                  <ul className="space-y-2 mt-auto">
+                    {item.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                        <span className={`${item.iconColor} ml-2 flex-shrink-0`}>
+                          <FaCheck className="w-3 h-3" />
+                        </span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
