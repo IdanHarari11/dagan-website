@@ -178,10 +178,10 @@ export default function Testimonials({ title }) {
               </div>
             </div>
             <div className="mb-4">
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-2 text-center">
                 {selectedTestimonial.cycle}
               </p>
-              <p className="text-blue-600 dark:text-blue-400 font-semibold mb-3">
+              <p className="text-blue-600 dark:text-blue-400 font-semibold mb-3 text-center">
                 {selectedTestimonial.role}
               </p>
             </div>
