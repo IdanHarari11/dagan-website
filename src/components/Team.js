@@ -182,7 +182,7 @@ const Team = () => {
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             הצוות שלנו
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className="text-xl text-blue-600 dark:text-gray-300">
             צוות העמותה והתכנית
           </p>
           <div className="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
@@ -192,7 +192,7 @@ const Team = () => {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
         <div className="text-center mb-12">
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className="text-xl text-blue-600 dark:text-gray-300">
             צוות ההיגוי
           </p>
           <div className="w-16 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>

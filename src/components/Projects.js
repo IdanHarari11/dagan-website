@@ -131,7 +131,7 @@ export default function Projects() {
                 {selectedProject.category}
               </div>
             </div>
-            <div className="whitespace-pre-line text-gray-700 dark:text-gray-300">
+            <div className="whitespace-pre-line text-gray-700 dark:text-gray-300 text-center">
               {selectedProject.fullDescription}
             </div>
           </div>
