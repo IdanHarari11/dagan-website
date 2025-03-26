@@ -62,7 +62,7 @@ export default function Projects() {
             מיזמים חברתיים
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            יוזמות חברתיות שהובילו בוגרי התכנית
+            יוזמות חברתיות שהובילו בוגרי ובוגרות התכנית          
           </p>
         </div>
 

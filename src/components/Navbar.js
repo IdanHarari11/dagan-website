@@ -27,8 +27,8 @@ export default function Navbar() {
     { href: '/our-program', text: 'על התכנית' },
     { href: '/team', text: 'צוות' },
     { href: '/projects', text: 'מיזמים חברתיים' },
-    { href: '/testimonials', text: 'עדויות משתתפים' },
-    { href: '/our-graduates', text: 'שותפים' },
+    { href: '/our-graduates', text: 'עדויות משתתפים' },
+    { href: '/partners', text: 'שותפים' },
     { href: '/donations', text: 'תרומות' },
   ];
 

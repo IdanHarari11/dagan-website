@@ -4,74 +4,72 @@ import Team from '@/components/Team';
 import Modal from '@/components/Modal';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaLightbulb, FaUsers, FaSitemap, FaHandshake, FaHandHoldingHeart } from 'react-icons/fa';
 
 const goals = [
   {
     title: 'הכשרת והצמחת מנהיגים מכל הקבוצות בחברה הישראלית',
-    description: 'התכנית מיועדת להכשיר ולטפח דור חדש של מנהיגים מכל גווני החברה הישראלית, מתוך תפיסה שמנהיגות אמיתית צומחת מתוך חיבור, הבנה ויכולת להוביל שינוי. המשתתפים עוברים סדנאות למנהיגות מעשית, שבהן הם רוכשים כלים לפיתוח חשיבה אסטרטגית, תהליכי קבלת החלטות במצבי משבר והובלת תהליכים בארגונים ובקהילות מגוונות. נוסף על כך, התכנית מעניקה הכשרה ייחודית בהתמודדות עם קונפליקטים, במטרה לאפשר למנהיגים העתידיים להתמודד עם האתגרים הרבים של החברה הישראלית בדרך של דיאלוג, הבנה ופתרונות יצירתיים.'
+    description: 'התכנית מיועדת להכשיר ולטפח דור חדש של מנהיגים מכל גווני החברה הישראלית, מתוך תפיסה שמנהיגות אמיתית צומחת מתוך חיבור, הבנה ויכולת להוביל שינוי. המשתתפים עוברים סדנאות למנהיגות מעשית, שבהן הם רוכשים כלים לפיתוח חשיבה אסטרטגית, תהליכי קבלת החלטות במצבי משבר והובלת תהליכים בארגונים ובקהילות מגוונות. נוסף על כך, התכנית מעניקה הכשרה ייחודית בהתמודדות עם קונפליקטים מורכבים, במטרה לאפשר למנהיגים העתידיים להתמודד עם האתגרים הרבים של החברה הישראלית בדרך של דיאלוג, הבנה ופתרונות יצירתיים.',
+    icon: FaUsers
   },
   {
     title: 'פיתוח והטמעת כלים לניהול ומנהיגות בגישה מערכתית',
-    description: 'כדי להתמודד עם אתגרי ההווה והעתיד, התכנית מתמקדת בפיתוח והטמעת כלים לניהול ומנהיגות בגישה מערכתית. המשתתפים לומדים לנתח מערכות מורכבות, להבין את הקשרים בין מרכיביהן, ולפתח אסטרטגיות ניהול המתחשבות במכלול הגורמים המשפיעים. הכשרה זו מאפשרת למנהיגים לפעול בצורה מושכלת ואפקטיבית בסביבות דינמיות ומשתנות. הבנת המורכבות החברתית וראייתה באופן מערכתי, מאפשר למשתתפים לזהות את הגורמים לקיטוב ולפתח פתרונות מותאמים. הכשרה זו מאפשרת למנהיגים לפעול לחיבור בין קבוצות שונות, לקדם דיאלוג בין מגזרים וליצור יוזמות המפחיתות מתחים ומקדמות סובלנות והכלה. הכלים הנרכשים בתכנית, מסייעים לפעול בצורה מושכלת ואפקטיבית בסביבות דינמיות ומשתנות.'
+    description: 'כדי להתמודד עם אתגרי ההווה והעתיד, התכנית מתמקדת בפיתוח והטמעת כלים לניהול ומנהיגות בגישה מערכתית. המשתתפים לומדים לנתח מערכות מורכבות, להבין את הקשרים בין מרכיביהן, ולפתח אסטרטגיות ניהול המתחשבות במכלול הגורמים המשפיעים. הכשרה זו מאפשרת למנהיגים לפעול בצורה מושכלת ואפקטיבית בסביבות דינמיות ומשתנות. הבנת המורכבות החברתית וראייתה באופן מערכתי, מאפשר למשתתפים לזהות את הגורמים לקיטוב ולפתח פתרונות מותאמים. הכשרה זו מאפשרת למנהיגים לפעול לחיבור בין קבוצות שונות, לקדם דיאלוג בין מגזרים וליצור יוזמות המפחיתות מתחים ומקדמות סובלנות והכלה. הכלים הנרכשים בתכנית, מסייעים לפעול בצורה מושכלת ואפקטיבית בסביבות דינמיות ומשתנות.',
+    icon: FaSitemap
   },
   {
     title: 'העמקת ההבנה ופיתוח דרכי פעולה להתמודדות עם הפילוג בחברה הישראלית',
-    description: 'החברה הישראלית ניצבת בפני קיטוב הולך וגובר, שההתמודדות עמו מחייבת כלים מעשיים של גישור, הידברות ויצירת שיח בונה. במסגרת התכנית, המשתתפים נחשפים למגוון רחב של נקודות מבט ומעמיקים בהבנת המורכבות החברתית דרך סדנאות מעשיות בגישור, דיונים בהובלת מומחים והשתתפות במפגשים עם דמויות מפתח מכלל קצוות הקשת החברתית והאידיאולוגית. בנוסף, המשתתפים לוקחים חלק פעיל בפיתוח מיזמים חוצי מגזרים, שמטרתם להניע שינוי חברתי ולתרום ללכידות חברתית איתנה.'
+    description: 'החברה הישראלית ניצבת בפני קיטוב הולך וגובר, שההתמודדות עמו מחייבת כלים מעשיים של גישור, הידברות ויצירת שיח בונה. במסגרת התכנית, המשתתפים נחשפים למגוון רחב של נקודות מבט ומעמיקים בהבנת המורכבות החברתית דרך סדנאות מעשיות בגישור, דיונים בהובלת מומחים והשתתפות במפגשים עם דמויות מפתח מכלל קצוות הקשת החברתית והאידיאולוגית. בנוסף, המשתתפים לוקחים חלק פעיל בפיתוח מיזמים חוצי מגזרים, שמטרתם להניע שינוי חברתי ולתרום ללכידות חברתית איתנה.',
+    icon: FaHandshake
   },
   {
     title: 'יצירת רשת קשרים ושיתופי פעולה מגוונים בין מנהיגים ממגזרים שונים',
-    description: 'מנהיגות אפקטיבית מבוססת על שיתופי פעולה ורשתות קשרים שמסייעות להרחיב השפעה וליצור שינוי משמעותי. התכנית יוצרת תשתית נטוורקינג פעילה, שבה המשתתפים זוכים להיכרות מעמיקה עם אנשים מובילים בתחומם, הן מהמגזר הציבורי והן מהמגזר העסקי והחברתי. באמצעות חיבורים בין המשתתפים לבין אנשי מפתח מכלל המגזרים, נרקמות מערכות יחסים ארוכות טווח, המאפשרות שיתופי פעולה משמעותיים. עם סיום התכנית, הבוגרים מצטרפים לפורום פעיל של בוגרים, אשר מהווה פלטפורמה להמשך יצירת שיתופי פעולה והשפעה ארוכת טווח.'
+    description: 'מנהיגות אפקטיבית מבוססת על שיתופי פעולה ורשתות קשרים שמסייעות להרחיב השפעה וליצור שינוי משמעותי. התכנית יוצרת תשתית נטוורקינג פעילה, שבה המשתתפים זוכים להיכרות מעמיקה עם אנשים מובילים בתחומם, הן מהמגזר הציבורי והן מהמגזר העסקי והחברתי. באמצעות חיבורים בין המשתתפים לבין אנשי מפתח מכלל המגזרים, נרקמות מערכות יחסים ארוכות טווח, המאפשרות שיתופי פעולה משמעותיים. עם סיום התכנית, הבוגרים מצטרפים לפורום פעיל של בוגרים, אשר מהווה פלטפורמה להמשך יצירת שיתופי פעולה והשפעה ארוכת טווח.',
+    icon: FaHandshake
   },
   {
     title: 'הנבטת מיזמים חברתיים המקדמים סובלנות והכלה',
-    description: 'התכנית לא מסתפקת בהקניית ידע בלבד, אלא מעודדת את המשתתפים להתנסות במנהיגות הלכה למעשה ולהפוך את הרעיונות למציאות. כחלק מהתהליך, המשתתפים מפתחים מיזמים חברתיים חדשניים שמטרתם לקדם סובלנות, הכלה וערבות הדדית. הם זוכים לליווי אישי בפיתוח היוזמות, להנגשת משאבים שיאפשרו לממש את רעיונותיהם, ולתמיכה צמודה ממנטורים מובילים מהעולם העסקי, החברתי והציבורי. פלטפורמה זו מאפשרת למשתתפים להפוך חזון למציאות וליצור שינוי משמעותי בחברה הישראלית.'
+    description: 'התכנית לא מסתפקת בהקניית ידע בלבד, אלא מעודדת את המשתתפים להתנסות במנהיגות הלכה למעשה ולהפוך את הרעיונות למציאות. כחלק מהתהליך, המשתתפים מפתחים מיזמים חברתיים חדשניים שמטרתם לקדם סובלנות, הכלה וערבות הדדית. הם זוכים לליווי אישי בפיתוח היוזמות, להנגשת משאבים שיאפשרו לממש את רעיונותיהם, ולתמיכה צמודה ממנטורים מובילים מהעולם העסקי, החברתי והציבורי. פלטפורמה זו מאפשרת למשתתפים להפוך חזון למציאות וליצור שינוי משמעותי בחברה הישראלית.',
+    icon: FaHandHoldingHeart
   }
 ];
 
-const GoalCard = ({ title, description, index, onOpenModal }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const GoalCard = ({ title, description, index, onOpenModal, icon: Icon }) => {
   return (
     <motion.div
-      className="w-full h-full p-2"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      key={title}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
       whileHover={{ 
-        scale: 1.03,
-        boxShadow: "0 20px 25px -5px rgba(59, 130, 246, 0.3), 0 10px 10px -5px rgba(59, 130, 246, 0.2)"
+        y: -5,
+        boxShadow: "10px 10px 20px rgba(59,130,246,0.1), -10px -10px 20px rgba(255,255,255,0.8)",
+        transition: { duration: 0.3 }
       }}
-      transition={{ duration: 0.3 }}
+      className="break-inside-avoid bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-5 
+                 shadow-[8px_8px_16px_rgba(59,130,246,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)] dark:shadow-[8px_8px_16px_rgba(0,0,0,0.2),-8px_-8px_16px_rgba(45,45,45,0.8)] transition-all duration-300
+                 flex flex-col justify-start cursor-pointer"
+      onClick={() => onOpenModal(index)}
     >
-      <div className="relative h-64 rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-blue-100 dark:border-blue-900 shadow-[0_8px_16px_-6px_rgba(59,130,246,0.4)] hover:shadow-[0_20px_25px_-5px_rgba(59,130,246,0.5)] transition-all duration-300">
-        {/* Subtle gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-white dark:from-gray-800 dark:to-gray-900"></div>
-        
-        {/* Card content */}
-        <div className="relative h-full w-full flex flex-col items-center justify-between p-5 z-10">
-          {/* Title with decorative underline */}
-          <div className="text-center mb-3">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
-            <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 rounded-full mx-auto"></div>
-          </div>
-          
-          {/* Read button with improved styling */}
-          <button 
-            className="mt-auto text-white bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 dark:from-blue-500 dark:to-blue-700 dark:hover:from-blue-600 dark:hover:to-blue-800 font-medium rounded-xl px-6 py-3 text-center transition-all duration-300 w-full flex items-center justify-center shadow-[0_4px_12px_-2px_rgba(59,130,246,0.4)] hover:shadow-[0_8px_16px_-4px_rgba(59,130,246,0.5)] transform hover:-translate-y-1"
-            onClick={() => onOpenModal(index)}
-          >
-            <span>לחץ לקריאה</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5 mr-2">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </button>
+      <div className="flex flex-col h-auto">
+        <div className="w-12 h-12 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm flex items-center justify-center shadow-[inset_3px_3px_6px_rgba(59,130,246,0.1),inset_-3px_-3px_6px_rgba(255,255,255,0.8)] dark:shadow-[inset_3px_3px_6px_rgba(0,0,0,0.2),inset_-3px_-3px_6px_rgba(45,45,45,0.8)] mb-4">
+          <Icon className="w-6 h-6 text-blue-500" />
         </div>
-        
-        {/* Subtle decorative elements that don't obscure text */}
-        <div className="absolute top-0 right-0 w-24 h-24 opacity-20">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-blue-500 dark:text-blue-400 fill-current">
-            <path d="M47.5,-51.2C59.1,-35.6,64.5,-17.8,64.1,-0.4C63.7,17,57.5,34,45.3,48.5C33.1,63,14.9,75,-3.9,78.9C-22.8,82.8,-45.5,78.7,-58.4,64.2C-71.3,49.7,-74.3,24.8,-71.5,3.2C-68.7,-18.5,-60.1,-37,-46.2,-52.6C-32.3,-68.2,-13.1,-80.9,2.5,-83.4C18.2,-85.9,36.3,-78.3,47.5,-63.7Z" transform="translate(100 100)" />
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+          {title}
+        </h3>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 line-clamp-3">
+          {description}
+        </p>
+        <button 
+          className="mt-auto text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm flex items-center justify-center transition-colors duration-300"
+        >
+          <span>לחץ לקריאה</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 mr-2">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
-        </div>
+        </button>
       </div>
     </motion.div>
   );
@@ -141,7 +139,7 @@ export default function OurProgramPage() {
           <motion.div 
           className="w-full max-w-3xl mt-4 mb-8 p-8 bg-blue-700 dark:bg-gray-900 rounded-xl text-center shadow-[0_0_15px_rgba(59,130,246,0.5),0_0_30px_rgba(59,130,246,0.3),0_8px_30px_-8px_rgba(59,130,246,0.4)] hover:shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(59,130,246,0.4),0_12px_40px_-12px_rgba(59,130,246,0.5)] transition-shadow duration-300 mx-auto"
           whileHover={{ scale: 1.02 }}>
-          <h2 className="text-2xl font-semibold text-white dark:text-blue-300 text-center">מנהיגות מגשרת לחיזוק האמון העסקי</h2>
+          <h2 className="text-2xl font-semibold text-white dark:text-blue-300 text-center">תרומת התכנית לחיזוק האמון העסקי</h2>
           <p className="text-gray-100 dark:text-gray-200 mt-3 text-center">
             <Link className="text-blue-200 dark:text-blue-300 underline cursor-pointer" href="https://www.edelman.com/trust/2023/trust-barometer" target="_blank">ברומטר האמון של חברת המחקר אדלמן</Link>, חושף קיטוב חברתי גובר אך מצביע על מגמה ברורה: ארגונים עסקיים
             זוכים לאמון הציבור יותר ממוסדות הממשלה ומרשתות התקשורת
@@ -176,19 +174,21 @@ export default function OurProgramPage() {
 
         <h2 className="text-4xl font-bold text-center text-blue-600 dark:text-blue-400 mb-8">מטרות התכנית</h2>
         <p className="text-lg text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-          תכנית דגן למנהיגות מגשרת מכוונת להשגת מספר מטרות משמעותיות שמטרתן ליצור שינוי חברתי ארוך טווח
+          תכנית דגן למנהיגות מגשרת מכוונת להשגת מספר מטרות משמעותיות  <br/> שמטרתן ליצור שינוי חברתי ארוך טווח
         </p>
         
         {/* Responsive grid layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pb-6" dir="rtl">
+        <div className="flex flex-wrap justify-center gap-6 pb-6" dir="rtl">
           {goals.map((goal, index) => (
-            <GoalCard 
-              key={index} 
-              title={goal.title} 
-              description={goal.description}
-              index={index}
-              onOpenModal={handleOpenModal}
-            />
+            <div key={goal.title} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <GoalCard 
+                title={goal.title} 
+                description={goal.description}
+                index={index}
+                onOpenModal={handleOpenModal}
+                icon={goal.icon}
+              />
+            </div>
           ))}
         </div>
       </div>
