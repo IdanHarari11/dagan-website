@@ -12,7 +12,7 @@ const DaganLeadership = () => {
   const cards = [
     {
       title: "שיטת לימוד ייחודית",
-      description: "מפגשים חוויתיים, סדנאות מעשיות ומפגשים עם מובילי דעה",
+      description: "5 מפגשים חוויתיים בני 4 ימים כל אחד המתקיימים במדבר",
       height: "row-span-1",
       color: "bg-blue-50/80 dark:bg-blue-900/20",
       iconColor: "text-blue-500",
@@ -28,7 +28,7 @@ const DaganLeadership = () => {
     },
     {
       title: "פיתוח מנהיגות",
-      description: "פיתוח מנהלים בעלי יכולת לגשר בין אנשים מרקעים ואידיאולוגיות שונות",
+      description: "פיתוח מנהלים בעלי ראייה מערכתית ויכולת לגשר בין אנשים",
       height: "row-span-1",
       color: "bg-blue-50/80 dark:bg-blue-900/20",
       iconColor: "text-blue-500",
@@ -44,7 +44,7 @@ const DaganLeadership = () => {
     },
     {
       title: "מיזמים חברתיים",
-      description: "מיזמים חברתיים משותפים ליצירת שינוי והשפעה",
+      description: "מיזמים משותפים בעלי ערך חברתי ותרומה לחברה הישראלית",
       height: "row-span-1",
       color: "bg-blue-50/80 dark:bg-blue-900/20",
       iconColor: "text-blue-500",
@@ -52,7 +52,7 @@ const DaganLeadership = () => {
     },
     {
       title: "למידה אינטימית",
-      description: "למידה בקבוצות קטנות לבניית חיבור עמוק ומשמעותי",
+      description: "למידה בקבוצה של עד 24 אנשים לבניית חיבור עמוק ומשמעותי",
       height: "row-span-1",
       color: "bg-blue-100/80 dark:bg-blue-900/30",
       iconColor: "text-blue-500",
@@ -96,7 +96,7 @@ const DaganLeadership = () => {
       className="max-w-5xl mx-auto p-10 bg-gray-50 dark:bg-gray-800 flex flex-col items-center text-gray-900 dark:text-gray-100 relative overflow-hidden"
     >
       <motion.h1 
-        className="text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-6 text-center"
+        className="text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-6 text-center text-right"
         initial={{ opacity: 0, y: -20 }} 
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
@@ -104,7 +104,7 @@ const DaganLeadership = () => {
         הסיפור שלנו
       </motion.h1>
       
-      <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl mb-8">
+      <p className="text-lg text-gray-700 dark:text-gray-300 text-center max-w-2xl mb-8 text-center">
         יוזמה ייחודית לטיפוח מנהיגים מכל קצוות החברה הישראלית, המסוגלים לגשר בין קהילות, להתעלות מעל מחלוקות ולהוביל שינוי חברתי משמעותי.
       </p>
       
@@ -112,7 +112,7 @@ const DaganLeadership = () => {
         <motion.div className="bg-blue-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg flex flex-col items-center text-center"
           whileHover={{ scale: 1.05 }}>
           <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">
-            הבעיה
+            האתגר
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mt-3">
           החברה הישראלית מגוונת מאוד, אך גם שסועה והקיטוב בין המגזרים השונים הולך ומעמיק בשנים האחרונות.
@@ -124,29 +124,14 @@ const DaganLeadership = () => {
         
         <motion.div className="bg-blue-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg flex flex-col items-center text-center"
           whileHover={{ scale: 1.05 }}>
-          <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">הפתרון</h2>
+          <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400">התכנית לפעולה</h2>
           <p className="text-gray-600 dark:text-gray-400 mt-3">
-          תוכנית דגן למנהיגות מגשרת מתמקדת בפיתוח מנהיגות שתסייע לגשר על הפערים הללו ולהוביל לחברה מאוחדת
+          תכנית דגן למנהיגות מגשרת מתמקדת בפיתוח מנהיגות שתסייע לגשר על הפערים הללו ולהוביל לחברה מאוחדת
           ומכילה יותר. השלב הראשון בבניית הגשר הזה הוא יצירת היכרות ושיתופי פעולה בין מנהיגים מקרב המגזרים
 השונים בחברה הישראלית, תוך חיזוק הפסיפס החברתי והלאומי של מדינת ישראל.
           </p>
         </motion.div>
       </div>
-
-      <motion.div 
-        className="w-full max-w-3xl mt-12 p-8 bg-blue-700 dark:bg-gray-900 rounded-xl text-center shadow-lg"
-        whileHover={{ scale: 1.02 }}>
-        <h2 className="text-2xl font-semibold text-white dark:text-blue-300">מנהיגות מגשרת לחיזוק האמון העסקי</h2>
-        <p className="text-gray-100 dark:text-gray-200 mt-3">
-        <Link className="text-blue-200 dark:text-blue-300 underline" href="https://www.edelman.com/trust/2023/trust-barometer" target="_blank">ברומטר האמון של חברת המחקר אדלמן</Link>, חושף קיטוב חברתי גובר אך מצביע על מגמה ברורה: ארגונים עסקיים
-זוכים לאמון הציבור יותר ממוסדות הממשלה ומרשתות התקשורת
-61% מהציבור רואה את הארגונים עסקיים כמוסד הציבורי האמין ביותר.
-70% מהציבור מצפים מחברות להוביל שינוי חברתי ולסייע בצמצום פערים חברתיים.
-74% מהציבור מאמינים שמנכ&quot;לים צריכים להוביל שינוי חברתי.
-תכנית דגן מסייעת לארגונים לפתח מנהיגות אחראית המחזקת אמון, שיתוף פעולה והשפעה חיובית על הארגון
-והחברה כולה.
-        </p>
-      </motion.div>
       
       <div className="w-full max-w-6xl mt-16 relative overflow-hidden">
         <motion.div 

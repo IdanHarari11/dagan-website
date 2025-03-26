@@ -26,8 +26,10 @@ export default function Navbar() {
     { href: '/', text: 'דף הבית' },
     { href: '/our-program', text: 'על התכנית' },
     { href: '/team', text: 'צוות' },
-    { href: '/our-graduates', text: 'שותפים' },
     { href: '/projects', text: 'מיזמים חברתיים' },
+    { href: '/testimonials', text: 'עדויות משתתפים' },
+    { href: '/our-graduates', text: 'שותפים' },
+    { href: '/donations', text: 'תרומות' },
   ];
 
   const handleContactClick = (e) => {
