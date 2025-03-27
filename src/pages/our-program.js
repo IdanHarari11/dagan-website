@@ -141,7 +141,7 @@ export default function OurProgramPage() {
           <motion.div 
           className="w-full max-w-3xl mt-4 mb-8 p-8 bg-blue-700 dark:bg-gray-900 rounded-xl text-center shadow-[0_0_15px_rgba(59,130,246,0.5),0_0_30px_rgba(59,130,246,0.3),0_8px_30px_-8px_rgba(59,130,246,0.4)] hover:shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(59,130,246,0.4),0_12px_40px_-12px_rgba(59,130,246,0.5)] transition-shadow duration-300 mx-auto"
           whileHover={{ scale: 1.02 }}>
-          <h2 className="text-2xl font-semibold text-white dark:text-blue-300 text-center">מנהיגות מגשרת לחיזוק האמון העסקי</h2>
+          <h2 className="text-2xl font-semibold text-white dark:text-blue-300 text-center">תרומת התכנית לחיזוק האמון העסקי</h2>
           <p className="text-gray-100 dark:text-gray-200 mt-3 text-center">
             <Link className="text-blue-200 dark:text-blue-300 underline cursor-pointer" href="https://www.edelman.com/trust/2023/trust-barometer" target="_blank">ברומטר האמון של חברת המחקר אדלמן</Link>, חושף קיטוב חברתי גובר אך מצביע על מגמה ברורה: ארגונים עסקיים
             זוכים לאמון הציבור יותר ממוסדות הממשלה ומרשתות התקשורת

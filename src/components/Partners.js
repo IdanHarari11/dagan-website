@@ -152,7 +152,6 @@ const Partners = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="השותפים שלנו"
-          subtitle="שיתופי פעולה"
           sectionId="partners"
         />
         <div className="mt-12">
