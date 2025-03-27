@@ -193,7 +193,7 @@ export default function Testimonials({ title }) {
                 {selectedTestimonial.role}
               </p>
             </div>
-            <div className="whitespace-pre-line text-center text-gray-700 dark:text-gray-300">
+            <div className="whitespace-pre-line text-right text-gray-700 dark:text-gray-300">
               {selectedTestimonial.fullText}
             </div>
           </div>

@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaUsers, FaLightbulb, FaHandshake, FaUserGraduate, FaHeart, FaCheck, FaCalendarCheck } from "react-icons/fa";
+import { BsStars } from 'react-icons/bs';
 
 export default function RoadmapSection() {
   const containerRef = useRef(null);
@@ -66,16 +67,33 @@ export default function RoadmapSection() {
   ];
 
   return (
-    <section id='roadmap' ref={containerRef} className="py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden relative">
+    <section id='roadmap' ref={containerRef} className="py-16 bg-gray-50 dark:bg-gray-800 overflow-hidden relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
-            המסע שלנו
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-block mb-4"
+          >
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full p-3 shadow-[5px_5px_15px_rgba(59,130,246,0.1),-5px_-5px_15px_rgba(255,255,255,0.8)] dark:shadow-[5px_5px_15px_rgba(0,0,0,0.2),-5px_-5px_15px_rgba(45,45,45,0.8)] inline-flex items-center justify-center">
+              <div className="bg-blue-50/80 dark:bg-blue-900/30 backdrop-blur-sm rounded-full p-2 shadow-[inset_2px_2px_5px_rgba(59,130,246,0.1),inset_-2px_-2px_5px_rgba(255,255,255,0.8)] dark:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.2),inset_-2px_-2px_5px_rgba(45,45,45,0.8)]">
+                <BsStars className="text-blue-500 text-2xl" />
+              </div>
+            </div>
+          </motion.div>
+          
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100 tracking-tight">
+            ייחודיות <span className="text-blue-600 dark:text-blue-400">התכנית</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            הדרך שלנו ליצירת שינוי חברתי משמעותי
-          </p>
-        </div>
+        </motion.div>
 
         {/* Snake Flow Line */}
         <div className="absolute w-full" style={{ height: '100%', top: '0', zIndex: 0 }}>

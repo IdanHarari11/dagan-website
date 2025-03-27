@@ -18,7 +18,7 @@ const CallToJoin = () => {
               <button 
                 onClick={() => window.open('/files/קול קורא דגן.pdf', '_blank')}
                 className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg shadow-md hover:bg-blue-50 transition-colors duration-300">
-                הרשמו עכשיו
+                קול קורא
               </button>
             </div>
           </div>
