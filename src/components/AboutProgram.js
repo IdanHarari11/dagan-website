@@ -133,7 +133,7 @@ const DaganLeadership = () => {
         </motion.div>
       </div>
       
-      <div className="w-full max-w-6xl mt-16 relative overflow-hidden">
+      {/* <div className="w-full max-w-6xl mt-16 relative overflow-hidden">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -203,7 +203,7 @@ const DaganLeadership = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </div> */}
     </motion.div>
   );
 };

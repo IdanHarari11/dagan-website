@@ -62,48 +62,8 @@ export default function RoadmapSection() {
       color: "from-yellow-500/20 to-pink-500/20",
       icon: FaUsers
     },
-    // {
-    //   title: "מפגשים מרוכזים",
-    //   description: "מפגשים מרוכזים בני כמה ימים בסביבה מנותקת ללמידה מעמיקה",
-    //   height: "row-span-1",
-    //   color: "bg-blue-100/80 dark:bg-blue-900/30",
-    //   iconColor: "text-blue-500",
-    //   icon: FaCalendarCheck
-    // }
+   
   ];
-
-  // const steps = [
-  //   {
-  //     icon: "fas fa-users-gear",
-  //     title: "מנהיגות קבוצתית",
-  //     description: "פיתוח הקבוצה דרך הכרות מעמיקה, השראה, והענקת כלים למנהיגות אישית",
-  //     color: "from-blue-500/20 to-purple-500/20"
-  //   },
-  //   {
-  //     icon: "fas fa-rocket",
-  //     title: "צמיחה קבוצתית",
-  //     description: "חיזוק הקבוצה באמצעות הכרות מעמיקה, השראה, וכלים למנהיגות אישית",
-  //     color: "from-purple-500/20 to-pink-500/20"
-  //   },
-  //   {
-  //     icon: "fas fa-handshake",
-  //     title: "חיזוק מנהיגות",
-  //     description: "פיתוח הקבוצה דרך הכרות מעמיקה, השראה, והענקת כלים למנהיגות אישית",
-  //     color: "from-pink-500/20 to-red-500/20"
-  //   },
-  //   {
-  //     icon: "fas fa-graduation-cap",
-  //     title: "מיזמים חברתיים",
-  //     description: "העברה לפעולה דרך מיזמים צוותיים ופעילות חברתית משותפת",
-  //     color: "from-red-500/20 to-orange-500/20"
-  //   },
-  //   {
-  //     icon: "fas fa-bullseye",
-  //     title: "יישום",
-  //     description: "הובלת פרויקטים ויוזמות לשינוי חברתי",
-  //     color: "from-orange-500/20 to-yellow-500/20"
-  //   }
-  // ];
 
   return (
     <section id='roadmap' ref={containerRef} className="py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden relative">
@@ -161,9 +121,24 @@ export default function RoadmapSection() {
                     cursor-pointer relative z-10 hover:scale-105 hover:shadow-xl`}
                 >
                   <motion.div 
-                    className="text-3xl text-gray-800 dark:text-gray-100 mb-4"
+                    className="relative w-16 h-16 mb-4 rounded-full
+                    bg-gradient-to-br from-white/20 to-transparent 
+                    backdrop-blur-xl
+                    border border-white/20 dark:border-white/10
+                    shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
+                    dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]
+                    flex items-center justify-center"
                   >
-                    <step.icon className={step.iconColor} />
+                    <div className="relative w-14 h-14 rounded-full
+                      bg-gradient-to-br from-white/30 to-white/10 dark:from-gray-800/30 dark:to-gray-800/10
+                      backdrop-filter backdrop-blur-lg
+                      border border-white/30 dark:border-white/5
+                      shadow-[inset_0_0_12px_rgba(255,255,255,0.4)]
+                      dark:shadow-[inset_0_0_12px_rgba(255,255,255,0.1)]
+                      flex items-center justify-center"
+                    >
+                      <step.icon className={`text-4xl ${step.iconColor} opacity-80 filter drop-shadow-lg transition-all duration-300 transform hover:scale-110`} />
+                    </div>
                   </motion.div>
                   <motion.h3 
                     className="text-xl font-bold text-gray-900 dark:text-white mb-2"
