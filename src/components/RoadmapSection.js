@@ -1,6 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { FaUsers, FaLightbulb, FaHandshake, FaUserGraduate, FaHeart, FaCheck, FaCalendarCheck } from "react-icons/fa";
 
 export default function RoadmapSection() {
   const containerRef = useRef(null);
@@ -14,36 +15,95 @@ export default function RoadmapSection() {
 
   const steps = [
     {
-      icon: "fas fa-users-gear",
-      title: "מנהיגות קבוצתית",
-      description: "פיתוח הקבוצה דרך הכרות מעמיקה, השראה, והענקת כלים למנהיגות אישית",
-      color: "from-blue-500/20 to-purple-500/20"
+      title: "שיטת לימוד ייחודית",
+      description: "5 מפגשים חוויתיים בני 4 ימים כל אחד המתקיימים במדבר",
+      height: "row-span-1",
+      iconColor: "text-blue-500",
+      color: "from-blue-500/20 to-purple-500/20",
+      icon: FaUsers,
     },
     {
-      icon: "fas fa-rocket",
-      title: "צמיחה קבוצתית",
-      description: "חיזוק הקבוצה באמצעות הכרות מעמיקה, השראה, וכלים למנהיגות אישית",
-      color: "from-purple-500/20 to-pink-500/20"
+      title: "תוכן מעשי",
+      description: "ידע מעשי שפותח על ידי בכירים במערכות בטחוניות בשילוב כלי למידה חדשניים",
+      height: "row-span-1",
+      iconColor: "text-blue-500",
+      color: "from-purple-500/20 to-pink-500/20",
+      icon: FaLightbulb
     },
     {
-      icon: "fas fa-handshake",
-      title: "חיזוק מנהיגות",
-      description: "פיתוח הקבוצה דרך הכרות מעמיקה, השראה, והענקת כלים למנהיגות אישית",
-      color: "from-pink-500/20 to-red-500/20"
+      title: "פיתוח מנהיגות",
+      description: "פיתוח מנהלים בעלי ראייה מערכתית ויכולת לגשר בין אנשים",
+      height: "row-span-1",
+      iconColor: "text-blue-500",
+      color: "from-pink-500/20 to-red-500/20",
+      icon: FaHandshake
     },
     {
-      icon: "fas fa-graduation-cap",
+      title: "חניכה וליווי",
+      description: "חניכה וליווי מקצועי על ידי מנטורים בכירים מתחומים שונים",
+      height: "row-span-1",
+      iconColor: "text-blue-500",
+      color: "from-red-500/20 to-orange-500/20",
+      icon: FaUserGraduate
+    },
+    {
       title: "מיזמים חברתיים",
-      description: "העברה לפעולה דרך מיזמים צוותיים ופעילות חברתית משותפת",
-      color: "from-red-500/20 to-orange-500/20"
+      description: "מיזמים משותפים בעלי ערך חברתי ותרומה לחברה הישראלית",
+      height: "row-span-1",
+      iconColor: "text-blue-500",
+      color: "from-orange-500/20 to-yellow-500/20",
+      icon: FaHeart
     },
     {
-      icon: "fas fa-bullseye",
-      title: "יישום",
-      description: "הובלת פרויקטים ויוזמות לשינוי חברתי",
-      color: "from-orange-500/20 to-yellow-500/20"
-    }
+      title: "למידה אינטימית",
+      description: "למידה בקבוצה של עד 24 אנשים לבניית חיבור עמוק ומשמעותי",
+      height: "row-span-1",
+      iconColor: "text-blue-500",
+      color: "from-yellow-500/20 to-pink-500/20",
+      icon: FaUsers
+    },
+    // {
+    //   title: "מפגשים מרוכזים",
+    //   description: "מפגשים מרוכזים בני כמה ימים בסביבה מנותקת ללמידה מעמיקה",
+    //   height: "row-span-1",
+    //   color: "bg-blue-100/80 dark:bg-blue-900/30",
+    //   iconColor: "text-blue-500",
+    //   icon: FaCalendarCheck
+    // }
   ];
+
+  // const steps = [
+  //   {
+  //     icon: "fas fa-users-gear",
+  //     title: "מנהיגות קבוצתית",
+  //     description: "פיתוח הקבוצה דרך הכרות מעמיקה, השראה, והענקת כלים למנהיגות אישית",
+  //     color: "from-blue-500/20 to-purple-500/20"
+  //   },
+  //   {
+  //     icon: "fas fa-rocket",
+  //     title: "צמיחה קבוצתית",
+  //     description: "חיזוק הקבוצה באמצעות הכרות מעמיקה, השראה, וכלים למנהיגות אישית",
+  //     color: "from-purple-500/20 to-pink-500/20"
+  //   },
+  //   {
+  //     icon: "fas fa-handshake",
+  //     title: "חיזוק מנהיגות",
+  //     description: "פיתוח הקבוצה דרך הכרות מעמיקה, השראה, והענקת כלים למנהיגות אישית",
+  //     color: "from-pink-500/20 to-red-500/20"
+  //   },
+  //   {
+  //     icon: "fas fa-graduation-cap",
+  //     title: "מיזמים חברתיים",
+  //     description: "העברה לפעולה דרך מיזמים צוותיים ופעילות חברתית משותפת",
+  //     color: "from-red-500/20 to-orange-500/20"
+  //   },
+  //   {
+  //     icon: "fas fa-bullseye",
+  //     title: "יישום",
+  //     description: "הובלת פרויקטים ויוזמות לשינוי חברתי",
+  //     color: "from-orange-500/20 to-yellow-500/20"
+  //   }
+  // ];
 
   return (
     <section id='roadmap' ref={containerRef} className="py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden relative">
@@ -103,7 +163,7 @@ export default function RoadmapSection() {
                   <motion.div 
                     className="text-3xl text-gray-800 dark:text-gray-100 mb-4"
                   >
-                    <i className={step.icon}></i>
+                    <step.icon className={step.iconColor} />
                   </motion.div>
                   <motion.h3 
                     className="text-xl font-bold text-gray-900 dark:text-white mb-2"
