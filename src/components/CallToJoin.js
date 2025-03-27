@@ -16,7 +16,7 @@ const CallToJoin = () => {
             </p>
             <div className="mt-8">
               <button 
-                onClick={() => window.open('https://appleseeds.org.il/donations/', '_blank')}
+                onClick={() => window.open('/files/קול קורא דגן.pdf', '_blank')}
                 className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg shadow-md hover:bg-blue-50 transition-colors duration-300">
                 הרשמו עכשיו
               </button>
