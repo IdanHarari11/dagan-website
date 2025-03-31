@@ -51,7 +51,7 @@ const Donors = () => {
   }, [controls]);
 
   return (
-    <section dir='ltr' className="py-16 bg-white dark:bg-gray-800">
+    <section dir='ltr' className="py-16 bg-gray-50 dark:bg-gray-800 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="התורמים שלנו"

@@ -62,7 +62,7 @@ export default function Projects() {
             מיזמים חברתיים
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            יוזמות חברתיות שהובילו בוגרי התכנית
+            יוזמות חברתיות שהובילו בוגרי ובוגרות התכנית          
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export default function Projects() {
                 {selectedProject.category}
               </div>
             </div>
-            <div className="whitespace-pre-line text-gray-700 dark:text-gray-300 text-center">
+            <div className="whitespace-pre-line text-gray-700 dark:text-gray-300 text-right">
               {selectedProject.fullDescription}
             </div>
           </div>

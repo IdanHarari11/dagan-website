@@ -6,7 +6,7 @@ import SectionTitle from './SectionTitle';
 const partners = [
   {
     name: 'צה״ל',
-    logo: '/images/partners/צהל.jpg',
+    logo: '/images/partners/צהל חדש.webp',
   },
   {
     name: 'תעשיה אווירית',
@@ -14,7 +14,7 @@ const partners = [
   },
   {
     name: 'משרד העלייה והקליטה',
-    logo: '/images/partners/משרד העלייה והקליטה.jpg',
+    logo: '/images/partners/משרד העלייה והקליטה חדש.webp',
   },
   {
     name: 'התאחדות יועצי המשכנתאות',
@@ -30,15 +30,15 @@ const partners = [
   },
   {
     name: 'קומינה',
-    logo: '/images/partners/קומינה.png',
+    logo: '/images/partners/קומינה חדש.webp',
   },
   {
     name: 'סינרג׳י אנרגיה',
-    logo: '/images/partners/סינרג_י אנרגיה.png',
+    logo: '/images/partners/senergy חדש.webp',
   },
   {
     name: 'משרד החוץ',
-    logo: '/images/partners/משרד החוץ.png',
+    logo: '/images/partners/משרד החוץ חדש.webp',
   },
   {
     name: 'HP אינדיגו',
@@ -58,7 +58,7 @@ const partners = [
   },
   {
     name: 'עמותת אופק',
-    logo: '/images/partners/עמותת אופק.jpg',
+    logo: '/images/partners/עמותת אופק חדש.webp',
   },
   {
     name: 'משרד הביטחון',
@@ -86,7 +86,7 @@ const partners = [
   },
   {
     name: 'בזק',
-    logo: '/images/partners/בזק.png',
+    logo: '/images/partners/בזק חדש.webp',
   },
   {
     name: 'הדסה',
@@ -102,7 +102,7 @@ const partners = [
   },
   {
     name: 'דרכא',
-    logo: '/images/partners/דרכא.jpg',
+    logo: '/images/partners/דרכא חדש.webp',
   },
   {
     name: 'אסם',
@@ -114,15 +114,15 @@ const partners = [
   },
   {
     name: 'אסותא',
-    logo: '/images/partners/אסותא.gif',
+    logo: '/images/partners/אסותא חדש.webp',
   },
   {
     name: 'המרכז הרפואי גליל',
-    logo: '/images/partners/המרכז הרפואי גליל.png',
+    logo: '/images/partners/מרכז רפואי גליל חדש.webp',
   },
   {
     name: 'החברה למתנסים ירושלים',
-    logo: '/images/partners/החברה למתנסים ירושלים.jpg',
+    logo: '/images/partners/החברה למתנסים חדש.webp',
   },
   {
     name: 'מקורות',
@@ -141,8 +141,8 @@ const partners = [
     logo: '/images/partners/leumi.png',
   },
   {
-    name: 'משרד הביטחון',
-    logo: '/images/partners/Misrad_habitahon.png',
+    name: 'פלטפורמא',
+    logo: '/images/partners/פלטפורמא.webp',
   },
 ];
 
@@ -152,7 +152,6 @@ const Partners = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="השותפים שלנו"
-          subtitle="שיתופי פעולה"
           sectionId="partners"
         />
         <div className="mt-12">

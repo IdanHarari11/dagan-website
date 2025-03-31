@@ -12,13 +12,13 @@ const CallToJoin = () => {
           <div className="bg-white/10 rounded-xl p-8 shadow-lg transform transition-all duration-300 hover:scale-105">
             <h2 className="text-3xl font-bold text-white mb-6">הצטרפו למחזור הרביעי</h2>
             <p className="text-xl text-white leading-relaxed max-w-4xl mx-auto">
-              העמותה ע&quot;ש מאיר דגן ז&quot;ל מזמינה אתכם: מנהלים בכירים, קובעי מדיניות ומנהיגים קהילתיים להצטרף למחזור הרביעי של התוכנית. יחד, נבנה עתיד של שיח, הכלה ועשייה משותפת למען חברה ישראלית חזקה ומלוכדת יותר.
+              העמותה ע&quot;ש מאיר דגן ז&quot;ל מזמינה אתכם: מנהלים בכירים, קובעי מדיניות ומנהיגים קהילתיים להצטרף למחזור הרביעי של התכנית. יחד, נבנה עתיד של שיח, הכלה ועשייה משותפת למען חברה ישראלית חזקה ומלוכדת יותר.
             </p>
             <div className="mt-8">
               <button 
-                onClick={scrollToContact}
+                onClick={() => window.open('/files/קול קורא דגן.pdf', '_blank')}
                 className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg shadow-md hover:bg-blue-50 transition-colors duration-300">
-                הרשמו עכשיו
+                קול קורא
               </button>
             </div>
           </div>
