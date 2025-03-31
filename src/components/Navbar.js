@@ -66,7 +66,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`${
                   currentPath === link.href 
-                    ? 'text-black dark:text-black font-bold border-b-2 border-blue-500 dark:border-blue-400 shadow-glow transition-all' 
+                    ? 'text-blue-600 dark:text-blue-600 font-bold border-b-2 border-blue-500 dark:border-blue-400 shadow-glow transition-all' 
                     : `${isScrolled || isLight ? 'text-gray-800' : 'text-white'} dark:text-white hover:text-blue-600 dark:hover:text-blue-400`
                 } transition-colors`}
               >
