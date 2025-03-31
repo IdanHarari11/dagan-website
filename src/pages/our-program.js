@@ -50,7 +50,7 @@ const GoalCard = ({ title, description, index, onOpenModal }) => {
         <div className="relative h-full w-full flex flex-col items-center justify-between p-5 z-10">
           {/* Title with decorative underline */}
           <div className="text-center mb-3">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">{title}</h3>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center pt-4 sm:pt-0">{title}</h3>
             <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 rounded-full mx-auto"></div>
           </div>
           
