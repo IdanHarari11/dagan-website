@@ -7,8 +7,8 @@ export function DarkModeProvider({ children }) {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check initial dark mode preference
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // Set default theme to light unless explicitly set to dark in localStorage
+    if (localStorage.theme === 'dark') {
       setDarkMode(true);
       document.documentElement.classList.add('dark');
     } else {
