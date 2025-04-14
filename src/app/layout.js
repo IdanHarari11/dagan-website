@@ -26,15 +26,7 @@ export default function RootLayout({ children }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-MBE6MPSZMJ', {
-                debug_mode: true,
-                send_page_view: true,
-                page_location: window.location.href,
-                page_path: window.location.pathname,
-                cookie_domain: 'dagan-leadership.com',
-                transport_url: 'https://www.google-analytics.com'
-              });
-              console.log('Google Analytics initialized for domain: dagan-leadership.com');
+              gtag('config', 'G-MBE6MPSZMJ');
             `,
           }}
         />
