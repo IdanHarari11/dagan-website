@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
-import { setupScrollTracking } from '@/lib/analytics'
+import { setupScrollTracking, setupTimeTracking, setupErrorTracking } from '@/lib/analytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -37,6 +37,8 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `
               (${setupScrollTracking.toString()})();
+              (${setupTimeTracking.toString()})();
+              (${setupErrorTracking.toString()})();
             `,
           }}
         />

@@ -27,6 +27,53 @@ export const trackScroll = (depth) => {
   })
 }
 
+// מעקב אחר לחיצות על כפתורים
+export const trackButtonClick = (buttonName, buttonLocation) => {
+  window.gtag('event', 'button_click', {
+    button_name: buttonName,
+    button_location: buttonLocation,
+    event_category: 'Interaction',
+    event_label: `Button: ${buttonName} at ${buttonLocation}`
+  })
+}
+
+// מעקב אחר חיפושים
+export const trackSearch = (searchTerm) => {
+  window.gtag('event', 'search', {
+    search_term: searchTerm,
+    event_category: 'Interaction',
+    event_label: `Search: ${searchTerm}`
+  })
+}
+
+// מעקב אחר שגיאות
+export const trackError = (errorMessage, errorLocation) => {
+  window.gtag('event', 'error', {
+    error_message: errorMessage,
+    error_location: errorLocation,
+    event_category: 'Error',
+    event_label: `Error at ${errorLocation}: ${errorMessage}`
+  })
+}
+
+// מעקב אחר זמן שהייה בדף
+export const trackTimeOnPage = (seconds) => {
+  window.gtag('event', 'time_on_page', {
+    seconds: seconds,
+    event_category: 'Engagement',
+    event_label: `Time on page: ${seconds} seconds`
+  })
+}
+
+// מעקב אחר יציאה מדף
+export const trackPageExit = (exitPage) => {
+  window.gtag('event', 'page_exit', {
+    exit_page: exitPage,
+    event_category: 'Navigation',
+    event_label: `Exit from: ${exitPage}`
+  })
+}
+
 // פונקציה להגדרת מעקב גלילה
 export const setupScrollTracking = () => {
   let tracked25 = false
@@ -49,5 +96,35 @@ export const setupScrollTracking = () => {
       tracked25 = true
       trackScroll(25)
     }
+  })
+}
+
+// פונקציה להגדרת מעקב זמן שהייה
+export const setupTimeTracking = () => {
+  let startTime = Date.now()
+  
+  // מעקב כל 30 שניות
+  const timeInterval = setInterval(() => {
+    const timeSpent = Math.floor((Date.now() - startTime) / 1000)
+    trackTimeOnPage(timeSpent)
+  }, 30000)
+
+  // ניקוי בטעינת דף חדש
+  window.addEventListener('beforeunload', () => {
+    clearInterval(timeInterval)
+    const finalTime = Math.floor((Date.now() - startTime) / 1000)
+    trackTimeOnPage(finalTime)
+    trackPageExit(window.location.pathname)
+  })
+}
+
+// פונקציה להגדרת מעקב שגיאות
+export const setupErrorTracking = () => {
+  window.addEventListener('error', (event) => {
+    trackError(event.message, event.filename)
+  })
+
+  window.addEventListener('unhandledrejection', (event) => {
+    trackError(event.reason, 'Promise Rejection')
   })
 } 
