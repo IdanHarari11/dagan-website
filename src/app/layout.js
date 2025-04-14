@@ -31,7 +31,8 @@ export default function RootLayout({ children }) {
                 send_page_view: true,
                 page_location: window.location.href,
                 page_path: window.location.pathname,
-                cookie_domain: 'dagan-leadership.com'
+                cookie_domain: 'dagan-leadership.com',
+                transport_url: 'https://www.google-analytics.com'
               });
               console.log('Google Analytics initialized for domain: dagan-leadership.com');
             `,
