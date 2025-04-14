@@ -1,7 +1,20 @@
 import { GA_MEASUREMENT_ID } from './gtag'
 
+// בדיקת טעינת GA
+const checkGALoading = () => {
+  if (typeof window.gtag === 'function') {
+    console.log('Google Analytics loaded successfully');
+    return true;
+  } else {
+    console.error('Google Analytics failed to load');
+    return false;
+  }
+}
+
 // מעקב אחר שליחת טופס
 export const trackFormSubmission = (formName) => {
+  if (!checkGALoading()) return;
+  
   window.gtag('event', 'form_submission', {
     form_name: formName,
     event_category: 'Forms',
@@ -11,6 +24,8 @@ export const trackFormSubmission = (formName) => {
 
 // מעקב אחר כניסה לטאב
 export const trackTabView = (tabName) => {
+  if (!checkGALoading()) return;
+  
   window.gtag('event', 'tab_view', {
     tab_name: tabName,
     event_category: 'Navigation',
@@ -20,6 +35,8 @@ export const trackTabView = (tabName) => {
 
 // מעקב אחר גלילה
 export const trackScroll = (depth) => {
+  if (!checkGALoading()) return;
+  
   window.gtag('event', 'scroll_depth', {
     depth: depth,
     event_category: 'Engagement',
@@ -29,6 +46,8 @@ export const trackScroll = (depth) => {
 
 // מעקב אחר לחיצות על כפתורים
 export const trackButtonClick = (buttonName, buttonLocation) => {
+  if (!checkGALoading()) return;
+  
   window.gtag('event', 'button_click', {
     button_name: buttonName,
     button_location: buttonLocation,
@@ -39,6 +58,8 @@ export const trackButtonClick = (buttonName, buttonLocation) => {
 
 // מעקב אחר חיפושים
 export const trackSearch = (searchTerm) => {
+  if (!checkGALoading()) return;
+  
   window.gtag('event', 'search', {
     search_term: searchTerm,
     event_category: 'Interaction',
@@ -48,6 +69,8 @@ export const trackSearch = (searchTerm) => {
 
 // מעקב אחר שגיאות
 export const trackError = (errorMessage, errorLocation) => {
+  if (!checkGALoading()) return;
+  
   window.gtag('event', 'error', {
     error_message: errorMessage,
     error_location: errorLocation,
@@ -58,6 +81,8 @@ export const trackError = (errorMessage, errorLocation) => {
 
 // מעקב אחר זמן שהייה בדף
 export const trackTimeOnPage = (seconds) => {
+  if (!checkGALoading()) return;
+  
   window.gtag('event', 'time_on_page', {
     seconds: seconds,
     event_category: 'Engagement',
@@ -67,6 +92,8 @@ export const trackTimeOnPage = (seconds) => {
 
 // מעקב אחר יציאה מדף
 export const trackPageExit = (exitPage) => {
+  if (!checkGALoading()) return;
+  
   window.gtag('event', 'page_exit', {
     exit_page: exitPage,
     event_category: 'Navigation',
@@ -76,6 +103,8 @@ export const trackPageExit = (exitPage) => {
 
 // פונקציה להגדרת מעקב גלילה
 export const setupScrollTracking = () => {
+  if (!checkGALoading()) return;
+  
   let tracked25 = false
   let tracked50 = false
   let tracked75 = false
@@ -101,6 +130,8 @@ export const setupScrollTracking = () => {
 
 // פונקציה להגדרת מעקב זמן שהייה
 export const setupTimeTracking = () => {
+  if (!checkGALoading()) return;
+  
   let startTime = Date.now()
   
   // מעקב כל 30 שניות
@@ -120,6 +151,8 @@ export const setupTimeTracking = () => {
 
 // פונקציה להגדרת מעקב שגיאות
 export const setupErrorTracking = () => {
+  if (!checkGALoading()) return;
+  
   window.addEventListener('error', (event) => {
     trackError(event.message, event.filename)
   })

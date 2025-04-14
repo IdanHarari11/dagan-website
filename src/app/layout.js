@@ -1,7 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
-import { setupScrollTracking, setupTimeTracking, setupErrorTracking } from '@/lib/analytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,10 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="he" dir="rtl">
       <head>
-        {/* Google Analytics */}
+        {/* Google tag (gtag.js) */}
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MBE6MPSZMJ"
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
         />
         <Script
           id="google-analytics"
@@ -27,18 +26,14 @@ export default function RootLayout({ children }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
-            `,
-          }}
-        />
-        <Script
-          id="setup-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (${setupScrollTracking.toString()})();
-              (${setupTimeTracking.toString()})();
-              (${setupErrorTracking.toString()})();
+              gtag('config', 'G-MBE6MPSZMJ', {
+                debug_mode: true,
+                send_page_view: true,
+                page_location: window.location.href,
+                page_path: window.location.pathname,
+                cookie_domain: 'dagan-leadership.com'
+              });
+              console.log('Google Analytics initialized for domain: dagan-leadership.com');
             `,
           }}
         />
