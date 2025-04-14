@@ -27,10 +27,15 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+      </head>
+      <body className={inter.className}>
+        
+        {children}
+
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-MBE6MPSZMJ"
           strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-MBE6MPSZMJ"
         />
         <Script
           id="google-analytics"
@@ -42,20 +47,7 @@ export default function RootLayout({ children }) {
               gtag('js', new Date());
               gtag('config', 'G-MBE6MPSZMJ');
             `,
-          }}
-        />
-      </head>
-      <body className={inter.className}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe 
-            src="https://www.googletagmanager.com/ns.html?id=GT-PZMQJZ9J"
-            height="0" 
-            width="0" 
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
-        {children}
+          }}/>
       </body>
     </html>
   )
