@@ -14,6 +14,7 @@ import AboutProgram from '@/components/AboutProgram';
 import AboutUs from '@/components/AboutUs';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
 import CallToJoin from '@/components/CallToJoin';
+import DonationCTA from '@/components/DonationCTA';
 import { BsStars } from 'react-icons/bs';
 import { FaBook, FaScroll } from 'react-icons/fa';
 
@@ -41,6 +42,7 @@ export default function Home() {
         <RoadmapSection />
         <YouTubeEmbed videoUrl={'https://www.youtube.com/embed/-25BpVKGQU0'} />
         <CallToJoin />
+        <DonationCTA />
         <CallToAction />
         <ScrollToTopButton />
       </Suspense>
