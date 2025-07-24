@@ -128,6 +128,9 @@ export default function DonationsPage() {
               </div>
             </div>
           </div>
+          <div className="text-center text-gray-600 dark:text-gray-400 text-sm mb-8">
+            אישור לתרומה יישלח באימייל. התרומה מוכרת לצורכי מס לפי סעיף 46א
+          </div>
 
           {/* Bottom CTA Section */}
           <div className="relative">
