@@ -81,53 +81,57 @@ export default function DonationsPage() {
               </div>
             </div>
 
-            {/* Phone Donation */}
+            {/* Direct Donation */}
             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-100 dark:border-blue-800">
               <div className="flex items-center mb-6">
                 <h3 className="text-2xl font-bold text-blue-600 dark:text-white flex-1">
-                  תרומה טלפונית
+                  תרומה ישירה
                 </h3>
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                  <i className="fas fa-phone text-white text-2xl"></i>
+                  <i className="fas fa-user-friends text-white text-2xl"></i>
                 </div>
               </div>
-              <div className="space-y-4 text-right bg-gradient-to-r from-blue-50 to-gray-50 dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl">
+              <div className="space-y-4 text-center bg-gradient-to-r from-blue-50 to-gray-50 dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl">
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  ניתן לפנות ישירות ליו"ר העמותה מר שמעון חפץ
+                  ניתן ליצור קשר עם נציג לקבלת פרטים נוספים על אפשרויות התרומה.
                 </p>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="text-right">
-                      <p className="text-sm text-blue-600 dark:text-blue-300 font-medium">טלפון</p>
-                      <button 
-                        onClick={handlePhoneClick}
-                        className="text-xl text-blue-600 dark:text-blue-400 font-bold hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200 cursor-pointer"
-                      >
-                        050-5331290
-                      </button>
-                    </div>
-                    <div onClick={handlePhoneClick} className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center cursor-pointer">
-                      <i className="fas fa-phone text-blue-600 dark:text-blue-400 text-sm"></i>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="text-right">
-                      <p className="text-sm text-blue-600 dark:text-blue-300 font-medium">מייל</p>
-                      <button 
-                        onClick={handleEmailClick}
-                        className="text-lg text-blue-800 dark:text-white font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200 cursor-pointer"
-                      >
-                        shimonhef@gmail.com
-                      </button>
-                    </div>
-                    <div onClick={handleEmailClick} className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center cursor-pointer">
-                      <i className="fas fa-envelope text-blue-600 dark:text-blue-400 text-sm"></i>
-                    </div>
-                  </div>
-                </div>
+                <a
+                  href="/#contact"
+                  className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  מעבר לטופס יצירת קשר
+                </a>
               </div>
             </div>
           </div>
+          
+          {/* Online Donation - Not Active Yet */}
+          <div className="mb-8">
+            {/* This box represents the online donation option, currently inactive */}
+            <div className="bg-gradient-to-r from-gray-100 to-blue-100 dark:from-gray-800 dark:to-blue-900 p-8 rounded-2xl shadow-xl border-2 border-dashed border-blue-300 dark:border-blue-700 flex flex-col items-center justify-center">
+              <div className="w-16 h-16 mb-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                <i className="fas fa-globe text-white text-2xl"></i>
+              </div>
+              <div className="flex items-center mb-4">
+                <h3 className="text-2xl font-bold text-blue-600 dark:text-white">
+                  תרומה מקוונת
+                </h3>
+              </div>
+              <p className="text-lg text-blue-700 dark:text-blue-300 font-semibold mb-2">
+                אפשרות זו תפתח בקרוב!
+              </p>
+              <span className="text-sm text-gray-500 dark:text-gray-400">עדיין לא פעיל</span>
+            </div>
+          </div>
+
+          <div className="mt-12 mb-8 text-center">
+            <p className="text-xl font-bold">
+              <span className="text-blue-800">תרומתכם מסייעת בטיפוח מנהיגים ומנהיגות </span>{" "}
+              <span className="text-[#F3C205]">שמחברים בין קהילות </span>{" "}
+              <span className="text-blue-600">ויוצרים שינוי אמיתי בחברה הישראלית</span>
+            </p>
+          </div>
+
           <div className="text-center text-gray-600 dark:text-gray-400 text-sm mb-8">
             אישור לתרומה יישלח באימייל. התרומה מוכרת לצורכי מס לפי סעיף 46א
           </div>
@@ -149,14 +153,6 @@ export default function DonationsPage() {
                 צור קשר עם צוות גיוס המשאבים
               </button>
             </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-xl font-bold">
-              <span className="text-blue-800">תרומתכם מסייעת בטיפוח מנהיגים ומנהיגות </span>{" "}
-              <span className="text-[#F3C205]">שמחברים בין קהילות </span>{" "}
-              <span className="text-blue-600">ויוצרים שינוי אמיתי בחברה הישראלית</span>
-            </p>
           </div>
         </div>
       </div>
