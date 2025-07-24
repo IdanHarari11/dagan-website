@@ -150,6 +150,14 @@ export default function DonationsPage() {
               </button>
             </div>
           </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-xl font-bold">
+              <span className="text-blue-800">תרומתכם מסייעת בטיפוח מנהיגים ומנהיגות </span>{" "}
+              <span className="text-[#F3C205]">שמחברים בין קהילות </span>{" "}
+              <span className="text-blue-600">ויוצרים שינוי אמיתי בחברה הישראלית</span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
