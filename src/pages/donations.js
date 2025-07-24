@@ -23,14 +23,16 @@ export default function DonationsPage() {
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-600 dark:text-white">
-            הצטרפו אלינו למסע להובלת שינוי חברתי למען חברה ישראלית טובה יותר
+            הצטרפו אלינו בבניית מנהיגות מגשרת וקשובה בישראל
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
-            הודות לתמיכתכם, נמשיך בטיפוח מנהיגים מכלל החברה הישראלית שמחויבים לפעול יחד למען חברה ישראלית חזקה, סובלנית ומלוכדת
+            התרומה שלכם מאפשרת לנו לטפח מנהיגים ומנהיגות המחויבים לפעול יחד למען חברה  ישראלית מלוכדת, סובלנית וחזקה
           </p>
           <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 p-6 rounded-lg border-2 border-blue-200 dark:border-blue-700">
             <p className="text-lg font-semibold text-blue-800 dark:text-blue-200">
-              כל התרומות לעמותת דגן מוכרות לצרכי מס על פי סעיף 46 לפקודת מס הכנסה
+              כל התרומות לעמותת דגן מוכרות לצרכי מס על פי&nbsp;
+              <a href="/files/אישור 46.pdf" className="underline" target="_blank" rel="noopener noreferrer">סעיף 46</a>
+              &nbsp;לפקודת מס הכנסה
             </p>
           </div>
         </div>
