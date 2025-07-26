@@ -4,19 +4,13 @@ import 'aos/dist/aos.css';
 import React, { Suspense } from 'react';
 
 import Hero from '@/components/Hero';
-import WhoWasDagan from '@/components/WhoWasDagan';
-import Testimonials from '@/components/Testimonials';
-import Projects from '@/components/Projects';
 import CallToAction from '@/components/CallToAction';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import RoadmapSection from '@/components/RoadmapSection';
 import AboutProgram from '@/components/AboutProgram';
-import AboutUs from '@/components/AboutUs';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
 import CallToJoin from '@/components/CallToJoin';
-import DonationCTA from '@/components/DonationCTA';
-import { BsStars } from 'react-icons/bs';
-import { FaBook, FaScroll } from 'react-icons/fa';
+import { FaScroll } from 'react-icons/fa';
 
 export default function Home() {
   useEffect(() => {
@@ -42,7 +36,6 @@ export default function Home() {
         <RoadmapSection />
         <YouTubeEmbed videoUrl={'https://www.youtube.com/embed/-25BpVKGQU0'} />
         <CallToJoin />
-        <DonationCTA />
         <CallToAction />
         <ScrollToTopButton />
       </Suspense>

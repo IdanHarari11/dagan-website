@@ -27,6 +27,16 @@ export default function Hero() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50" />
 
+      {/* Top Donation Button */}
+      <div className="absolute top-16 left-1/2 transform -translate-x-1/2 z-10">
+        <button 
+          onClick={() => window.location.href = '/donations'}
+          className="backdrop-blur-sm text-[#F3C205] text-lg font-semibold px-8 py-[0.5rem] rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg whitespace-nowrap border border-blue-600/40 shadow-md"
+        >
+          בואו לקחת חלק בשינוי
+        </button>
+      </div>
+
       {/* Content */}
       <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div className="text-white" data-aos="fade-up">
