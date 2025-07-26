@@ -23,10 +23,10 @@ export default function DonationsPage() {
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-600 dark:text-white">
-            הצטרפו אלינו בבניית מנהיגות מגשרת וקשובה בישראל
+          הצטרפו אלינו בבניית תשתית <span className="text-[#F3C205]">למנהיגות מגשרת</span> לחיזוק החוסן החברתי והלכידות הלאומית בחברה הישראלית
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
-            התרומה שלכם מאפשרת לנו לטפח מנהיגים ומנהיגות המחויבים לפעול יחד למען חברה  ישראלית מלוכדת, סובלנית וחזקה
+          תרומתכם מאפשרת לנו לטפח מנהיגים ומנהיגות שחותרים יחד לגישור על פערים, לקדם סובלנות והכלה ולפעול לחיזוק האמון ושיקום הרקמה החברתית בישראל
           </p>
           <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 p-6 rounded-lg border-2 border-blue-200 dark:border-blue-700">
             <p className="text-lg font-semibold text-blue-800 dark:text-blue-200">
@@ -40,12 +40,12 @@ export default function DonationsPage() {
         {/* Main Donation Section */}
         <div className="max-w-4xl mx-auto">
           {/* Call to Action */}
-          <div className="text-center mb-12">
+          {/* <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-blue-600 dark:text-white mb-4">
               בחרו את גובה התרומה והשפיעו עכשיו
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
-          </div>
+          </div> */}
 
           {/* Donation Options */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -138,9 +138,6 @@ export default function DonationsPage() {
 
           {/* Bottom CTA Section */}
           <div className="relative">
-            {/* Neon yellow blob shadow */}
-            <div className="absolute -inset-4 bg-[#F3C205] rounded-3xl opacity-30 blur-2xl animate-pulse"></div>
-            <div className="absolute -inset-2 bg-[#F3C205] rounded-2xl opacity-20 blur-xl"></div>
             
             <div className="relative bg-gradient-to-r from-blue-500 to-blue-600 p-8 rounded-2xl shadow-xl text-center">
               <h3 className="text-2xl font-bold text-white mb-4">

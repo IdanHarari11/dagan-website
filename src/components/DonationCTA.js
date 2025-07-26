@@ -37,10 +37,6 @@ export default function DonationCTA() {
                 href="/donations" 
                 className="relative bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-yellow-900 font-extrabold py-5 px-12 rounded-full shadow-2xl border-2 border-yellow-500 hover:from-yellow-500 hover:to-yellow-400 hover:scale-105 hover:shadow-yellow-400/60 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition-all duration-300 inline-flex items-center text-lg animate-pulse"
               >
-                {/* Heart icon */}
-                <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
                 תרמו עכשיו
               </Link>
             </div>
