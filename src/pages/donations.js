@@ -1,10 +1,27 @@
 'use client';
 
 export default function DonationsPage() {
-  // Handle contact button click
+  // Handle contact button click - improved for desktop and mobile
   const handleContactClick = () => {
-    // Initiate phone call to fundraising team
-    window.open('tel:+972542402324', '_self');
+    // Check if device is mobile/tablet
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // On mobile - initiate phone call
+      window.open('tel:+972542402324', '_self');
+    } else {
+      // On desktop - open email or provide multiple contact options
+      const emailSubject = encodeURIComponent('פנייה בנושא תרומה והצטרפות כשותפים');
+      const emailBody = encodeURIComponent('שלום,\n\nאני מעוניין/ת לקבל פרטים נוספים על אפשרויות התרומה והצטרפות כשותפים קבועים לעמותת דגן.\n\nתודה,');
+      
+      // Try to open email client, if it fails show contact info
+      try {
+        window.open(`mailto:daganleadership@gmail.com?subject=${emailSubject}&body=${emailBody}`, '_blank');
+      } catch (error) {
+        // Fallback - show contact information
+        alert('ניתן ליצור קשר:\nטלפון: 054-240-2324\nאימייל: daganleadership@gmail.com');
+      }
+    }
   };
 
   // Handle phone click
@@ -23,7 +40,7 @@ export default function DonationsPage() {
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-600 dark:text-white">
-          הצטרפו אלינו בבניית תשתית <span className="text-[#F3C205]">למנהיגות מגשרת</span> לחיזוק החוסן החברתי והלכידות הלאומית בחברה הישראלית
+          הצטרפו אלינו בבניית תשתית למנהיגות מגשרת לחיזוק החוסן החברתי והלכידות הלאומית בחברה הישראלית
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
           תרומתכם מאפשרת לנו לטפח מנהיגים ומנהיגות שחותרים יחד לגישור על פערים, לקדם סובלנות והכלה ולפעול לחיזוק האמון ושיקום הרקמה החברתית בישראל
@@ -125,10 +142,8 @@ export default function DonationsPage() {
           </div>
 
           <div className="mt-12 mb-8 text-center">
-            <p className="text-xl font-bold">
-              <span className="text-blue-800">תרומתכם מסייעת בטיפוח מנהיגים ומנהיגות </span>{" "}
-              <span className="text-[#F3C205]">שמחברים בין קהילות </span>{" "}
-              <span className="text-blue-600">ויוצרים שינוי אמיתי בחברה הישראלית</span>
+            <p className="text-xl font-bold text-blue-800">
+              תרומתכם מסייעת בטיפוח מנהיגים ומנהיגות שמחברים בין קהילות ויוצרים שינוי אמיתי בחברה הישראלית
             </p>
           </div>
 
