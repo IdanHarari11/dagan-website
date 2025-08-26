@@ -52,6 +52,54 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <div className="flex gap-3 justify-center mb-4">
+            <a 
+              href="#" 
+              className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer" 
+              onMouseDown={(e) => {
+                e.preventDefault();
+                console.log('Footer privacy button mousedown');
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                console.log('Footer privacy button clicked');
+                console.log('window.openLegal exists:', !!window.openLegal);
+                if (window.openLegal) {
+                  console.log('Calling window.openLegal("privacy")');
+                  window.openLegal("privacy");
+                } else {
+                  console.log('❌ window.openLegal is not defined');
+                  // Fallback - try to open manually
+                  console.log('Trying fallback approach...');
+                }
+              }}
+            >
+              מדיניות פרטיות
+            </a>
+            <a 
+              href="#" 
+              className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer" 
+              onMouseDown={(e) => {
+                e.preventDefault();
+                console.log('Footer terms button mousedown');
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                console.log('Footer terms button clicked');
+                console.log('window.openLegal exists:', !!window.openLegal);
+                if (window.openLegal) {
+                  console.log('Calling window.openLegal("terms")');
+                  window.openLegal("terms");
+                } else {
+                  console.log('❌ window.openLegal is not defined');
+                  // Fallback - try to open manually
+                  console.log('Trying fallback approach...');
+                }
+              }}
+            >
+              תנאי שימוש
+            </a>
+          </div>
           <p>כל הזכויות שמורות © {currentYear} תכנית דגן למנהיגות מגשרת</p>
         </div>
       </div>
