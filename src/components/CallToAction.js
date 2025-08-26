@@ -11,6 +11,18 @@ export default function CallToAction() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    // Validate legal consent
+    const form = e.currentTarget;
+    const consent = form.querySelector('input[name="legalConsent"]');
+    if (!consent?.checked) { 
+      e.preventDefault(); 
+      alert("יש לאשר את מדיניות הפרטיות ותנאי השימוש"); 
+      return; 
+    }
+    
+    // Set consent timestamp
+    form.querySelector('input[name="consentAt"]').value = new Date().toISOString();
+    
     // Create email subject and body from form data
     const subject = `פנייה חדשה מאת ${formData.name}`;
     const body = `שם: ${formData.name}
@@ -116,6 +128,68 @@ ${formData.message}`;
                   required
                 ></textarea>
               </div>
+              
+              {/* Legal Consent Checkbox */}
+              <label className="flex items-start gap-2 text-sm mt-3">
+                <input type="checkbox" name="legalConsent" required />
+                <span>
+                  אני מאשר/ת את{" "}
+                  <a 
+                    href="#" 
+                    className="text-blue-600 hover:text-blue-800 underline cursor-pointer" 
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      console.log('Form privacy button mousedown');
+                    }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      console.log('Form privacy button clicked');
+                      console.log('window.openLegal exists:', !!window.openLegal);
+                      if (window.openLegal) {
+                        console.log('Calling window.openLegal("privacy")');
+                        window.openLegal("privacy");
+                      } else {
+                        console.log('❌ window.openLegal is not defined');
+                        // Fallback - try to open manually
+                        console.log('Trying fallback approach...');
+                      }
+                    }}
+                  >
+                    מדיניות הפרטיות
+                  </a>
+                  {" "}ו{" "}
+                  <a 
+                    href="#" 
+                    className="text-blue-600 hover:text-blue-800 underline cursor-pointer" 
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      console.log('Form terms button mousedown');
+                    }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      console.log('Form terms button clicked');
+                      console.log('window.openLegal exists:', !!window.openLegal);
+                      if (window.openLegal) {
+                        console.log('Calling window.openLegal("terms")');
+                        window.openLegal("terms");
+                      } else {
+                        console.log('❌ window.openLegal is not defined');
+                        // Fallback - try to open manually
+                        console.log('Trying fallback approach...');
+                      }
+                    }}
+                  >
+                    תנאי השימוש
+                  </a>
+                  .
+                </span>
+              </label>
+              
+              {/* Hidden Fields for Consent Tracking */}
+              <input type="hidden" name="consentAt" />
+              <input type="hidden" name="privacyVersion" value="2025-08" />
+              <input type="hidden" name="termsVersion" value="2025-08" />
+              
               <button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
