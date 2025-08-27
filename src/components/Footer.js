@@ -55,7 +55,7 @@ export default function Footer() {
           <div className="flex gap-3 justify-center mb-4">
             <a 
               href="#" 
-              className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer" 
+              className="text-xs text-gray-400 hover:text-gray-700 transition-colors cursor-pointer" 
               onMouseDown={(e) => {
                 e.preventDefault();
                 console.log('Footer privacy button mousedown');
@@ -78,7 +78,7 @@ export default function Footer() {
             </a>
             <a 
               href="#" 
-              className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer" 
+              className="text-xs text-gray-400 hover:text-gray-700 transition-colors cursor-pointer" 
               onMouseDown={(e) => {
                 e.preventDefault();
                 console.log('Footer terms button mousedown');
