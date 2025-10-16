@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import { DarkModeProvider } from '@/context/DarkModeContext';
 import '../app/globals.css';
 import Footer from '@/components/Footer';
+import LegalCenter from '@/components/LegalCenter';
 import { useEffect } from 'react';
 
 const heebo = Heebo({
@@ -49,6 +50,7 @@ export default function MyApp({ Component, pageProps }) {
         <Navbar />
         <Component {...pageProps} />
         <Footer />
+        <LegalCenter />
       </DarkModeProvider>
     </div>
   );

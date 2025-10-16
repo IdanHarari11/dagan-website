@@ -7,9 +7,16 @@ export default function CallToAction() {
     email: '',
     message: '',
   });
+  const [consentChecked, setConsentChecked] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Validate legal consent
+    if (!consentChecked) { 
+      alert("יש לאשר את מדיניות הפרטיות ותנאי השימוש"); 
+      return; 
+    }
     
     // Create email subject and body from form data
     const subject = `פנייה חדשה מאת ${formData.name}`;
@@ -32,6 +39,10 @@ ${formData.message}`;
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleConsentChange = (e) => {
+    setConsentChecked(e.target.checked);
   };
 
   return (
@@ -62,12 +73,6 @@ ${formData.message}`;
                   daganleadership@gmail.com
                 </a>
               </div>
-              {/* <div className="flex items-center space-x-4 space-x-reverse">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span>03-1234567</span>
-              </div> */}
             </div>
           </div>
 
@@ -75,8 +80,8 @@ ${formData.message}`;
           <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg" data-aos="fade-left">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2">
-                  שם מלא
+                <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">
+                  שם מלא *
                 </label>
                 <input
                   type="text"
@@ -84,13 +89,13 @@ ${formData.message}`;
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:bg-gray-700"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 transition-colors"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 mb-2">
-                  דוא״ל
+                <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">
+                  דוא״ל *
                 </label>
                 <input
                   type="email"
@@ -98,13 +103,13 @@ ${formData.message}`;
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:bg-gray-700"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 transition-colors"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2">
-                  הודעה
+                <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">
+                  הודעה *
                 </label>
                 <textarea
                   id="message"
@@ -112,15 +117,71 @@ ${formData.message}`;
                   value={formData.message}
                   onChange={handleChange}
                   rows="4"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:bg-gray-700"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100 transition-colors resize-none"
                   required
                 ></textarea>
               </div>
+              
+              {/* Legal Consent Checkbox - Improved Design */}
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <input 
+                      type="checkbox" 
+                      checked={consentChecked}
+                      onChange={handleConsentChange}
+                      className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      required
+                    />
+                  </div>
+                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <span className="font-medium">אני מאשר/ת ומסכים/ה</span> כי קראתי והבנתי את{" "}
+                    <button 
+                      type="button"
+                      className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline font-medium transition-colors" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (window.openLegal) {
+                          window.openLegal("privacy");
+                        }
+                      }}
+                    >
+                      מדיניות הפרטיות
+                    </button>
+                    {" "}ואת{" "}
+                    <button 
+                      type="button"
+                      className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline font-medium transition-colors" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (window.openLegal) {
+                          window.openLegal("terms");
+                        }
+                      }}
+                    >
+                      תנאי השימוש
+                    </button>
+                    {" "}של עמותת "תוכנית דגן", ואני מסכים/ה לאיסוף, עיבוד ושימוש במידע האישי שלי בהתאם למדיניות זו.
+                  </div>
+                </label>
+                <div className="mt-3 text-xs text-gray-500 dark:text-gray-400">
+                  <svg className="inline w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                  אישור זה נדרש על פי חוק הגנת הפרטיות (תיקון 13) וחוקים נוספים החלים על איסוף ועיבוד מידע אישי.
+                </div>
+              </div>
+              
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+                disabled={!consentChecked}
+                className={`w-full font-bold py-3 px-6 rounded-lg transition-all duration-300 ${
+                  consentChecked 
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transform hover:scale-[1.02]' 
+                    : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                }`}
               >
-                שליחה
+                {consentChecked ? 'שליחה' : 'יש לאשר את מדיניות הפרטיות'}
               </button>
             </form>
           </div>
