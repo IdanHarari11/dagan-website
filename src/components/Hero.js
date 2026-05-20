@@ -47,7 +47,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Top Donation Button - Enlarged */}
-      <div className="absolute top-16 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute top-24 md:top-28 left-1/2 transform -translate-x-1/2 z-10">
         <button 
           onClick={() => window.location.href = '/donations'}
           className="backdrop-blur-sm text-[#F3C205] text-2xl font-bold px-12 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl whitespace-nowrap border-2 border-blue-600/40 shadow-lg"

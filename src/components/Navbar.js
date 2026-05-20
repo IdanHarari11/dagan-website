@@ -50,11 +50,18 @@ export default function Navbar() {
       isScrolled || isLight ? 'bg-white-50 dark:bg-gray-800 backdrop-blur-sm shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-around items-center h-16">
+        <div className="flex justify-around items-center h-24 md:h-28">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-xl sm:text-2xl font-bold text-blue-600">
-              <Image src="/logo.png" alt="תכנית דגן למנהיגות" width={105} height={70} />
+          <div className="flex-shrink-0 py-1">
+            <Link href="/" className="block">
+              <Image
+                src="/images/logo-transparent.png"
+                alt="תכנית דגן למנהיגות"
+                width={200}
+                height={200}
+                className="h-20 sm:h-24 md:h-28 w-auto min-w-[200px] sm:min-w-[260px] md:min-w-[320px] max-w-[400px] sm:max-w-[460px] object-contain"
+                priority
+              />
             </Link>
           </div>
 
@@ -114,8 +121,14 @@ export default function Navbar() {
       >
         <div className="p-4 bg-gray-50 dark:bg-gray-800 bg-opacity-90">
           <div className="flex justify-between items-center mb-8">
-            <Link href="/" className="text-xl font-bold text-blue-600">
-              תכנית דגן
+            <Link href="/" className="block">
+              <Image
+                src="/images/logo-transparent.png"
+                alt="תכנית דגן למנהיגות"
+                width={200}
+                height={200}
+                className="h-20 w-auto min-w-[200px] max-w-[320px] object-contain"
+              />
             </Link>
             <button
               onClick={() => setIsMenuOpen(false)}
