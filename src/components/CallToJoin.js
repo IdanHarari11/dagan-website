@@ -1,6 +1,6 @@
 import React from 'react'
 
-const REGISTRATION_FORM_URL = 'https://forms.gle/MWCBZDKZudX1wST26'
+const REGISTRATION_FORM_URL = 'https://forms.gle/rYXKFywkRy9LQpoh8'
 const CALL_FOR_PROPOSALS_PDF = '/files/קול-קורא-מחזור-ה-תכנית-דגן.pdf'
 
 const CallToJoin = () => {

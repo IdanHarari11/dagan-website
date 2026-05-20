@@ -76,7 +76,7 @@ export default function DonationsPage() {
             className="block relative bg-gradient-to-r from-blue-500 to-blue-600 p-8 rounded-2xl shadow-xl text-center cursor-pointer transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
           >
             <h3 className="text-2xl font-bold text-white">
-              רוצים לתרום בדרך אחרת או להפוך לשותפים קבועים? נשמח לדבר.
+              רוצים לתרום בדרך אחרת או להפוך לשותפים קבועים? צרו קשר.
             </h3>
           </Link>
         </div>
