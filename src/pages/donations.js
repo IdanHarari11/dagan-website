@@ -1,39 +1,8 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function DonationsPage() {
-  // Handle contact button click - improved for desktop and mobile
-  const handleContactClick = () => {
-    // Check if device is mobile/tablet
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    if (isMobile) {
-      // On mobile - initiate phone call
-      window.open('tel:+972542402324', '_self');
-    } else {
-      // On desktop - open email or provide multiple contact options
-      const emailSubject = encodeURIComponent('פנייה בנושא תרומה והצטרפות כשותפים');
-      const emailBody = encodeURIComponent('שלום,\n\nאני מעוניין/ת לקבל פרטים נוספים על אפשרויות התרומה והצטרפות כשותפים קבועים לעמותת דגן.\n\nתודה,');
-      
-      // Try to open email client, if it fails show contact info
-      try {
-        window.open(`mailto:daganleadership@gmail.com?subject=${emailSubject}&body=${emailBody}`, '_blank');
-      } catch (error) {
-        // Fallback - show contact information
-        alert('ניתן ליצור קשר:\nטלפון: 054-240-2324\nאימייל: daganleadership@gmail.com');
-      }
-    }
-  };
-
-  // Handle phone click
-  const handlePhoneClick = () => {
-    window.open('tel:+972505331290', '_self');
-  };
-
-  // Handle email click
-  const handleEmailClick = () => {
-    window.open('mailto:shimonhef@gmail.com', '_blank');
-  };
-
   return (
     <section className="py-20 pt-32 md:pt-36 lg:pt-40 bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
@@ -101,21 +70,15 @@ export default function DonationsPage() {
             אישור לתרומה יישלח באימייל. התרומה מוכרת לצורכי מס לפי סעיף 46א
           </div>
 
-          {/* Bottom CTA Section */}
-          <div className="relative">
-            
-            <div className="relative bg-gradient-to-r from-blue-500 to-blue-600 p-8 rounded-2xl shadow-xl text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                רוצים לתרום בדרך אחרת או להפוך לשותפים קבועים? נשמח לדבר.
-              </h3>
-              <button 
-                onClick={handleContactClick}
-                className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-50 transition-colors duration-300 shadow-lg hover:shadow-xl"
-              >
-                צור קשר עם צוות גיוס המשאבים
-              </button>
-            </div>
-          </div>
+          {/* Bottom CTA — entire banner links to contact form on home page */}
+          <Link
+            href="/#contact"
+            className="block relative bg-gradient-to-r from-blue-500 to-blue-600 p-8 rounded-2xl shadow-xl text-center cursor-pointer transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
+          >
+            <h3 className="text-2xl font-bold text-white">
+              רוצים לתרום בדרך אחרת או להפוך לשותפים קבועים? נשמח לדבר.
+            </h3>
+          </Link>
         </div>
       </div>
     </section>
