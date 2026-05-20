@@ -38,21 +38,22 @@ export default function Hero() {
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover brightness-[1.35] contrast-[1.05]"
       >
         <source src="https://video.wixstatic.com/video/dbf686_e41a7aa8cefb4de8879671a46cc0278c/720p/mp4/file.mp4" type="video/mp4" />
       </video>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Overlay — lighter so the hero video stays visible */}
+      <div className="absolute inset-0 bg-black/25" />
 
       {/* Top Donation Button - Enlarged */}
-      <div className="absolute top-24 md:top-28 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute top-32 sm:top-24 md:top-28 left-1/2 transform -translate-x-1/2 z-10">
+ 
         <button 
           onClick={() => window.location.href = '/donations'}
           className="backdrop-blur-sm text-[#F3C205] text-2xl font-bold px-12 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl whitespace-nowrap border-2 border-blue-600/40 shadow-lg"
         >
-          בואו לקחת חלק בשינוי
+          הצטרפו אלינו
         </button>
       </div>
 

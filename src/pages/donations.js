@@ -35,10 +35,10 @@ export default function DonationsPage() {
   };
 
   return (
-    <section className="py-20 pt-28 bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+    <section className="py-20 pt-32 md:pt-36 lg:pt-40 bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         {/* Hero Section */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-16 pt-2 md:pt-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-600 dark:text-white">
           הצטרפו לקהילת מנהיגים ומנהיגות הפועלים לחיזוק אמון, שותפויות והשפעה בחברה הישראלית
           </h1>
