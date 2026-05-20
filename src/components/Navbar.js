@@ -53,13 +53,20 @@ export default function Navbar() {
         <div className="flex justify-around items-center h-24 md:h-28">
           {/* Logo */}
           <div className="flex-shrink-0 py-1">
-            <Link href="/" className="block">
+            <Link
+              href="/"
+              className={`block rounded-xl px-2 py-2 transition-colors ${
+                !isScrolled && !isLight
+                  ? 'bg-white/90 shadow-md ring-1 ring-white/50'
+                  : 'bg-transparent'
+              }`}
+            >
               <Image
                 src="/images/logo-transparent.png"
                 alt="תכנית דגן למנהיגות"
-                width={200}
-                height={200}
-                className="h-20 sm:h-24 md:h-28 w-auto min-w-[200px] sm:min-w-[260px] md:min-w-[320px] max-w-[400px] sm:max-w-[460px] object-contain"
+                width={280}
+                height={280}
+                className="h-24 sm:h-28 md:h-32 w-auto min-w-[200px] sm:min-w-[240px] md:min-w-[200px] max-w-[480px] sm:max-w-[520px] object-contain"
                 priority
               />
             </Link>
@@ -95,7 +102,7 @@ export default function Navbar() {
             <DarkModeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 p-2"
+              className="text-white dark:text-white hover:text-blue-600 p-2"
               aria-label="Toggle menu"
             >
               <span className="sr-only">פתח תפריט</span>
@@ -121,13 +128,13 @@ export default function Navbar() {
       >
         <div className="p-4 bg-gray-50 dark:bg-gray-800 bg-opacity-90">
           <div className="flex justify-between items-center mb-8">
-            <Link href="/" className="block">
+            <Link href="/" className="block rounded-xl bg-white/90 px-3 py-2 shadow-md ring-1 ring-white/50">
               <Image
                 src="/images/logo-transparent.png"
                 alt="תכנית דגן למנהיגות"
-                width={200}
-                height={200}
-                className="h-20 w-auto min-w-[200px] max-w-[320px] object-contain"
+                width={280}
+                height={280}
+                className="h-24 w-auto min-w-[240px] max-w-[400px] object-contain"
               />
             </Link>
             <button

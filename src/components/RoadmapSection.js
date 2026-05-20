@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaUsers, FaLightbulb, FaHandshake, FaUserGraduate, FaHeart, FaCheck, FaCalendarCheck } from "react-icons/fa";
+import { FaUsers, FaLightbulb, FaHandshake, FaUserGraduate, FaCalendarCheck } from "react-icons/fa";
 import { BsStars } from 'react-icons/bs';
 
 export default function RoadmapSection() {
@@ -16,54 +16,45 @@ export default function RoadmapSection() {
 
   const steps = [
     {
-      title: "שיטת לימוד ייחודית",
-      description: "5 מפגשים חוויתיים בני 4 ימים כל אחד המתקיימים במדבר",
-      height: "row-span-1",
+      title: "פיתוח מנהיגות",
+      description:
+        "העמקת כישורי המנהיגות והיכולת לפעול במצבים מורכבים ורבי ממשקים",
       iconColor: "text-blue-500",
       color: "from-blue-500/20 to-purple-500/20",
-      icon: FaUsers,
+      icon: FaUserGraduate,
     },
     {
-      title: "תוכן מעשי",
-      description: "ידע מעשי שפותח על ידי בכירים במערכות בטחוניות בשילוב כלי למידה חדשניים",
-      height: "row-span-1",
+      title: "חשיבה אסטרטגית",
+      description:
+        "חשיפה לתרבות ארגונית של אחריות, חשיבה אסטרטגית וחתירה למצוינות",
       iconColor: "text-blue-500",
       color: "from-purple-500/20 to-pink-500/20",
-      icon: FaLightbulb
+      icon: FaLightbulb,
     },
     {
-      title: "פיתוח מנהיגות",
-      description: "פיתוח מנהלים בעלי ראייה מערכתית ויכולת לגשר בין אנשים",
-      height: "row-span-1",
+      title: "תוכן משמעותי",
+      description:
+        "חשיפה לאתגרים, לקולות ולמציאות המגוונת בחברה הישראלית דרך מפגשים וסיורים",
       iconColor: "text-blue-500",
       color: "from-pink-500/20 to-red-500/20",
-      icon: FaHandshake
+      icon: FaHandshake,
     },
     {
-      title: "חניכה וליווי",
-      description: "חניכה וליווי מקצועי על ידי מנטורים בכירים מתחומים שונים",
-      height: "row-span-1",
+      title: "שיטת למידה ייחודית",
+      description:
+        "4 מפגשים מרוכזים בני 4 ימים, ללמידה חווייתית, אינטנסיבית ומעמיקה",
       iconColor: "text-blue-500",
       color: "from-red-500/20 to-orange-500/20",
-      icon: FaUserGraduate
+      icon: FaCalendarCheck,
     },
     {
-      title: "מיזמים חברתיים",
-      description: "מיזמים משותפים בעלי ערך חברתי ותרומה לחברה הישראלית",
-      height: "row-span-1",
+      title: "קהילת בוגרים",
+      description:
+        "רשת קשרים משמעותית הממשיכה לפעול גם לאחר סיום התכנית",
       iconColor: "text-blue-500",
       color: "from-orange-500/20 to-yellow-500/20",
-      icon: FaHeart
+      icon: FaUsers,
     },
-    {
-      title: "למידה אינטימית",
-      description: "למידה בקבוצה של עד 24 אנשים לבניית חיבור עמוק ומשמעותי",
-      height: "row-span-1",
-      iconColor: "text-blue-500",
-      color: "from-yellow-500/20 to-pink-500/20",
-      icon: FaUsers
-    },
-   
   ];
 
   return (

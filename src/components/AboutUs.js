@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { FaMedal, FaHandshake, FaLightbulb } from 'react-icons/fa';
-import { RiMindMap, RiUserStarFill } from 'react-icons/ri';
+import { FaMedal, FaHandshake } from 'react-icons/fa';
+import { RiUserStarFill } from 'react-icons/ri';
 
 const AboutUs = () => {
   const fadeIn = {
@@ -82,22 +82,6 @@ const AboutUs = () => {
               העמותה ממשיכה את דרכו ופועלת לטיפוח מנהיגות מגשרת ומחברת, המחזקת את האחדות, הערבות ההדדית ושיתוף הפעולה בין קהילות ומגזרים שונים.
             </p>
           </motion.div>
-        </motion.div>
-
-        {/* Mission Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-blue-600 dark:bg-blue-700 rounded-2xl p-8 text-white shadow-xl max-w-4xl mx-auto"
-        >
-          <div className="flex justify-center mb-6">
-            <FaLightbulb className="text-5xl text-white opacity-80" />
-          </div>
-          <h3 className="text-2xl font-bold mb-4 text-center">החזון שלנו</h3>
-          <p className="text-lg text-center leading-relaxed">
-          תכנית דגן למנהיגות שואפת לעצב דור חדש של מנהיגים ומנהיגות, המחויבים לגשר על פערים בחברה הישראלית וליצור תרבות של סובלנות, הכלה והקשבה
-          </p>
         </motion.div>
       </div>
       
