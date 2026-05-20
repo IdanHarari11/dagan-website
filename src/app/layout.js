@@ -5,8 +5,8 @@ import LegalCenter from '@/components/LegalCenter'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר',
-  description: 'תכנית דגן למנהיגות מגשרת',
+  title: 'תכנית דגן למנהיגות',
+  description: 'תכנית דגן למנהיגות',
 }
 
 export default function RootLayout({ children }) {

@@ -51,12 +51,9 @@ ${formData.message}`;
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-white" data-aos="fade-right">
-            <h2 className="text-4xl font-bold mb-6">
-              הצטרפו אלינו למסע של שינוי
+            <h2 className="text-4xl font-bold mb-8">
+              הצטרפו לקהילה של מנהיגים ומנהיגות הפועלים יחד ליצירת שינוי חברתי משמעותי
             </h2>
-            <p className="text-xl mb-8">
-              בואו להיות חלק מקהילה של מנהיגים שיוצרים שינוי חברתי משמעותי
-            </p>
             <div className="space-y-4">
               <div className="flex items-center space-x-4 space-x-reverse">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

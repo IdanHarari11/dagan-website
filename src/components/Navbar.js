@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-xl sm:text-2xl font-bold text-blue-600">
-              <Image src="/logo.png" alt="Logo" width={105} height={70} />
+              <Image src="/logo.png" alt="תכנית דגן למנהיגות" width={105} height={70} />
             </Link>
           </div>
 

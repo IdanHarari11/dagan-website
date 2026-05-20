@@ -1,131 +1,168 @@
 'use client';
 
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaLinkedinIn, FaTwitter, FaEnvelope, FaUser, FaUserTie, FaUserAlt } from 'react-icons/fa';
+import { FaUserAlt } from 'react-icons/fa';
 
-const team1 = [
+const programTeam = [
   {
-    name: 'תא"ל  (מיל.) שמעון חפץ',
+    name: 'תא"ל (מיל\') שמעון חפץ',
     role: 'יו"ר העמותה',
     bio: 'לשעבר המזכיר הצבאי של שלושה מנשיאי ישראל',
-    // social: {
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: '#',
-    // },
   },
   {
-    name: 'אשל ארמוני',
-    role: 'יו"ר צוות ההגוי ',
+    name: 'עופר אסף',
+    role: 'יו"ר צוות ההיגוי',
+    bio: 'שלושה עשורים במערכת הבטחון, כיום יועץ לניהול וליישומים טכנולוגיים',
+  },
+  {
+    name: 'אשל ארמוני ז"ל',
+    role: 'הוגה התכנית ויו"ר לשעבר',
     bio: 'לשעבר ראש אגף במוסד, מנכ"ל משרד השיכון, יו"ר נמל חיפה',
-    // social: {
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: '#',
-    // },
   },
   {
     name: 'דולב ארן',
     role: 'מנהלת התכנית',
-    bio: 'לשעבר בכירה במוסד, מתנדבת במרכז הסיוע לנפגעי/ות תקיפה מינית',
-    // social: {
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: '#',
-    // },
+    bio: 'מתנדבת במרכז הסיוע לנפגעי/ות תקיפה מינית',
   },
   {
-    name: 'רות רוה-גרוס',
+    name: 'רות רוה',
     role: 'מנהלת תפעול',
-    bio: 'מנהלת תכניות חברתיות לחינוך דיאלוגי ולחיים משותפים',
-    // social: {
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: '#',
-    // },
+    bio: 'מובילת תהליכים חינוכיים לחיבור ושיתופי פעולה במציאות מורכבת',
   },
 ];
 
-const team2 = [
+const steeringTeam = [
   {
     name: 'דרור מכמן',
-    bio: 'לשעבר ראש מספר אגפים במוסד, כיום מוביל סטארט אפ בתחום אקלים ואיכות סביבה',
-    // social: {
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: '#',
-    // },
+    bio: 'לשעבר ראש מספר אגפים במוסד.',
   },
   {
     name: 'שני לוי כחלון',
-    bio: 'לשעבר בכירה במוסד, מומחית בתחום הלמידה המקוונת, מורה ומחנכת',
-    // social: {
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: '#',
-    // },
+    bio: 'עוסקת בחינוך, מתמחה בטכנולוגיות ולמידה.',
   },
   {
-    name: 'עופר אסף',
-    bio: 'לשעבר ראש אגף במוסד, מומחה בתחום התקשורת, שותף במספר סטארטאפים',
-    // social: {
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: '#',
-    // },
+    name: 'תיאודור לנדאו',
+    bio: 'מייסד ומנהל תוכנית המנהיגות \'תוהו\', בוגר תואר שני במנהיגות חינוכית מאוניברסיטת הרווארד.',
   },
   {
-    name: 'אמנון פורת',
-    bio: 'לשעבר בכיר במוסד, כיום מבעלי חברת "אבן דרך" העוסקת בפיתוח מנהלים וצוותים',
-    // social: {
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: '#',
-    // },
+    name: 'זרי רחימי פרידמן',
+    bio: 'בוגרת מחזור ג\' ומרכזת קהילת הבוגרים, אשת חינוך ועד לאחרונה מנהלת חטיבת ביניים',
+  },
+  {
+    name: 'חגי איטקין',
+    bio: 'לשעבר ראש מספר אגפים במוסד וכיום מוביל מגוון מיזמים חברתיים',
+  },
+  {
+    name: 'דיויד סלומון',
+    bio: 'שלושה וחצי עשורים במערכת הבטחון, כיום מתמקד בהשקעות טכנולוגיות בשלבים מוקדמים בחברות סטארט-אפ ישראליות, יושב בדירקטוריונים ומהווה מנטור למייסדים, בנוסף לפעילות במיזמים חברתיים כמו "עושים שכונה" ומיזמים בתחום חדשנות מחשבתית.',
   },
 ];
 
-// Get initials from name
-const getInitials = (name) => {
-  return name
-    .split(' ')
-    .map(word => word.charAt(0))
-    .join('')
-    .toUpperCase();
+const getColorFromName = (name) => 'bg-blue-500';
+
+const TruncatedBio = ({ bio }) => {
+  const bioRef = useRef(null);
+  const containerRef = useRef(null);
+  const tooltipId = useId();
+  const [isTruncated, setIsTruncated] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [supportsHover, setSupportsHover] = useState(false);
+
+  const checkTruncation = useCallback(() => {
+    const element = bioRef.current;
+    if (!element) return;
+    setIsTruncated(element.scrollHeight > element.clientHeight + 1);
+  }, []);
+
+  useEffect(() => {
+    checkTruncation();
+    window.addEventListener('resize', checkTruncation);
+    return () => window.removeEventListener('resize', checkTruncation);
+  }, [bio, checkTruncation]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const updateHoverSupport = () => setSupportsHover(mediaQuery.matches);
+
+    updateHoverSupport();
+    mediaQuery.addEventListener('change', updateHoverSupport);
+    return () => mediaQuery.removeEventListener('change', updateHoverSupport);
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen || supportsHover) return undefined;
+
+    const handlePointerDown = (event) => {
+      if (!containerRef.current?.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, [isOpen, supportsHover]);
+
+  const handleBioClick = () => {
+    if (!isTruncated || supportsHover) return;
+    setIsOpen((prev) => !prev);
+  };
+
+  const handleBioKeyDown = (event) => {
+    if (!isTruncated || supportsHover) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setIsOpen((prev) => !prev);
+    }
+    if (event.key === 'Escape') {
+      setIsOpen(false);
+    }
+  };
+
+  const tooltipVisibilityClass = supportsHover
+    ? 'opacity-0 pointer-events-none group-hover/bio:opacity-100 group-hover/bio:pointer-events-auto'
+    : isOpen
+      ? 'opacity-100 pointer-events-auto'
+      : 'opacity-0 pointer-events-none';
+
+  return (
+    <div ref={containerRef} className="relative mt-8 group/bio">
+      <p
+        ref={bioRef}
+        className={`text-gray-600 dark:text-neutral-300 text-sm line-clamp-4 ${
+          isTruncated && !supportsHover ? 'cursor-pointer' : ''
+        } ${isTruncated && supportsHover ? 'cursor-help' : ''}`}
+        onClick={handleBioClick}
+        onKeyDown={handleBioKeyDown}
+        role={isTruncated && !supportsHover ? 'button' : undefined}
+        tabIndex={isTruncated && !supportsHover ? 0 : undefined}
+        aria-expanded={isTruncated && !supportsHover ? isOpen : undefined}
+        aria-describedby={isTruncated && !supportsHover && isOpen ? tooltipId : undefined}
+      >
+        {bio}
+      </p>
+
+      {isTruncated && (
+        <div
+          id={tooltipId}
+          role="tooltip"
+          className={`absolute bottom-full left-1/2 z-30 mb-2 w-[min(18rem,calc(100vw-2rem))] -translate-x-1/2 rounded-lg border border-blue-100 bg-white px-3 py-2 text-right text-sm leading-relaxed text-gray-700 shadow-xl transition-opacity duration-200 dark:border-blue-800 dark:bg-gray-800 dark:text-gray-200 ${tooltipVisibilityClass}`}
+        >
+          {bio}
+        </div>
+      )}
+    </div>
+  );
 };
 
-// Generate a consistent color based on name
-const getColorFromName = (name) => {
-  const colors = [
-    'bg-blue-500'
-  ];
-  
-  // Simple hash function to get consistent color
-  let hash = 0;
-  for (let i = 0; i < name.length; i++) {
-    hash = name.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  
-  return colors[Math.abs(hash) % colors.length];
-};
-
-// Extracted TeamMemberCard component for reusability
 const TeamMemberCard = ({ member }) => {
   const bgColor = getColorFromName(member.name);
-  const colorName = bgColor.split('-')[1];
-  
+
   return (
     <div className="group h-[280px]">
-      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-lg h-full flex flex-col transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-gray-800">
-        {/* Smooth blue gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-blue-600/5 dark:from-blue-500/10 dark:to-blue-800/5 rounded-2xl"></div>
-        
-        {/* Decorative top bar with gradient */}
-        {/* <div className={`relative h-16 w-full bg-gradient-to-r from-${colorName}-600 to-${colorName}-400 flex items-center justify-center`}>
-          <div className="h-px w-16 bg-white opacity-30"></div>
-        </div> */}
-        
-        {/* Content */}
+      <div className="relative overflow-visible rounded-2xl bg-white dark:bg-gray-900 shadow-lg h-full flex flex-col transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-gray-800">
+        <div className="absolute inset-0 overflow-hidden rounded-2xl bg-gradient-to-br from-blue-400/10 to-blue-600/5 dark:from-blue-500/10 dark:to-blue-800/5 pointer-events-none"></div>
+
         <div className="relative p-6 text-center flex-1 flex flex-col justify-between z-10">
           <div>
             <div className="mb-4 flex justify-center">
@@ -137,18 +174,15 @@ const TeamMemberCard = ({ member }) => {
               {member.name}
             </h3>
             {member.role && (
-              <p className={`font-medium mb-3 text-${colorName}-600 dark:text-${colorName}-400 mt-4`}>
+              <p className="font-medium mb-3 text-blue-600 dark:text-blue-400 mt-4">
                 {member.role}
               </p>
             )}
-            <p className="text-gray-600 dark:text-neutral-300 text-sm line-clamp-3 mt-8">
-              {member.bio}
-            </p>
+            <TruncatedBio bio={member.bio} />
           </div>
-          
-          {/* Decorative element */}
+
           <div className="mt-4 flex justify-center">
-            <div className={`w-12 h-1 rounded-full bg-${colorName}-500 opacity-70`}></div>
+            <div className="w-12 h-1 rounded-full bg-blue-500 opacity-70"></div>
           </div>
         </div>
       </div>
@@ -158,7 +192,7 @@ const TeamMemberCard = ({ member }) => {
 
 const TeamGrid = ({ teamData }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {teamData.map((member, index) => (
         <motion.div
           key={member.name}
@@ -176,32 +210,32 @@ const TeamGrid = ({ teamData }) => {
 
 const Team = () => {
   return (
-    <section id='team' className="py-20">
+    <section id="team" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             הצוות שלנו
           </h2>
           <p className="text-xl text-blue-600 dark:text-gray-300">
-            צוות העמותה והתכנית
+            צוות התכנית
           </p>
           <div className="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <TeamGrid teamData={team1} />
+        <TeamGrid teamData={programTeam} />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
         <div className="text-center mb-12">
           <p className="text-xl text-blue-600 dark:text-gray-300">
-            צוות ההיגוי
+            צוות ההיגוי לתכנית
           </p>
           <div className="w-16 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <TeamGrid teamData={team2} />
+        <TeamGrid teamData={steeringTeam} />
       </div>
     </section>
   );
 };
 
-export default Team; 
+export default Team;

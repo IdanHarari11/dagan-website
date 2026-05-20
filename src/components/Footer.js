@@ -11,9 +11,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 text-[#2563EB]">
           {/* Logo and Description */}
           <div className="md:w-1/2">
-            <Image src="/logo.png" alt="Dagan Logo" width={200} height={80} />
+            <Image src="/logo.png" alt="תכנית דגן למנהיגות" width={200} height={80} />
             <Link href="/" className="text-2xl font-bold mb-4 block">
-              תכנית דגן למנהיגות מגשרת
+              תכנית דגן למנהיגות
             </Link>
             {/* <p className="text-gray-400 mb-6">
               מנהיגות אמיצה במציאות משובשת
@@ -100,7 +100,7 @@ export default function Footer() {
               תנאי שימוש
             </a>
           </div>
-          <p>כל הזכויות שמורות © {currentYear} תכנית דגן למנהיגות מגשרת</p>
+          <p>כל הזכויות שמורות © {currentYear} תכנית דגן למנהיגות</p>
         </div>
       </div>
     </footer>
