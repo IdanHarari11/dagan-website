@@ -13,16 +13,16 @@ export default function Document() {
         <meta name="keywords" content="מנהיגות, תכנית דגן, עתיד טוב יותר, מנהיגים צעירים" />
         
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר" />
+        <meta property="og:title" content="תכנית דגן למנהיגות" />
         <meta property="og:description" content="תכנית מנהיגות ייחודית המחברת בין עולמות ומפתחת מנהיגים צעירים למען עתיד טוב יותר" />
         <meta property="og:image" content="/images/dagan.jpg" />
         <meta property="og:url" content="https://yourwebsite.com" />
-        <meta property="og:site_name" content="תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר"/>
+        <meta property="og:site_name" content="תכנית דגן למנהיגות"/>
         <meta property="og:locale" content="he_IL" />
         
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="תכנית דגן - מנהיגות מגשרת לעתיד טוב יותר" />
+        <meta name="twitter:title" content="תכנית דגן למנהיגות" />
         <meta name="twitter:description" content="תכנית מנהיגות ייחודית המחברת בין עולמות ומפתחת מנהיגים צעירים למען עתיד טוב יותר" />
         <meta name="twitter:image" content="/images/dagan.jpg" />
 

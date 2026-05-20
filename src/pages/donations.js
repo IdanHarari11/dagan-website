@@ -40,10 +40,10 @@ export default function DonationsPage() {
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-600 dark:text-white">
-          הצטרפו אלינו בבניית תשתית למנהיגות מגשרת לחיזוק החוסן החברתי והלכידות הלאומית בחברה הישראלית
+          הצטרפו לקהילת מנהיגים ומנהיגות הפועלים לחיזוק אמון, שותפויות והשפעה בחברה הישראלית
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
-          תרומתכם מאפשרת לנו לטפח מנהיגים ומנהיגות שחותרים יחד לגישור על פערים, לקדם סובלנות והכלה ולפעול לחיזוק האמון ושיקום הרקמה החברתית בישראל
+          תרומתכם מסייעת בפיתוח מנהיגות ערכית הפועלת בתוך מציאות מורכבת, בונה חיבורים ומקדמת אחריות משותפת בחברה הישראלית.
           </p>
           <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 p-6 rounded-lg border-2 border-blue-200 dark:border-blue-700">
             <p className="text-lg font-semibold text-blue-800 dark:text-blue-200">
@@ -64,64 +64,6 @@ export default function DonationsPage() {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
           </div> */}
 
-          {/* Donation Options */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Bank Transfer */}
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-100 dark:border-blue-800">
-              <div className="flex items-center mb-6">
-                <h3 className="text-2xl font-bold text-blue-600 dark:text-white flex-1">
-                  העברה בנקאית
-                </h3>
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                  <i className="fas fa-university text-white text-2xl"></i>
-                </div>
-              </div>
-              <div className="space-y-4 text-right bg-gradient-to-r from-blue-50 to-gray-50 dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl">
-                <div className="border-b border-blue-200 dark:border-blue-700 pb-2">
-                  <p className="text-sm text-blue-600 dark:text-blue-300 font-medium">שם חשבון</p>
-                  <p className="text-blue-800 dark:text-white font-semibold">העמותה ע"ש האלוף מאיר דגן ז"ל ראש המוסד לשעבר ע"ר</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm text-blue-600 dark:text-blue-300 font-medium">בנק</p>
-                    <p className="text-blue-800 dark:text-white font-semibold">בנק לאומי לישראל</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-blue-600 dark:text-blue-300 font-medium">מספר סניף</p>
-                    <p className="text-blue-800 dark:text-white font-semibold">828</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-sm text-blue-600 dark:text-blue-300 font-medium">מספר חשבון</p>
-                  <p className="text-2xl text-blue-600 dark:text-blue-400 font-bold">294500/20</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Direct Donation */}
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-100 dark:border-blue-800">
-              <div className="flex items-center mb-6">
-                <h3 className="text-2xl font-bold text-blue-600 dark:text-white flex-1">
-                  תרומה ישירה
-                </h3>
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                  <i className="fas fa-user-friends text-white text-2xl"></i>
-                </div>
-              </div>
-              <div className="space-y-4 text-center bg-gradient-to-r from-blue-50 to-gray-50 dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl">
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  ניתן ליצור קשר עם נציג לקבלת פרטים נוספים על אפשרויות התרומה.
-                </p>
-                <a
-                  href="/#contact"
-                  className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-                >
-                  מעבר לטופס יצירת קשר
-                </a>
-              </div>
-            </div>
-          </div>
-          
           {/* Online Donation - JGive */}
           <div className="mb-8">
             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-100 dark:border-blue-800">
