@@ -16,7 +16,7 @@ export default function Document() {
         <meta property="og:title" content="תכנית דגן למנהיגות" />
         <meta property="og:description" content="תכנית דגן למנהיגות - מנהיגות ערכית לבניית אמון, שיתופי פעולה והובלת שינוי בחברה הישראלית" />
         <meta property="og:image" content="/images/dagan.jpg" />
-        <meta property="og:url" content="https://yourwebsite.com" />
+        <meta property="og:url" content="https://www.dagan-leadership.com" />
         <meta property="og:site_name" content="תכנית דגן למנהיגות"/>
         <meta property="og:locale" content="he_IL" />
         
