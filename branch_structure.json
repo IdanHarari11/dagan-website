@@ -1,0 +1,24 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "accessability",
+    "donation",
+    "main",
+    "origin",
+    "test"
+  ],
+  "parent": {
+    "accessability": "main",
+    "donation": "main",
+    "main": null,
+    "origin": "main",
+    "test": "main"
+  },
+  "order": [
+    "main",
+    "accessability",
+    "donation",
+    "origin",
+    "test"
+  ]
+}
